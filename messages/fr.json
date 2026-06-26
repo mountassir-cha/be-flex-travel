@@ -1,0 +1,136 @@
+{
+  "Nav": {
+    "home": "Accueil",
+    "activities": "Activités",
+    "excursions": "Excursions",
+    "sahara": "Circuits",
+    "transport": "Transport",
+    "reviews": "Avis",
+    "contact": "Contact",
+    "bookNow": "Réserver"
+  },
+  "Footer": {
+    "tagline": "Vos experts locaux pour des expériences inoubliables au Maroc — de la médina de Marrakech aux sables du Sahara.",
+    "quickLinks": "Liens Rapides",
+    "quickLinkItems": {
+      "activities": "Activités",
+      "excursions": "Excursions",
+      "saharaTour": "Circuit Sahara 3 Jours",
+      "transport": "Transport & Transferts",
+      "reviews": "Avis",
+      "contactUs": "Contactez-nous"
+    },
+    "popular": "Expériences Populaires",
+    "popularItems": {
+      "camelRide": "Balade à Dos de Chameau",
+      "hotAirBalloon": "Montgolfière",
+      "quadBiking": "Quad Biking",
+      "hammamSpa": "Hammam & Spa",
+      "ourikaValley": "Vallée de l'Ourika",
+      "essaouiraDayTrip": "Excursion à Essaouira"
+    },
+    "getInTouch": "Contactez-nous",
+    "about": "Be Flex Travel propose des expériences de voyage premium, des transports privés et des visites guidées à travers le Maroc. Nous sommes une agence de voyage officielle basée à Marrakech.",
+    "whatsappCalls": "WhatsApp & appels",
+    "replyTime": "Nous répondons sous 2 heures",
+    "location": "Marrakech, Maroc",
+    "basedIn": "Basé dans la médina",
+    "copyright": "© {year} Be Flex Travel. Tous droits réservés.",
+    "madeWith": "Fait avec ❤️ à Marrakech, Maroc 🇲🇦"
+  },
+  "Common": {
+    "viewDetails": "Voir les détails",
+    "duration": "Durée",
+    "featured": "À la Une",
+    "pick1": "#1 Choix"
+  },
+  "Home": {
+    "hero": {
+      "badge": "Basé à Marrakech, Maroc 🇲🇦",
+      "titleStart": "Découvrez",
+      "titleHighlight": "le Maroc",
+      "titleEnd": "À Votre Façon",
+      "description": "Des balades à dos de chameau au coucher du soleil à l'observation des étoiles sahariens — Be Flex Travel crée des expériences inoubliables à travers le Maroc avec des guides locaux experts.",
+      "exploreActivities": "Explorer les Activités",
+      "exploreCircuits": "Explorer les Circuits",
+      "reviews": "4.9 / 5 sur 200+ avis",
+      "noFees": "Sans frais de réservation",
+      "freeCancellation": "Annulation gratuite",
+      "scroll": "Défiler"
+    },
+    "stats": {
+      "travellers": "Voyageurs Satisfaits",
+      "rating": "Note Moyenne",
+      "destinations": "Destinations",
+      "experience": "Années d'expérience"
+    },
+    "activities": {
+      "badge": "Top Expériences",
+      "title": "Activités",
+      "titleHighlight": "Populaires",
+      "description": "Des aventures sélectionnées à Marrakech et ses environs — de l'intense au paisible.",
+      "viewAll": "Voir tout",
+      "viewAllBtn": "Voir Toutes les Activités"
+    },
+    "sahara": {
+      "badge": "🏜️ Circuit Signature",
+      "title": "Circuit Désert du Sahara – 3 Jours",
+      "description": "Marrakech → Haut Atlas → Aït Benhaddou → Gorges du Todra → Erg Chebbi → Marrakech. Dormez sous la Voie Lactée dans un camp de luxe au désert.",
+      "feature1": "Transport privé",
+      "feature2": "Guide expert",
+      "feature3": "2 nuits d'hébergement",
+      "feature4": "Balade à dos de chameau",
+      "cta": "Voir l'Itinéraire"
+    },
+    "excursions": {
+      "badge": "Excursions à la Journée",
+      "title": "Meilleures",
+      "titleHighlight": "Excursions",
+      "description": "Des montagnes de l'Atlas aux côtes atlantiques — explorez le Maroc au-delà de la ville.",
+      "viewAll": "Voir tout",
+      "viewAllBtn": "Voir Toutes les Excursions"
+    },
+    "why": {
+      "badge": "Pourquoi Be Flex Travel",
+      "title": "Votre Voyage,",
+      "titleHighlight": "Notre Expertise",
+      "local": { "title": "Connaissance Locale", "desc": "Nés et élevés à Marrakech. Nous connaissons les trésors cachés, les meilleurs moments pour visiter et les secrets locaux qu'aucun guide ne vous révélera." },
+      "private": { "title": "Privé & Flexible", "desc": "Tous nos circuits sont privés — votre groupe, votre rythme, votre programme. Nous nous adaptons à vous, jamais l'inverse." },
+      "reachable": { "title": "Toujours Joignable", "desc": "Contactez-nous sur WhatsApp à tout moment — avant, pendant et après votre voyage. Nous répondons dans les 2 heures, toujours." },
+      "photo": { "title": "Œil de Photographe", "desc": "Nos guides connaissent chaque angle parfait et chaque spot de golden hour. Vos photos de vacances seront extraordinaires." },
+      "fees": { "title": "Aucun Frais Caché", "desc": "Le prix affiché est le prix payé. Pas de surprises, pas de vente sous pression en circuit." },
+      "cancel": { "title": "Annulation Gratuite", "desc": "Les plans changent — nous le comprenons. Annulez ou reportez jusqu'à 48 heures avant sans frais." }
+    },
+    "reviews": {
+      "badge": "Témoignages",
+      "title": "Ce que Disent",
+      "titleHighlight": "les Voyageurs",
+      "readAll": "Lire Tous les Avis"
+    },
+    "cta": {
+      "title": "Prêt à Explorer le Maroc ?",
+      "description": "Envoyez-nous un message et nous créerons votre itinéraire parfait — sans obligation, juste de l'inspiration.",
+      "quote": "Obtenir un Devis Gratuit",
+      "whatsapp": "Nous Contacter sur WhatsApp"
+    }
+  },
+  "Activities": {
+    "camelRide": { "title": "Balade à Dos de Chameau dans la Palmeraie", "desc": "Un voyage intemporel à travers la Palmeraie dorée de Marrakech sur le dos d'un chameau au coucher du soleil." },
+    "quadBiking": { "title": "Quad dans le Désert", "desc": "Parcourez les dunes du désert et les palmeraies sur un puissant quad." },
+    "hotAirBalloon": { "title": "Montgolfière au-dessus de Marrakech", "desc": "Survolez la médina à l'aube avec des vues panoramiques sur les montagnes de l'Atlas." },
+    "cycleBike": { "title": "Vélo Électrique dans Marrakech", "desc": "Découvrez les trésors cachés de Marrakech lors d'une visite guidée en vélo électrique." },
+    "sideCar": { "title": "Tour en Side-Car de Marrakech", "desc": "Parcourez Marrakech dans une moto side-car vintage et rétro." },
+    "hammamSpa": { "title": "Hammam Traditionnel & Spa", "desc": "Vivez des rituels de bain marocains centenaires dans un véritable hammam." },
+    "cookingClass": { "title": "Cours de Cuisine Marocaine", "desc": "Maîtrisez le tajine, le couscous et plus encore dans une cuisine traditionnelle de riad." },
+    "paragliding": { "title": "Parapente sur l'Atlas", "desc": "Parapente en tandem au-dessus des contreforts de l'Atlas — sans expérience requise." }
+  },
+  "Excursions": {
+    "ourikaValley": { "title": "Vallée de l'Ourika & 3 Vallées", "desc": "Contreforts verdoyants de l'Atlas, cascades & authentiques villages berbères — à 30km de Marrakech." },
+    "essaouira": { "title": "Essaouira — La Cité des Vents", "desc": "Médina UNESCO sur la côte atlantique avec remparts, ateliers d'artisans & fruits de mer frais." },
+    "ouzoudWaterfalls": { "title": "Cascades d'Ouzoud", "desc": "Les plus hautes cascades du Maroc — chute de 110m, singes sauvages & piscines naturelles." },
+    "atlasOuarzazate": { "title": "Atlas & Ouarzazate — Vallée des Roses", "desc": "Traversez le Haut Atlas jusqu'aux kasbahs hollywoodiennes, sites UNESCO & la Vallée des Roses." },
+    "agafayDesert": { "title": "Désert d'Agafay — Désert de Pierre", "desc": "Désert de pierre lunaire à 40 min de Marrakech — quads, chameaux & dîners sous la Voie Lactée." },
+    "imlil": { "title": "Imlil & Contreforts du Toubkal", "desc": "Randonnée dans les contreforts de la plus haute montagne d'Afrique à travers des villages berbères." },
+    "agadir": { "title": "Agadir & Vallée du Paradis", "desc": "Station balnéaire atlantique + gorge cachée de la Vallée du Paradis avec piscines naturelles." }
+  }
+}

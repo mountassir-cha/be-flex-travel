@@ -1,0 +1,136 @@
+{
+  "Nav": {
+    "home": "Home",
+    "activities": "Activities",
+    "excursions": "Excursions",
+    "sahara": "Circuits",
+    "transport": "Transport",
+    "reviews": "Reviews",
+    "contact": "Contact",
+    "bookNow": "Book Now"
+  },
+  "Footer": {
+    "tagline": "Your local experts for unforgettable Morocco experiences — from the medina of Marrakech to the sands of the Sahara.",
+    "quickLinks": "Quick Links",
+    "quickLinkItems": {
+      "activities": "Activities",
+      "excursions": "Excursions",
+      "saharaTour": "3-Day Sahara Tour",
+      "transport": "Transport & Transfers",
+      "reviews": "Reviews",
+      "contactUs": "Contact Us"
+    },
+    "popular": "Popular Experiences",
+    "popularItems": {
+      "camelRide": "Camel Ride",
+      "hotAirBalloon": "Hot Air Balloon",
+      "quadBiking": "Quad Biking",
+      "hammamSpa": "Hammam & Spa",
+      "ourikaValley": "Ourika Valley",
+      "essaouiraDayTrip": "Essaouira Day Trip"
+    },
+    "getInTouch": "Get In Touch",
+    "about": "Be Flex Travel offers premium travel experiences, private transport, and guided tours across Morocco. We are an official registered travel agency based in Marrakech.",
+    "whatsappCalls": "WhatsApp & calls",
+    "replyTime": "We reply within 2 hours",
+    "location": "Marrakech, Morocco",
+    "basedIn": "Based in the medina",
+    "copyright": "© {year} Be Flex Travel. All rights reserved.",
+    "madeWith": "Made with ❤️ in Marrakech, Morocco 🇲🇦"
+  },
+  "Common": {
+    "viewDetails": "View details",
+    "duration": "Duration",
+    "featured": "Featured",
+    "pick1": "#1 Pick"
+  },
+  "Home": {
+    "hero": {
+      "badge": "Based in Marrakech, Morocco 🇲🇦",
+      "titleStart": "Discover",
+      "titleHighlight": "Morocco",
+      "titleEnd": "Your Way",
+      "description": "From camel rides at sunset to Saharan stargazing — Be Flex Travel crafts unforgettable experiences across Morocco with expert local guides.",
+      "exploreActivities": "Explore Activities",
+      "exploreCircuits": "Explore Circuits",
+      "reviews": "4.9 / 5 from 200+ reviews",
+      "noFees": "No booking fees",
+      "freeCancellation": "Free cancellation",
+      "scroll": "Scroll"
+    },
+    "stats": {
+      "travellers": "Happy Travellers",
+      "rating": "Average Rating",
+      "destinations": "Destinations",
+      "experience": "Experience"
+    },
+    "activities": {
+      "badge": "Top Experiences",
+      "title": "Popular",
+      "titleHighlight": "Activities",
+      "description": "Hand-picked adventures in and around Marrakech — from thrilling to tranquil.",
+      "viewAll": "View all",
+      "viewAllBtn": "View All Activities"
+    },
+    "sahara": {
+      "badge": "🏜️ Signature Tour",
+      "title": "3-Day Sahara Desert Circuit",
+      "description": "Marrakech → High Atlas → Aït Benhaddou → Todra Gorge → Erg Chebbi → Marrakech. Sleep under the Milky Way in a luxury desert camp.",
+      "feature1": "Private transport",
+      "feature2": "Expert guide",
+      "feature3": "2 nights stay",
+      "feature4": "Camel trek",
+      "cta": "View Itinerary"
+    },
+    "excursions": {
+      "badge": "Day Trips",
+      "title": "Top",
+      "titleHighlight": "Excursions",
+      "description": "From Atlas mountains to Atlantic coasts — explore Morocco beyond the city.",
+      "viewAll": "View all",
+      "viewAllBtn": "View All Excursions"
+    },
+    "why": {
+      "badge": "Why Be Flex Travel",
+      "title": "Your Trip,",
+      "titleHighlight": "Our Expertise",
+      "local": { "title": "Local Knowledge", "desc": "Born and raised in Marrakech. We know the hidden gems, best times to visit, and local secrets no guidebook will tell you." },
+      "private": { "title": "Private & Flexible", "desc": "All tours are private — your group, your pace, your schedule. We adapt to you, never the other way around." },
+      "reachable": { "title": "Always Reachable", "desc": "WhatsApp us anytime — before, during, and after your trip. We reply within 2 hours, always." },
+      "photo": { "title": "Photographer's Eye", "desc": "Our guides know every perfect angle and golden-hour spot. Your holiday photos will be extraordinary." },
+      "fees": { "title": "No Hidden Fees", "desc": "The price you see is the price you pay. No surprise add-ons, no pressure selling on tour." },
+      "cancel": { "title": "Free Cancellation", "desc": "Plans change — we get it. Cancel or reschedule up to 48 hours before at no cost." }
+    },
+    "reviews": {
+      "badge": "Testimonials",
+      "title": "What Travellers",
+      "titleHighlight": "Say",
+      "readAll": "Read All Reviews"
+    },
+    "cta": {
+      "title": "Ready to Explore Morocco?",
+      "description": "Send us a message and we'll craft your perfect itinerary — no obligation, just inspiration.",
+      "quote": "Get a Free Quote",
+      "whatsapp": "WhatsApp Us"
+    }
+  },
+  "Activities": {
+    "camelRide": { "title": "Camel Ride in the Palmeraie", "desc": "A timeless journey through Marrakech's golden Palmeraie on camelback at sunset." },
+    "quadBiking": { "title": "Quad Biking in the Desert", "desc": "Race across desert dunes and palm groves on a powerful quad bike." },
+    "hotAirBalloon": { "title": "Hot Air Balloon over Marrakech", "desc": "Soar at dawn over Marrakech's medina with Atlas Mountain views." },
+    "cycleBike": { "title": "Electric Cycle Bike Tour", "desc": "Discover Marrakech's hidden gems on a guided electric bike tour." },
+    "sideCar": { "title": "Sidecar Tour of Marrakech", "desc": "Ride through Marrakech in a retro vintage sidecar motorcycle." },
+    "hammamSpa": { "title": "Traditional Hammam & Spa", "desc": "Experience centuries-old Moroccan bathing rituals in an authentic hammam." },
+    "cookingClass": { "title": "Moroccan Cooking Class", "desc": "Master tagine, couscous & more in a traditional riad kitchen." },
+    "paragliding": { "title": "Paragliding over the Atlas", "desc": "Tandem paragliding over Atlas foothills — no experience required." }
+  },
+  "Excursions": {
+    "ourikaValley": { "title": "Ourika Valley & 3 Valleys", "desc": "Lush Atlas foothills, waterfalls & authentic Berber villages — 30km from Marrakech." },
+    "essaouira": { "title": "Essaouira — The Windy City", "desc": "Atlantic coast UNESCO medina with ramparts, artisan workshops & fresh seafood." },
+    "ouzoudWaterfalls": { "title": "Ouzoud Waterfalls", "desc": "Morocco's highest waterfalls — 110m drop, wild monkeys & natural swimming pools." },
+    "atlasOuarzazate": { "title": "Atlas & Ouarzazate — Valley of Roses", "desc": "Cross the High Atlas to Hollywood kasbahs, UNESCO sites & the Valley of Roses." },
+    "agafayDesert": { "title": "Agafay Desert — Stone Desert", "desc": "Lunar stone desert 40 min from Marrakech — quads, camels & Milky Way dinners." },
+    "imlil": { "title": "Imlil & Toubkal Foothills", "desc": "Trek into Africa's highest mountain foothills through ancient Berber villages." },
+    "agadir": { "title": "Agadir & Paradise Valley", "desc": "Atlantic beach resort + hidden Paradise Valley gorge with natural swimming pools." }
+  }
+}
