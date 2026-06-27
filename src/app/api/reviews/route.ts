@@ -14,7 +14,16 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Rating must be between 1 and 5' }, { status: 400 })
     }
 
-    // Insert into Supabase
+    // Insert into Supabase (or simulate in development)
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
+    const isPlaceholder = supabaseUrl === 'https://placeholder.supabase.co' || supabaseUrl.includes('placeholder')
+
+    if (isPlaceholder) {
+      console.log('Development mode: Simulating Supabase insert for review:')
+      console.log(`Author: ${author_name}\nRating: ${rating}\nText: ${text}\nSource: ${source || 'site'}`)
+      return NextResponse.json({ success: true, simulated: true })
+    }
+
     const { error: dbError } = await supabaseAdmin
       .from('reviews')
       .insert([
