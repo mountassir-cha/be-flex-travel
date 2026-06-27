@@ -7,6 +7,7 @@
     "transport": "Transport",
     "reviews": "Avis",
     "contact": "Contact",
+    "blog": "Blog",
     "bookNow": "Réserver"
   },
   "Footer": {
@@ -132,5 +133,24 @@
     "agafayDesert": { "title": "Désert d'Agafay — Désert de Pierre", "desc": "Désert de pierre lunaire à 40 min de Marrakech — quads, chameaux & dîners sous la Voie Lactée." },
     "imlil": { "title": "Imlil & Contreforts du Toubkal", "desc": "Randonnée dans les contreforts de la plus haute montagne d'Afrique à travers des villages berbères." },
     "agadir": { "title": "Agadir & Vallée du Paradis", "desc": "Station balnéaire atlantique + gorge cachée de la Vallée du Paradis avec piscines naturelles." }
+  },
+  "Blog": {
+    "badge": "Notre Carnet de Voyage",
+    "title": "Dernières infos du",
+    "titleHighlight": "Blog",
+    "description": "Conseils, guides et astuces pratiques pour votre aventure au Maroc — rédigés par nos guides locaux.",
+    "all": "Tous les Articles",
+    "guides": "Guides",
+    "sahara": "Sahara",
+    "wellness": "Bien-être",
+    "morocco-tips": "Conseils Maroc",
+    "readMore": "Lire l'Article",
+    "writtenBy": "Rédigé par",
+    "share": "Partager",
+    "back": "Retour au Blog",
+    "bookCTA": "Prêt à vivre cela vous-même ? Laissez-nous planifier votre voyage de rêve.",
+    "contactUs": "Nous Contacter pour Réserver",
+    "related": "Articles Similaires",
+    "noPosts": "Aucun article trouvé dans cette catégorie."
   }
 }

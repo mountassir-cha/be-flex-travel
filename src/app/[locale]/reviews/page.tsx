@@ -38,7 +38,7 @@ export default function ReviewsPage() {
           <Badge variant="outline" className="border-[var(--brand-gold)]/40 text-[var(--brand-gold)] mb-3">
             Testimonials
           </Badge>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-4">
+          <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-4">
             What Travellers <span className="text-gradient-gold">Say</span>
           </h1>
           <p className="text-muted-foreground text-lg">
@@ -46,16 +46,16 @@ export default function ReviewsPage() {
           </p>
 
           {/* Rating summary */}
-          <div className="mt-8 inline-flex items-center gap-4 glass px-6 py-4 rounded-2xl border border-white/10">
-            <div className="text-center">
-              <div className="font-display text-5xl font-bold text-white">{avgRating.toFixed(1)}</div>
-              <RatingStars rating={Math.round(avgRating)} className="justify-center mt-1" />
-              <div className="text-xs text-white/50 mt-1">out of 5</div>
+          <div className="mt-8 inline-flex items-center gap-4 glass px-6 py-4 rounded-2xl border border-border">
+            <div className="text-center md:text-left shrink-0">
+              <div className="font-display text-5xl font-bold text-foreground">{avgRating.toFixed(1)}</div>
+              <RatingStars rating={avgRating} className="mt-2 justify-center md:justify-start" />
+              <div className="text-xs text-muted-foreground/60 mt-1">out of 5</div>
             </div>
-            <div className="w-px h-16 bg-white/10" />
-            <div className="text-left">
-              <div className="text-white font-semibold">{approvedReviews.length} Reviews</div>
-              <div className="text-xs text-white/50">from Google, TripAdvisor & direct</div>
+            <div className="h-px md:h-12 w-12 md:w-px bg-border shrink-0" />
+            <div className="text-center md:text-left">
+              <div className="text-foreground font-semibold">{approvedReviews.length} Reviews</div>
+              <div className="text-xs text-muted-foreground/60">from Google, TripAdvisor & direct</div>
               <div className="text-xs text-[var(--brand-gold)] mt-1">100% verified</div>
             </div>
           </div>
@@ -70,21 +70,21 @@ export default function ReviewsPage() {
             >
               <div className="flex items-center justify-between">
                 <RatingStars rating={review.rating} />
-                <span className="text-xs text-white/40 glass px-2 py-1 rounded-full">
+                <span className="text-xs text-muted-foreground/50 glass px-2 py-1 rounded-full">
                   {sourceLabels[review.source] || review.source}
                 </span>
               </div>
 
-              <p className="text-white/80 text-sm leading-relaxed flex-1 italic">
+              <p className="text-foreground/80 text-sm leading-relaxed flex-1 italic">
                 &ldquo;{review.text}&rdquo;
               </p>
 
-              <div className="flex items-center gap-3 border-t border-white/5 pt-4">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#8A6F28] to-[#C9A84C] flex items-center justify-center text-white text-sm font-bold shrink-0">
+              <div className="flex items-center gap-3 border-t border-border pt-4">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-gold-dark to-brand-gold flex items-center justify-center text-white text-sm font-bold shrink-0">
                   {review.author_name.charAt(0)}
                 </div>
                 <div>
-                  <div className="font-semibold text-sm text-white">{review.author_name}</div>
+                  <div className="font-semibold text-sm text-foreground">{review.author_name}</div>
                   <div className="text-xs text-muted-foreground">
                     {new Date(review.created_at).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
                   </div>
@@ -95,8 +95,8 @@ export default function ReviewsPage() {
         </div>
 
         {/* Leave a review Form Section */}
-        <div className="max-w-xl mx-auto p-8 rounded-3xl glass border border-white/10 mt-14">
-          <h2 className="font-display text-2xl font-bold text-white mb-2 text-center">Travelled with us?</h2>
+        <div className="max-w-xl mx-auto p-8 rounded-3xl glass border border-border mt-14">
+          <h2 className="font-display text-2xl font-bold text-foreground mb-2 text-center">Travelled with us?</h2>
           <p className="text-muted-foreground text-sm mb-6 text-center">
             We&apos;d love to hear about your experience. Share your story and help other travellers discover Morocco.
           </p>
@@ -139,8 +139,8 @@ function ReviewForm() {
     return (
       <div className="text-center p-6 space-y-3">
         <div className="text-4xl mb-2">✨</div>
-        <h3 className="text-xl font-bold text-white">Thank you!</h3>
-        <p className="text-sm text-white/60">Your review has been submitted and is pending approval.</p>
+        <h3 className="text-xl font-bold text-foreground">Thank you!</h3>
+        <p className="text-sm text-muted-foreground">Your review has been submitted and is pending approval.</p>
       </div>
     )
   }
@@ -148,14 +148,14 @@ function ReviewForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div className="space-y-2">
-        <Label className="text-white/80">Rating *</Label>
+        <Label className="text-foreground/80">Rating *</Label>
         <div className="flex gap-2">
           {[1, 2, 3, 4, 5].map((star) => (
             <button
               key={star}
               type="button"
               onClick={() => setForm({ ...form, rating: star })}
-              className={`p-1 transition-colors ${star <= form.rating ? 'text-[var(--brand-gold)]' : 'text-white/20 hover:text-white/40'}`}
+              className={`p-1 transition-colors ${star <= form.rating ? 'text-[var(--brand-gold)]' : 'text-foreground/20 hover:text-foreground/40'}`}
             >
               <Star className="w-6 h-6 fill-current" />
             </button>
@@ -163,32 +163,32 @@ function ReviewForm() {
         </div>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="author_name" className="text-white/80">Your Name *</Label>
+        <Label htmlFor="author_name" className="text-foreground/80">Your Name *</Label>
         <Input
           id="author_name"
           required
           value={form.author_name}
           onChange={(e) => setForm({ ...form, author_name: e.target.value })}
-          className="bg-white/5 border-white/10 text-white focus:border-[var(--brand-gold)]/50"
+          className="bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground/30 focus:border-[var(--brand-gold)]/50"
           placeholder="Jane Doe"
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="text" className="text-white/80">Review *</Label>
+        <Label htmlFor="text" className="text-foreground/80">Review *</Label>
         <Textarea
           id="text"
           required
           rows={4}
           value={form.text}
           onChange={(e) => setForm({ ...form, text: e.target.value })}
-          className="bg-white/5 border-white/10 text-white focus:border-[var(--brand-gold)]/50 resize-none"
+          className="bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground/30 focus:border-[var(--brand-gold)]/50 resize-none"
           placeholder="Tell us about your trip..."
         />
       </div>
       <Button
         type="submit"
         disabled={status === 'sending'}
-        className="w-full bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-black font-semibold border-0 hover:opacity-90 transition-opacity"
+        className="w-full bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black font-semibold border-0 hover:opacity-90 transition-opacity"
       >
         {status === 'sending' ? 'Submitting...' : 'Submit Review'}
       </Button>

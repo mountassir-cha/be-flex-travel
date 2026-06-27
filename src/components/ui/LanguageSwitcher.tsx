@@ -68,6 +68,16 @@ export function LanguageSwitcher() {
       >
         DE
       </button>
+      <button
+        onClick={() => switchLocale('zgh')}
+        className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${
+          locale === 'zgh'
+            ? 'bg-[var(--brand-gold)] text-black shadow-md'
+            : 'text-foreground/70 hover:text-foreground'
+        }`}
+      >
+        ⵜⵎⵣ
+      </button>
     </div>
   )
 }

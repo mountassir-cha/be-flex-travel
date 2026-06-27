@@ -7,6 +7,7 @@
     "transport": "Trasporto",
     "reviews": "Recensioni",
     "contact": "Contatto",
+    "blog": "Blog",
     "bookNow": "Prenota Ora"
   },
   "Footer": {
@@ -18,7 +19,8 @@
       "saharaTour": "Circuito Sahara 3 Giorni",
       "transport": "Trasporti e Trasferimenti",
       "reviews": "Recensioni",
-      "contactUs": "Contattaci"
+      "contactUs": "Contattaci",
+      "blog": "Blog"
     },
     "popular": "Esperienze Popolari",
     "popularItems": {
@@ -132,5 +134,24 @@
     "agafayDesert": { "title": "Deserto dell'Agafay — Deserto di Pietra", "desc": "Deserto di pietra lunare a 40 min da Marrakech — quad, cammelli & cene sotto la Via Lattea." },
     "imlil": { "title": "Imlil & Contrafforti del Toubkal", "desc": "Trekking ai piedi della montagna più alta d'Africa attraverso villaggi berberi." },
     "agadir": { "title": "Agadir & Valle del Paradiso", "desc": "Resort balneare atlantico + gola nascosta della Valle del Paradiso con piscine naturali." }
+  },
+  "Blog": {
+    "badge": "Il Nostro Diario di Viaggio",
+    "title": "Ultime dal",
+    "titleHighlight": "Blog",
+    "description": "Consigli, guide e spunti pratici per la tua avventura in Marocco — direttamente dalle nostre guide locali.",
+    "all": "Tutti gli Articoli",
+    "guides": "Guide",
+    "sahara": "Sahara",
+    "wellness": "Benessere",
+    "morocco-tips": "Consigli Marocco",
+    "readMore": "Leggi l'Articolo",
+    "writtenBy": "Scritto da",
+    "share": "Condividi",
+    "back": "Torna al Blog",
+    "bookCTA": "Pronto a vivere questa esperienza? Lascia che pianifichiamo il tuo viaggio da sogno.",
+    "contactUs": "Contattaci per Prenotare",
+    "related": "Articoli Correlati",
+    "noPosts": "Nessun articolo trovato in questa categoria."
   }
 }

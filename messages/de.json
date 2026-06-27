@@ -7,6 +7,7 @@
     "transport": "Transport",
     "reviews": "Bewertungen",
     "contact": "Kontakt",
+    "blog": "Blog",
     "bookNow": "Jetzt Buchen"
   },
   "Footer": {
@@ -18,7 +19,8 @@
       "saharaTour": "3-Tage Sahara Rundreise",
       "transport": "Transport & Transfers",
       "reviews": "Bewertungen",
-      "contactUs": "Kontakt"
+      "contactUs": "Kontakt",
+      "blog": "Blog"
     },
     "popular": "Beliebte Erlebnisse",
     "popularItems": {
@@ -132,5 +134,24 @@
     "agafayDesert": { "title": "Agafay-Wüste — Steinwüste", "desc": "Mondlandschaft aus Stein 40 Min. von Marrakesch — Quads, Kamele & Abendessen unter der Milchstraße." },
     "imlil": { "title": "Imlil & Toubkal-Ausläufer", "desc": "Wanderung in den Ausläufern von Afrikas höchstem Berg durch alte Berberdörfer." },
     "agadir": { "title": "Agadir & Paradiestal", "desc": "Atlantischer Strandresort + verborgenes Paradiestalgorge mit natürlichen Schwimmbecken." }
+  },
+  "Blog": {
+    "badge": "Unser Reisetagebuch",
+    "title": "Neues aus dem",
+    "titleHighlight": "Blog",
+    "description": "Tipps, Reiseführer und praktische Ratschläge für Ihr Marokko-Abenteuer — direkt von unseren lokalen Guides.",
+    "all": "Alle Artikel",
+    "guides": "Guides",
+    "sahara": "Sahara",
+    "wellness": "Wellness",
+    "morocco-tips": "Marokko-Tipps",
+    "readMore": "Artikel lesen",
+    "writtenBy": "Geschrieben von",
+    "share": "Teilen",
+    "back": "Zurück zum Blog",
+    "bookCTA": "Bereit, das selbst zu erleben? Lassen Sie uns Ihre Traumreise planen.",
+    "contactUs": "Kontaktieren Sie uns zur Buchung",
+    "related": "Ähnliche Artikel",
+    "noPosts": "Keine Artikel in dieser Kategorie gefunden."
   }
 }

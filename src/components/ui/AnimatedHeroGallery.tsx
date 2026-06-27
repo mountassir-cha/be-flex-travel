@@ -37,7 +37,7 @@ export function AnimatedHeroGallery() {
       </div>
 
       {/* ── Layer 1 — uniform dark base (dims the whole gallery) ── */}
-      <div className="absolute inset-0 bg-black/65 z-10" />
+      <div className="absolute inset-0 z-10" style={{ background: 'var(--hero-overlay)' }} />
 
       {/* ── Layer 2 — top & bottom solid fades (background colour) ── */}
       <div
@@ -61,8 +61,7 @@ export function AnimatedHeroGallery() {
       <div
         className="absolute inset-0 z-20"
         style={{
-          background:
-            'radial-gradient(ellipse 55% 50% at 50% 50%, rgba(0,0,0,0.50) 0%, transparent 100%)',
+          background: 'var(--hero-vignette)',
         }}
       />
     </div>

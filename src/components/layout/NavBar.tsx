@@ -23,6 +23,7 @@ export function NavBar() {
     { href: '/excursions', label: t('excursions') },
     { href: '/tours', label: t('sahara') },
     { href: '/transport', label: t('transport') },
+    { href: '/blog', label: t('blog') },
     { href: '/reviews', label: t('reviews') },
     { href: '/contact', label: t('contact') },
   ]
@@ -78,9 +79,10 @@ export function NavBar() {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
           <LanguageSwitcher />
+          <ThemeToggle />
           <Button
             asChild
-            className="bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-black font-semibold border-0 hover:opacity-90 hover:scale-105 transition-all duration-200 shadow-lg shadow-[var(--brand-gold)]/20"
+            className="bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black font-semibold border-0 hover:opacity-90 hover:scale-105 transition-all duration-200 shadow-lg shadow-[var(--brand-gold)]/20"
           >
             <Link href="/contact">{t('bookNow')}</Link>
           </Button>
@@ -132,10 +134,11 @@ export function NavBar() {
               <div className="p-4 border-t border-border flex flex-col gap-3">
                 <div className="flex items-center gap-3">
                   <LanguageSwitcher />
+                  <ThemeToggle />
                 </div>
                 <Button
                   asChild
-                  className="w-full bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-black font-semibold border-0"
+                  className="w-full bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black font-semibold border-0"
                 >
                   <Link href="/contact" onClick={() => setMobileOpen(false)}>{t('bookNow')}</Link>
                 </Button>

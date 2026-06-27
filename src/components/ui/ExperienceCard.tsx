@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import Image from 'next/image'
 import { Star, ArrowRight, Clock } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
@@ -65,7 +65,7 @@ export function ExperienceCard({
               </Badge>
             )}
             {featured && order_rank !== 1 && (
-              <Badge className="bg-[var(--brand-gold)] text-white text-xs font-semibold border-0 shadow-lg">
+              <Badge className="bg-[var(--brand-gold)] text-black text-xs font-semibold border-0 shadow-lg">
                 {t('featured')}
               </Badge>
             )}

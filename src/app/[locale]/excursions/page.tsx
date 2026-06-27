@@ -63,7 +63,7 @@ export default function ExcursionsPage() {
 
       <div className="container mx-auto px-4 text-center">
         <p className="text-muted-foreground mb-4">Want a custom itinerary or multi-day tour?</p>
-        <Button asChild className="bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-white border-0">
+        <Button asChild className="bg-gradient-to-r from-brand-gold-dark to-brand-gold text-white border-0">
           <Link href="/contact">Request Custom Tour <ArrowRight className="ml-2 w-4 h-4" /></Link>
         </Button>
       </div>

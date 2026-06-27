@@ -7,6 +7,7 @@
     "transport": "Transport",
     "reviews": "Reviews",
     "contact": "Contact",
+    "blog": "Blog",
     "bookNow": "Book Now"
   },
   "Footer": {
@@ -18,7 +19,8 @@
       "saharaTour": "3-Day Sahara Tour",
       "transport": "Transport & Transfers",
       "reviews": "Reviews",
-      "contactUs": "Contact Us"
+      "contactUs": "Contact Us",
+      "blog": "Blog"
     },
     "popular": "Popular Experiences",
     "popularItems": {
@@ -132,5 +134,24 @@
     "agafayDesert": { "title": "Agafay Desert — Stone Desert", "desc": "Lunar stone desert 40 min from Marrakech — quads, camels & Milky Way dinners." },
     "imlil": { "title": "Imlil & Toubkal Foothills", "desc": "Trek into Africa's highest mountain foothills through ancient Berber villages." },
     "agadir": { "title": "Agadir & Paradise Valley", "desc": "Atlantic beach resort + hidden Paradise Valley gorge with natural swimming pools." }
+  },
+  "Blog": {
+    "badge": "Our Travel Journal",
+    "title": "Latest from the",
+    "titleHighlight": "Blog",
+    "description": "Insights, guides, and practical tips for your Morocco adventure — straight from our local guides.",
+    "all": "All Articles",
+    "guides": "Guides",
+    "sahara": "Sahara",
+    "wellness": "Wellness",
+    "morocco-tips": "Morocco Tips",
+    "readMore": "Read Article",
+    "writtenBy": "Written by",
+    "share": "Share",
+    "back": "Back to Blog",
+    "bookCTA": "Ready to experience this yourself? Let us plan your dream trip.",
+    "contactUs": "Contact Us to Book",
+    "related": "Related Articles",
+    "noPosts": "No articles found in this category."
   }
 }

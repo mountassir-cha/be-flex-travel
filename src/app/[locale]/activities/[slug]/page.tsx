@@ -135,12 +135,12 @@ export default async function ActivityDetailPage({ params }: Props) {
 
           {/* Booking sidebar */}
           <div className="lg:col-span-1">
-            <div className="sticky top-24 rounded-2xl glass border border-white/10 p-6 space-y-5">
+             <div className="sticky top-24 rounded-2xl glass border border-border p-6 space-y-5">
               <div>
 
               </div>
 
-              <div className="border-t border-white/5 pt-5 space-y-3 text-sm text-white/70">
+              <div className="border-t border-border pt-5 space-y-3 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2"><Clock className="w-4 h-4 text-[var(--brand-gold)]" /> {activity.duration}</div>
                 <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[var(--brand-gold)]" /> Free cancellation (48h)</div>
                 <div className="flex items-center gap-2"><Check className="w-4 h-4 text-[var(--brand-gold)]" /> Private group — your pace</div>
@@ -149,7 +149,7 @@ export default async function ActivityDetailPage({ params }: Props) {
 
               <Button
                 asChild
-                className="w-full bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-white border-0 hover:opacity-90 transition-opacity"
+                className="w-full bg-gradient-to-r from-brand-gold-dark to-brand-gold text-white border-0 hover:opacity-90 transition-opacity"
                 size="lg"
               >
                 <Link href={contactHref}>
@@ -157,7 +157,7 @@ export default async function ActivityDetailPage({ params }: Props) {
                 </Link>
               </Button>
 
-              <Button asChild variant="outline" className="w-full border-white/20 text-white hover:bg-white/5">
+              <Button asChild variant="outline" className="w-full border-border text-foreground hover:bg-foreground/5">
                 <a href="https://wa.me/212766908381" target="_blank" rel="noopener noreferrer">
                   WhatsApp Us
                 </a>

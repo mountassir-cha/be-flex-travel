@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 }
 
 const cardAccents = [
-  { gradient: 'from-[#8A6F28] to-[#C9A84C]', glow: 'shadow-[var(--brand-gold)]/20', badge_bg: 'bg-[var(--brand-gold)] text-black' },
+  { gradient: 'from-brand-gold-dark to-brand-gold', glow: 'shadow-[var(--brand-gold)]/20', badge_bg: 'bg-[var(--brand-gold)] text-black' },
   { gradient: 'from-[#1a6b4a] to-[#2ecc71]', glow: 'shadow-emerald-500/20', badge_bg: 'bg-emerald-500 text-white' },
   { gradient: 'from-[#5b2d8e] to-[#9b59b6]', glow: 'shadow-purple-500/20', badge_bg: 'bg-purple-500 text-white' },
   { gradient: 'from-[#1a3a6b] to-[#2980b9]', glow: 'shadow-blue-500/20', badge_bg: 'bg-blue-500 text-white' },
@@ -190,7 +190,7 @@ export default function CircuitsPage() {
           <Button
             asChild
             size="lg"
-            className="bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-black font-bold hover:opacity-90 hover:scale-105 transition-all duration-200"
+            className="bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black font-bold hover:opacity-90 hover:scale-105 transition-all duration-200"
           >
             <a href="https://wa.me/212766908381" target="_blank" rel="noopener noreferrer">
               Ask Us on WhatsApp <ArrowRight className="ml-2 w-4 h-4" />

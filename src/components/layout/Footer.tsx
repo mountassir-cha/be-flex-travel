@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import Image from 'next/image'
 import { Phone, Mail, MapPin } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
@@ -47,6 +47,7 @@ export async function Footer() {
     { href: '/excursions', label: t('quickLinkItems.excursions') },
     { href: '/tours/3-day-merzouga', label: t('quickLinkItems.saharaTour') },
     { href: '/transport', label: t('quickLinkItems.transport') },
+    { href: '/blog', label: t('quickLinkItems.blog') },
     { href: '/reviews', label: t('quickLinkItems.reviews') },
     { href: '/contact', label: t('quickLinkItems.contactUs') },
   ]
@@ -61,7 +62,7 @@ export async function Footer() {
   ]
 
   return (
-    <footer className="bg-[oklch(0.08_0.008_30)] border-t border-white/10 mt-auto">
+    <footer className="bg-[var(--sidebar)] border-t border-border mt-auto">
       {/* Main footer */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -72,11 +73,11 @@ export async function Footer() {
                 <Image src="/logo.jpg" alt="Be Flex Travel Logo" fill className="object-cover" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="font-display text-xl font-bold text-white tracking-wide">Be Flex</span>
+                <span className="font-display text-xl font-bold text-foreground tracking-wide">Be Flex</span>
                 <span className="text-sm font-medium text-[var(--brand-gold)] tracking-widest uppercase">Travel</span>
               </div>
             </Link>
-            <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xs">
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-xs">
               {t('tagline')}
             </p>
             {/* Social Icons */}
@@ -86,7 +87,7 @@ export async function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-white/60 hover:text-[#25D366] hover:bg-[#25D366]/10 transition-all duration-200"
+                className="w-9 h-9 rounded-lg bg-foreground/5 flex items-center justify-center text-muted-foreground hover:text-[#25D366] hover:bg-[#25D366]/10 transition-all duration-200"
               >
                 <WhatsAppIcon className="w-4 h-4" />
               </a>
@@ -95,7 +96,7 @@ export async function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-white/60 hover:text-[#1877F2] hover:bg-[#1877F2]/10 transition-all duration-200"
+                className="w-9 h-9 rounded-lg bg-foreground/5 flex items-center justify-center text-muted-foreground hover:text-[#1877F2] hover:bg-[#1877F2]/10 transition-all duration-200"
               >
                 <FacebookIcon className="w-4 h-4" />
               </a>
@@ -104,7 +105,7 @@ export async function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-white/60 hover:text-[#E1306C] hover:bg-[#E1306C]/10 transition-all duration-200"
+                className="w-9 h-9 rounded-lg bg-foreground/5 flex items-center justify-center text-muted-foreground hover:text-[#E1306C] hover:bg-[#E1306C]/10 transition-all duration-200"
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
@@ -113,7 +114,7 @@ export async function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
-                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
+                className="w-9 h-9 rounded-lg bg-foreground/5 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-foreground/10 transition-all duration-200"
               >
                 <TikTokIcon className="w-4 h-4" />
               </a>
@@ -122,13 +123,13 @@ export async function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-widest mb-5">{t('quickLinks')}</h3>
+            <h3 className="text-foreground font-semibold text-sm uppercase tracking-widest mb-5">{t('quickLinks')}</h3>
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/60 hover:text-[var(--brand-gold)] text-sm transition-colors duration-200 hover:translate-x-1 inline-block"
+                    className="text-muted-foreground hover:text-[var(--brand-gold)] text-sm transition-colors duration-200 hover:translate-x-1 inline-block"
                   >
                     {link.label}
                   </Link>
@@ -139,13 +140,13 @@ export async function Footer() {
 
           {/* Popular Activities */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-widest mb-5">{t('popular')}</h3>
+            <h3 className="text-foreground font-semibold text-sm uppercase tracking-widest mb-5">{t('popular')}</h3>
             <ul className="space-y-2.5">
               {popularActivities.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-white/60 hover:text-[var(--brand-gold)] text-sm transition-colors duration-200 hover:translate-x-1 inline-block"
+                    className="text-muted-foreground hover:text-[var(--brand-gold)] text-sm transition-colors duration-200 hover:translate-x-1 inline-block"
                   >
                     {link.label}
                   </Link>
@@ -156,31 +157,31 @@ export async function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold text-sm uppercase tracking-widest mb-5">{t('getInTouch')}</h3>
+            <h3 className="text-foreground font-semibold text-sm uppercase tracking-widest mb-5">{t('getInTouch')}</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-[var(--brand-gold)] mt-0.5 shrink-0" />
                 <div>
-                  <a href="tel:0766908381" className="text-white/80 hover:text-white text-sm transition-colors">
+                  <a href="tel:0766908381" className="text-foreground/80 hover:text-foreground text-sm transition-colors">
                     0766908381
                   </a>
-                  <p className="text-white/40 text-xs mt-0.5">{t('whatsappCalls')}</p>
+                  <p className="text-muted-foreground/60 text-xs mt-0.5">{t('whatsappCalls')}</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-[var(--brand-gold)] mt-0.5 shrink-0" />
                 <div>
-                  <a href="mailto:montassirchaghough5@gmail.com" className="text-white/80 hover:text-white text-sm transition-colors">
+                  <a href="mailto:montassirchaghough5@gmail.com" className="text-foreground/80 hover:text-foreground text-sm transition-colors">
                     montassirchaghough5@gmail.com
                   </a>
-                  <p className="text-white/40 text-xs mt-0.5">{t('replyTime')}</p>
+                  <p className="text-muted-foreground/60 text-xs mt-0.5">{t('replyTime')}</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[var(--brand-gold)] mt-0.5 shrink-0" />
                 <div>
-                  <p className="text-white/80 text-sm">{t('location')}</p>
-                  <p className="text-white/40 text-xs mt-0.5">{t('basedIn')}</p>
+                  <p className="text-foreground/80 text-sm">{t('location')}</p>
+                  <p className="text-muted-foreground/60 text-xs mt-0.5">{t('basedIn')}</p>
                 </div>
               </li>
             </ul>
@@ -189,12 +190,12 @@ export async function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/5">
+      <div className="border-t border-border">
         <div className="container mx-auto px-4 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/40 text-xs">
+          <p className="text-muted-foreground/60 text-xs">
             {t('copyright', { year: new Date().getFullYear() })}
           </p>
-          <p className="text-white/40 text-xs">
+          <p className="text-muted-foreground/60 text-xs">
             {t('madeWith')}
           </p>
         </div>

@@ -67,12 +67,11 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={`${inter.variable} ${playfair.variable} dark`} suppressHydrationWarning>
-      <body className="min-h-screen bg-background text-foreground antialiased transition-colors duration-300">
+      <body className="min-h-screen bg-background text-foreground antialiased transition-colors duration-300" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
-            forcedTheme="dark"
             enableSystem={false}
             disableTransitionOnChange={false}
           >

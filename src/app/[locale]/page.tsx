@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { ArrowRight, Star, Users, MapPin, Award, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -61,14 +61,14 @@ export default async function HomePage() {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             {/* Pill badge */}
-            <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-8 text-sm text-white/80">
+            <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-8 text-sm text-foreground/85">
               <span className="w-2 h-2 rounded-full bg-[var(--brand-gold)] animate-pulse" />
               {t('hero.badge')}
             </div>
 
             <h1
               className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[1.05] mb-6"
-              style={{ textShadow: '0 2px 20px rgba(0,0,0,0.8), 0 4px 40px rgba(0,0,0,0.6)' }}
+              style={{ textShadow: 'var(--hero-title-shadow)' }}
             >
               {t('hero.titleStart')}{' '}
               <span className="text-gradient-gold">{t('hero.titleHighlight')}</span>
@@ -78,7 +78,7 @@ export default async function HomePage() {
 
             <p
               className="text-lg sm:text-xl text-foreground/90 max-w-2xl mx-auto leading-relaxed mb-10"
-              style={{ textShadow: '0 1px 12px rgba(0,0,0,0.9)' }}
+              style={{ textShadow: 'var(--hero-sub-shadow)' }}
             >
               {t('hero.description')}
             </p>
@@ -87,7 +87,7 @@ export default async function HomePage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-foreground border-0 hover:opacity-90 hover:scale-105 transition-all duration-200 shadow-xl shadow-[var(--brand-gold)]/30 text-base px-8"
+                className="bg-gradient-to-r from-brand-gold-dark to-brand-gold text-foreground border-0 hover:opacity-90 hover:scale-105 transition-all duration-200 shadow-xl shadow-[var(--brand-gold)]/30 text-base px-8"
               >
                 <Link href="/activities">
                   {t('hero.exploreActivities')} <ArrowRight className="ml-2 w-4 h-4" />
@@ -106,7 +106,7 @@ export default async function HomePage() {
             {/* Quick trust signals */}
             <div
               className="flex items-center justify-center gap-2 mt-10 text-foreground/70 text-sm"
-              style={{ textShadow: '0 1px 8px rgba(0,0,0,0.9)' }}
+              style={{ textShadow: 'var(--hero-trust-shadow)' }}
             >
               <RatingStars rating={5} size="sm" />
               <span>{t('hero.reviews')}</span>
@@ -178,7 +178,7 @@ export default async function HomePage() {
           </div>
 
           <div className="mt-8 text-center md:hidden">
-            <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/5">
+            <Button asChild variant="outline" className="border-border text-foreground hover:bg-foreground/5">
               <Link href="/activities">{t('activities.viewAllBtn')} <ArrowRight className="ml-2 w-4 h-4" /></Link>
             </Button>
           </div>
@@ -189,7 +189,7 @@ export default async function HomePage() {
       <section className="py-6 px-4">
         <div className="container mx-auto">
           <Link href="/tours" className="group block">
-            <div className="relative overflow-hidden rounded-3xl bg-[#0C0C0C] border border-[var(--brand-gold)]/20 hover:border-[var(--brand-gold)]/40 transition-all duration-500 p-8 md:p-12">
+            <div className="relative overflow-hidden rounded-3xl bg-[#080A1A] border border-[var(--brand-gold)]/20 hover:border-[var(--brand-gold)]/40 transition-all duration-500 p-8 md:p-12">
               {/* Decorative dune shape */}
               <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-[var(--brand-gold)]/5 to-transparent hidden md:block" />
               <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-[var(--brand-gold)]/8 blur-3xl pointer-events-none" />
@@ -261,7 +261,7 @@ export default async function HomePage() {
           </div>
 
           <div className="mt-8 text-center md:hidden">
-            <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/5">
+            <Button asChild variant="outline" className="border-border text-foreground hover:bg-foreground/5">
               <Link href="/excursions">{t('excursions.viewAllBtn')} <ArrowRight className="ml-2 w-4 h-4" /></Link>
             </Button>
           </div>
@@ -343,7 +343,7 @@ export default async function HomePage() {
       {/* ─── CTA STRIP ───────────────────────────────────────────────────── */}
       <section className="py-20 px-4">
         <div className="container mx-auto">
-          <div className="relative overflow-hidden rounded-3xl bg-[#0A0A0A] border border-[var(--brand-gold)]/25 p-12 text-center">
+          <div className="relative overflow-hidden rounded-3xl bg-[#080A1A] border border-[var(--brand-gold)]/25 p-12 text-center">
             {/* Gold shimmer corners */}
             <div className="absolute top-0 left-0 w-40 h-40 rounded-full bg-[var(--brand-gold)]/6 blur-2xl pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-40 h-40 rounded-full bg-[var(--brand-gold)]/6 blur-2xl pointer-events-none" />
@@ -362,7 +362,7 @@ export default async function HomePage() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-black font-bold hover:opacity-90 hover:scale-105 transition-all duration-200 shadow-lg shadow-[var(--brand-gold)]/20"
+                  className="bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black font-bold hover:opacity-90 hover:scale-105 transition-all duration-200 shadow-lg shadow-[var(--brand-gold)]/20"
                 >
                   <Link href="/contact">{t('cta.quote')} <ArrowRight className="ml-2 w-4 h-4" /></Link>
                 </Button>

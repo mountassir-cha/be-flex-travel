@@ -67,7 +67,7 @@ export default function ActivitiesPage() {
       {/* CTA */}
       <div className="container mx-auto px-4 text-center">
         <p className="text-muted-foreground mb-4">Can&apos;t find what you&apos;re looking for?</p>
-        <Button asChild className="bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-white border-0">
+        <Button asChild className="bg-gradient-to-r from-brand-gold-dark to-brand-gold text-white border-0">
           <Link href="/contact">Ask Us Anything <ArrowRight className="ml-2 w-4 h-4" /></Link>
         </Button>
       </div>

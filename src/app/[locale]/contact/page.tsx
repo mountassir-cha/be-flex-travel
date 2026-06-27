@@ -59,11 +59,11 @@ function ContactForm() {
     return (
       <div className="text-center py-12 space-y-4">
         <div className="text-5xl">🎉</div>
-        <h3 className="font-display text-2xl font-bold text-white">Message Sent!</h3>
+        <h3 className="font-display text-2xl font-bold text-foreground">Message Sent!</h3>
         <p className="text-muted-foreground">
           Thank you! We&apos;ll get back to you within 2 hours via email or WhatsApp.
         </p>
-        <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/5 mt-4">
+        <Button asChild variant="outline" className="border-border text-foreground hover:bg-foreground/5 mt-4">
           <Link href="/">Back to Home</Link>
         </Button>
       </div>
@@ -80,7 +80,7 @@ function ContactForm() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div className="space-y-2">
-          <Label htmlFor="name" className="text-white/80 text-sm">Full Name *</Label>
+          <Label htmlFor="name" className="text-foreground/80 text-sm">Full Name *</Label>
           <Input
             id="name"
             name="name"
@@ -88,11 +88,11 @@ function ContactForm() {
             value={form.name}
             onChange={handleChange}
             placeholder="Your name"
-            className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-[var(--brand-gold)]/50 focus:ring-[var(--brand-gold)]/20"
+            className="bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground/30 focus:border-[var(--brand-gold)]/50 focus:ring-[var(--brand-gold)]/20"
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email" className="text-white/80 text-sm">Email Address *</Label>
+          <Label htmlFor="email" className="text-foreground/80 text-sm">Email Address *</Label>
           <Input
             id="email"
             name="email"
@@ -100,26 +100,26 @@ function ContactForm() {
             required
             value={form.email}
             onChange={handleChange}
-            placeholder="your@email.com"
-            className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-[var(--brand-gold)]/50 focus:ring-[var(--brand-gold)]/20"
+            placeholder="you@example.com"
+            className="bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground/30 focus:border-[var(--brand-gold)]/50 focus:ring-[var(--brand-gold)]/20"
           />
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="phone" className="text-white/80 text-sm">WhatsApp / Phone</Label>
+        <Label htmlFor="phone" className="text-foreground/80 text-sm">Phone Number</Label>
         <Input
           id="phone"
           name="phone"
           value={form.phone}
           onChange={handleChange}
-          placeholder="+1 234 567 8900"
-          className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-[var(--brand-gold)]/50 focus:ring-[var(--brand-gold)]/20"
+          placeholder="+33 6 12345678"
+          className="bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground/30 focus:border-[var(--brand-gold)]/50 focus:ring-[var(--brand-gold)]/20"
         />
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="message" className="text-white/80 text-sm">Message *</Label>
+        <Label htmlFor="message" className="text-foreground/80 text-sm">Message *</Label>
         <Textarea
           id="message"
           name="message"
@@ -128,14 +128,14 @@ function ContactForm() {
           onChange={handleChange}
           placeholder="Tell us about your trip — dates, group size, activities of interest..."
           rows={5}
-          className="bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-[var(--brand-gold)]/50 focus:ring-[var(--brand-gold)]/20 resize-none"
+          className="bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground/30 focus:border-[var(--brand-gold)]/50 focus:ring-[var(--brand-gold)]/20 resize-none"
         />
       </div>
 
       <Button
         type="submit"
         disabled={status === 'sending'}
-        className="w-full bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-white border-0 hover:opacity-90 transition-opacity"
+        className="w-full bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black font-semibold border-0 hover:opacity-90 transition-opacity"
         size="lg"
       >
         {status === 'sending' ? (
@@ -175,7 +175,7 @@ export default function ContactPage() {
               <Badge variant="outline" className="border-[var(--brand-gold)]/40 text-[var(--brand-gold)] mb-4">
                 Get In Touch
               </Badge>
-              <h1 className="font-display text-5xl font-bold text-white mb-4">
+              <h1 className="font-display text-5xl font-bold text-foreground mb-4">
                 Plan Your <span className="text-gradient-gold">Morocco</span> Trip
               </h1>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
@@ -190,10 +190,10 @@ export default function ContactPage() {
                   { emoji: '💬', title: 'WhatsApp friendly', desc: 'Chat with us directly on WhatsApp anytime.' },
                   { emoji: '🔒', title: 'No pressure', desc: 'Free quotes, no obligation to book.' },
                 ].map(({ emoji, title, desc }) => (
-                  <div key={title} className="flex items-start gap-4 p-4 rounded-xl glass border border-white/5">
+                  <div key={title} className="flex items-start gap-4 p-4 rounded-xl glass border border-border">
                     <span className="text-2xl shrink-0">{emoji}</span>
                     <div>
-                      <div className="font-semibold text-white text-sm">{title}</div>
+                      <div className="font-semibold text-foreground text-sm">{title}</div>
                       <div className="text-muted-foreground text-sm">{desc}</div>
                     </div>
                   </div>
@@ -216,9 +216,9 @@ export default function ContactPage() {
             </div>
 
             {/* Right: form */}
-            <div className="rounded-2xl glass border border-white/10 p-8">
-              <h2 className="font-display text-2xl font-bold text-white mb-6">Send a Message</h2>
-              <Suspense fallback={<div className="text-white/50">Loading form...</div>}>
+            <div className="rounded-2xl glass border border-border p-8">
+              <h2 className="font-display text-2xl font-bold text-foreground mb-6">Send a Message</h2>
+              <Suspense fallback={<div className="text-muted-foreground/50">Loading form...</div>}>
                 <ContactForm />
               </Suspense>
             </div>

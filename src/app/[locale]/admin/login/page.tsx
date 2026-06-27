@@ -43,7 +43,7 @@ export default async function LoginPage() {
             />
           </div>
           
-          <Button type="submit" className="w-full bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-black font-bold border-0 mt-6 hover:opacity-90">
+          <Button type="submit" className="w-full bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black font-bold border-0 mt-6 hover:opacity-90">
             Sign In
           </Button>
         </form>

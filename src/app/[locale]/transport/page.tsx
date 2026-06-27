@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { ArrowRight, Car, Clock, Check } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -30,7 +30,7 @@ export default function TransportPage() {
           <Badge variant="outline" className="border-[var(--brand-gold)]/40 text-[var(--brand-gold)] mb-3">
             Private Transport
           </Badge>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-4">
+          <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-4">
             Transfers & <span className="text-gradient-gold">Transport</span>
           </h1>
           <p className="text-muted-foreground text-lg leading-relaxed">
@@ -47,16 +47,16 @@ export default function TransportPage() {
             { emoji: '💧', label: 'Water & Wi-Fi on board' },
             { emoji: '📍', label: 'Door-to-door service' },
           ].map(({ emoji, label }) => (
-            <div key={label} className="p-4 rounded-xl glass border border-white/5 text-center">
+            <div key={label} className="p-4 rounded-xl glass border border-border text-center">
               <div className="text-2xl mb-2">{emoji}</div>
-              <p className="text-xs text-white/70">{label}</p>
+              <p className="text-xs text-muted-foreground">{label}</p>
             </div>
           ))}
         </div>
 
         {/* Airport Transfers */}
         <section className="mb-14">
-          <h2 className="font-display text-2xl font-bold text-white mb-6 flex items-center gap-2">
+          <h2 className="font-display text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
             <span className="w-1 h-6 rounded bg-[var(--brand-gold)] inline-block" />
             Airport Transfers
           </h2>
@@ -64,29 +64,29 @@ export default function TransportPage() {
             {airportRoutes.map((route) => (
               <div key={route.id} className="p-5 rounded-2xl glass border border-white/5 hover:border-[var(--brand-gold)]/30 transition-all duration-300 group">
                 <div className="flex items-center justify-between mb-4">
-                  <Badge variant="outline" className="border-white/20 text-white/60 text-xs">
+                  <Badge variant="outline" className="border-border text-muted-foreground text-xs">
                     {typeLabels[route.type]}
                   </Badge>
                 </div>
 
                 <div className="flex items-center gap-3 mb-4">
                   <div className="flex-1 min-w-0">
-                    <div className="text-white font-medium text-sm truncate">{route.origin}</div>
+                    <div className="text-foreground font-medium text-sm truncate">{route.origin}</div>
                   </div>
                   <div className="shrink-0">
                     <ArrowRight className="w-4 h-4 text-[var(--brand-gold)]" />
                   </div>
                   <div className="flex-1 min-w-0 text-right">
-                    <div className="text-white font-medium text-sm truncate">{route.destination}</div>
+                    <div className="text-foreground font-medium text-sm truncate">{route.destination}</div>
                   </div>
                 </div>
 
-                <div className="space-y-2 text-xs text-white/50 mb-5">
+                <div className="space-y-2 text-xs text-muted-foreground mb-5">
                   <div className="flex items-center gap-2"><Clock className="w-3 h-3" /> {route.duration}</div>
                   <div className="flex items-start gap-2"><Car className="w-3 h-3 shrink-0 mt-0.5" /> {route.notes}</div>
                 </div>
 
-                <Button asChild className="w-full bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-white border-0 hover:opacity-90 text-sm" size="sm">
+                <Button asChild className="w-full bg-gradient-to-r from-brand-gold-dark to-brand-gold text-white border-0 hover:opacity-90 text-sm" size="sm">
                   <Link href={`/contact?activity=Transfer: ${encodeURIComponent(route.origin + ' → ' + route.destination)}`}>
                     Book Transfer
                   </Link>
@@ -98,7 +98,7 @@ export default function TransportPage() {
 
         {/* City-to-City */}
         <section className="mb-14">
-          <h2 className="font-display text-2xl font-bold text-white mb-6 flex items-center gap-2">
+          <h2 className="font-display text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
             <span className="w-1 h-6 rounded bg-[var(--brand-gold)] inline-block" />
             City-to-City Transfers
           </h2>
@@ -106,27 +106,27 @@ export default function TransportPage() {
             {cityRoutes.map((route) => (
               <div key={route.id} className="p-5 rounded-2xl glass border border-white/5 hover:border-[var(--brand-gold)]/30 transition-all duration-300 group">
                 <div className="flex items-center justify-between mb-4">
-                  <Badge variant="outline" className="border-white/20 text-white/60 text-xs">
+                  <Badge variant="outline" className="border-border text-muted-foreground text-xs">
                     {typeLabels[route.type]}
                   </Badge>
                 </div>
 
                 <div className="flex items-center gap-3 mb-4">
                   <div className="flex-1 min-w-0">
-                    <div className="text-white font-medium text-sm">{route.origin}</div>
+                    <div className="text-foreground font-medium text-sm">{route.origin}</div>
                   </div>
                   <ArrowRight className="w-4 h-4 text-[var(--brand-gold)] shrink-0" />
                   <div className="flex-1 min-w-0 text-right">
-                    <div className="text-white font-medium text-sm">{route.destination}</div>
+                    <div className="text-foreground font-medium text-sm">{route.destination}</div>
                   </div>
                 </div>
 
-                <div className="space-y-2 text-xs text-white/50 mb-5">
+                <div className="space-y-2 text-xs text-muted-foreground mb-5">
                   <div className="flex items-center gap-2"><Clock className="w-3 h-3" /> {route.duration}</div>
                   <div className="flex items-start gap-2"><Car className="w-3 h-3 shrink-0 mt-0.5" /> {route.notes}</div>
                 </div>
 
-                <Button asChild className="w-full bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-white border-0 hover:opacity-90 text-sm" size="sm">
+                <Button asChild className="w-full bg-gradient-to-r from-brand-gold-dark to-brand-gold text-white border-0 hover:opacity-90 text-sm" size="sm">
                   <Link href={`/contact?activity=Transfer: ${encodeURIComponent(route.origin + ' → ' + route.destination)}`}>
                     Book Transfer
                   </Link>
@@ -137,16 +137,16 @@ export default function TransportPage() {
         </section>
 
         {/* Custom transfer CTA */}
-        <div className="p-8 rounded-3xl glass border border-white/10 text-center max-w-2xl mx-auto">
-          <h3 className="font-display text-2xl font-bold text-white mb-2">Need a Custom Route?</h3>
+        <div className="p-8 rounded-3xl glass border border-border text-center max-w-2xl mx-auto">
+          <h3 className="font-display text-2xl font-bold text-foreground mb-2">Need a Custom Route?</h3>
           <p className="text-muted-foreground mb-6">
             Don&apos;t see your destination? We offer point-to-point transfers anywhere in Morocco. Just ask.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button asChild className="bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-white border-0">
+            <Button asChild className="bg-gradient-to-r from-brand-gold-dark to-brand-gold text-white border-0">
               <Link href="/contact?activity=Custom+Transfer">Request Custom Transfer</Link>
             </Button>
-            <Button asChild variant="outline" className="border-white/20 text-white hover:bg-white/5">
+            <Button asChild variant="outline" className="border-border text-foreground hover:bg-foreground/5">
               <a href="https://wa.me/212766908381" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
             </Button>
           </div>

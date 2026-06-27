@@ -26,10 +26,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const dayGradients = [
-  'from-[#8A6F28] to-[#C9A84C]',
-  'from-[#C9A84C] to-[#E8C97A]',
-  'from-[#9A6F28] to-[#C9A84C]',
-  'from-[#6A4C1A] to-[#9A6F28]',
+  'from-brand-gold-dark to-brand-gold',
+  'from-brand-gold to-brand-gold-light',
+  'from-brand-gold-dark to-brand-gold-light',
+  'from-brand-gold-dark to-brand-gold',
   'from-[#555555] to-[#888888]',
   'from-[#444444] to-[#777777]',
   'from-[#333333] to-[#666666]',
@@ -86,10 +86,10 @@ export default async function TourDetailPage({ params }: Props) {
               <div key={day.day} className="group relative">
                 {/* Connector line */}
                 {idx < tour.days.length - 1 && (
-                  <div className="absolute left-8 top-full w-0.5 h-6 bg-white/10 z-10" />
+                  <div className="absolute left-8 top-full w-0.5 h-6 bg-border z-10" />
                 )}
 
-                <div className="flex gap-6 p-6 rounded-2xl glass border border-white/5 hover:border-[var(--brand-gold)]/20 transition-all duration-300">
+                <div className="flex gap-6 p-6 rounded-2xl glass border border-border hover:border-[var(--brand-gold)]/20 transition-all duration-300">
                   {/* Day badge */}
                   <div
                     className={`shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br ${dayGradients[idx] ?? dayGradients[dayGradients.length - 1]} flex flex-col items-center justify-center text-white shadow-lg`}
@@ -143,7 +143,7 @@ export default async function TourDetailPage({ params }: Props) {
                 ))}
               </ul>
             </div>
-            <div className="p-6 rounded-2xl glass border border-white/5">
+            <div className="p-6 rounded-2xl glass border border-border">
               <h3 className="font-display text-xl font-bold text-foreground mb-5">❌ Not Included</h3>
               <ul className="space-y-3">
                 {tour.not_included.map((item) => (
@@ -167,7 +167,7 @@ export default async function TourDetailPage({ params }: Props) {
             <p className="text-muted-foreground text-sm mb-6">Private tour · Free cancellation · Reply in 2hrs</p>
             <Button
               asChild
-              className="w-full bg-gradient-to-r from-[#8A6F28] to-[#C9A84C] text-black font-bold hover:opacity-90"
+              className="w-full bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black font-bold hover:opacity-90"
               size="lg"
             >
               <Link href={`/contact?activity=${encodeURIComponent(tour.title)}`}>
