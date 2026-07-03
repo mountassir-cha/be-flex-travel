@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import Image from 'next/image'
 import { ArrowRight, Check, Clock, Moon } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
@@ -102,12 +102,6 @@ export default function CircuitsPage() {
                           <p className="text-[var(--brand-gold)] text-sm font-medium mt-1">
                             {circuit.subtitle}
                           </p>
-                        </div>
-                        <div className="text-right shrink-0">
-                          <div className="font-display text-2xl font-bold text-foreground">
-                            {circuit.price_label.replace('From ', '')}
-                          </div>
-                          <div className="text-xs text-muted-foreground">per person</div>
                         </div>
                       </div>
 

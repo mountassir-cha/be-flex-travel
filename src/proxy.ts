@@ -9,8 +9,22 @@ export default async function middleware(request: NextRequest) {
   // 1. Update Supabase session
   const response = await updateSession(request);
   
+  // If the response from supabase is a redirect (e.g. redirecting to /admin/login), return it immediately
+  if (response.headers.get('location')) {
+    return response;
+  }
+  
   // 2. Handle internationalization
-  return handleI18nRouting(request);
+  const i18nResponse = handleI18nRouting(request);
+  
+  // Copy cookies from Supabase response to next-intl response
+  response.headers.forEach((value, key) => {
+    if (key.toLowerCase() === 'set-cookie') {
+      i18nResponse.headers.append(key, value);
+    }
+  });
+
+  return i18nResponse;
 }
  
 export const config = {

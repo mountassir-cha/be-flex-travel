@@ -2,9 +2,8 @@
 
 import { Link } from '@/i18n/routing'
 import Image from 'next/image'
-import { Star, ArrowRight, Clock } from 'lucide-react'
+import { ArrowRight, Clock } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { ImageCarousel } from '@/components/ui/ImageCarousel'
 import { cn } from '@/lib/utils'
 import { useTranslations } from 'next-intl'
@@ -13,7 +12,6 @@ interface ExperienceCardProps {
   title: string
   slug: string
   short_description: string
-  price_label: string
   duration: string
   cover_image_url: string
   gallery?: string[]
@@ -27,7 +25,6 @@ export function ExperienceCard({
   title,
   slug,
   short_description,
-  price_label,
   duration,
   cover_image_url,
   gallery,
@@ -105,7 +102,6 @@ export function ExperienceCard({
 interface FeaturedCardProps {
   title: string
   slug: string
-  price_label: string
   duration: string
   cover_image_url: string
   basePath: 'activities' | 'excursions'
@@ -115,7 +111,6 @@ interface FeaturedCardProps {
 export function FeaturedCard({
   title,
   slug,
-  price_label,
   duration,
   cover_image_url,
   basePath,

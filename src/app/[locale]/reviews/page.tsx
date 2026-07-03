@@ -1,9 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import type { Metadata } from 'next'
-import Link from 'next/link'
-import { ArrowRight, Send, Star } from 'lucide-react'
+import { Star } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'

@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { getTranslations } from 'next-intl/server'
-import { blogPosts, BlogPost } from '@/lib/blog-data'
+import { blogPosts } from '@/lib/blog-data'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Clock, User, Calendar, ArrowRight, ChevronLeft, Share2, MessageCircle, Copy } from 'lucide-react'
+import { Clock, Calendar, ArrowRight, ChevronLeft, Share2, MessageCircle } from 'lucide-react'
 import { CopyButton } from '@/components/ui/CopyButton'
 
 function FacebookIcon({ className }: { className?: string }) {

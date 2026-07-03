@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { getTranslations } from 'next-intl/server'
-import { blogPosts, BlogPost } from '@/lib/blog-data'
+import { blogPosts } from '@/lib/blog-data'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Clock, User, Calendar, ArrowRight } from 'lucide-react'
+import { Clock, ArrowRight } from 'lucide-react'
 
 interface PageProps {
   params: Promise<{ locale: string }>

@@ -38,7 +38,9 @@ export function ImageCarousel({ images, title, variant = 'hero' }: ImageCarousel
   useEffect(() => {
     if (images.length <= 1) return
     const timer = setInterval(() => {
-      handleNext()
+      setCurrentIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      )
     }, 5000)
     return () => clearInterval(timer)
   }, [images.length])

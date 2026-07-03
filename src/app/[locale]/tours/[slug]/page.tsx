@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -70,7 +70,6 @@ export default async function TourDetailPage({ params }: Props) {
           <div className="flex flex-wrap justify-center gap-3 mt-8">
             <span className="glass px-4 py-2 rounded-full text-sm text-foreground/80">⏱️ {tour.duration}</span>
             <span className="glass px-4 py-2 rounded-full text-sm text-foreground/80">🚗 Private transport</span>
-            <span className="glass px-4 py-2 rounded-full text-sm text-foreground/80">💰 {tour.price_label}</span>
             <span className="glass px-4 py-2 rounded-full text-sm text-foreground/80">👥 Max 6 passengers</span>
           </div>
         </div>
@@ -197,7 +196,7 @@ export default async function TourDetailPage({ params }: Props) {
                   <h3 className="font-display text-lg font-bold text-foreground group-hover:text-[var(--brand-gold)] transition-colors">
                     {other.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm">{other.duration} · {other.price_label}</p>
+                  <p className="text-muted-foreground text-sm">{other.duration}</p>
                   <span className="text-[var(--brand-gold)] text-sm font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
                     View itinerary <ArrowRight className="w-3.5 h-3.5" />
                   </span>

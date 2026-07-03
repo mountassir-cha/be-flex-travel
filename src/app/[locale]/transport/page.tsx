@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Link } from '@/i18n/routing'
-import { ArrowRight, Car, Clock, Check } from 'lucide-react'
+import { ArrowRight, Car, Clock } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { transportRoutes } from '@/lib/data'

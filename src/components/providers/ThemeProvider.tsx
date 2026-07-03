@@ -6,7 +6,7 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes'
 // Suppress React 19 / next-themes script tag warning in development
 if (process.env.NODE_ENV === 'development') {
   const originalError = console.error
-  console.error = (...args: any[]) => {
+  console.error = (...args: unknown[]) => {
     if (
       args[0] &&
       typeof args[0] === 'string' &&

@@ -69,7 +69,7 @@ export default async function AdminReviewsPage() {
                   <span className="text-xs text-white/50 capitalize ml-auto">{review.source}</span>
                 </div>
                 <div className="p-4 bg-black/40 rounded-lg text-white/80 text-sm italic flex-1 mb-4">
-                  "{review.text}"
+                  &ldquo;{review.text}&rdquo;
                 </div>
                 
                 <div className="flex gap-2 mt-auto">
