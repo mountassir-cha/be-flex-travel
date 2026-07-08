@@ -31,7 +31,7 @@ export default async function HomePage() {
 
   const stats = [
     { icon: Users, value: '2,000+', label: t('stats.travellers') },
-    { icon: Star, value: '4.9 / 5', label: t('stats.rating') },
+    { icon: Star, value: '4.6 / 5', label: t('stats.rating') },
     { icon: MapPin, value: '15+', label: t('stats.destinations') },
     { icon: Award, value: '8+ Years', label: t('stats.experience') },
   ]
