@@ -10,12 +10,13 @@ const imageData = [
   ...excursions.map((e) => ({ src: e.cover_image_url, title: e.title })),
 ]
 
-// Offset each row so they don't all start with the same image
-const row1 = [...imageData]
-const row2 = [...imageData.slice(5),  ...imageData.slice(0, 5)]
-const row3 = [...imageData.slice(10), ...imageData.slice(0, 10)]
-const row4 = [...imageData.slice(3),  ...imageData.slice(0, 3)]
-const row5 = [...imageData.slice(7),  ...imageData.slice(0, 7)]
+// Offset and select a smaller subset of 6 unique images per row to cut total elements from 150 to 60.
+// This significantly improves initial page load speed, CPU/GPU rendering, and memory footprint.
+const row1 = imageData.slice(0, 6)
+const row2 = imageData.slice(3, 9)
+const row3 = imageData.slice(6, 12)
+const row4 = imageData.slice(9, 15)
+const row5 = [...imageData.slice(12), ...imageData.slice(0, 3)]
 
 export function AnimatedHeroGallery() {
   return (
@@ -29,11 +30,16 @@ export function AnimatedHeroGallery() {
           width: '160vw',
         }}
       >
-        <MarqueeRow images={row1} direction="left"  speed={50} />
+        {/* Hide rows 1 and 5 on mobile to save CPU/GPU cycles and bandwidth */}
+        <div className="hidden md:block">
+          <MarqueeRow images={row1} direction="left"  speed={50} />
+        </div>
         <MarqueeRow images={row2} direction="right" speed={38} />
         <MarqueeRow images={row3} direction="left"  speed={55} />
         <MarqueeRow images={row4} direction="right" speed={42} />
-        <MarqueeRow images={row5} direction="left"  speed={60} />
+        <div className="hidden md:block">
+          <MarqueeRow images={row5} direction="left"  speed={60} />
+        </div>
       </div>
 
       {/* ── Layer 1 — uniform dark base (dims the whole gallery) ── */}

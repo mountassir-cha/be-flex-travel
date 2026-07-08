@@ -45,7 +45,7 @@ export default async function ExcursionDetailPage({ params }: Props) {
   return (
     <div className="min-h-screen pt-20 pb-20">
       <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-        <ImageCarousel images={carouselImages} title={excursion.title} />
+        <ImageCarousel images={carouselImages} title={excursion.title} priority={true} />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent pointer-events-none" />
         <div className="absolute top-6 left-4 z-10">
           <Button asChild variant="ghost" className="text-white glass hover:bg-white/20">

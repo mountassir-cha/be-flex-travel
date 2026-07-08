@@ -15,7 +15,7 @@ export const activities: Activity[] = [
     cover_image_url: '/images/activities/camel-ride.jpg',
     gallery: [
       '/images/activities/camel-ride-g1.jpg',
-      '/images/activities/camel-ride.jpg',
+      '/images/activities/camel-ride-g2.png',
     ],
     featured: true,
     order_rank: 1,
@@ -36,7 +36,7 @@ export const activities: Activity[] = [
     cover_image_url: '/images/activities/quad-biking.jpg',
     gallery: [
       '/images/activities/quad-biking-g1.jpg',
-      '/images/activities/quad-biking.jpg',
+      '/images/activities/quad-biking-g2.png',
     ],
     featured: true,
     order_rank: 2,
@@ -57,7 +57,7 @@ export const activities: Activity[] = [
     cover_image_url: '/images/activities/hot-air-balloon.jpg',
     gallery: [
       '/images/activities/hot-air-balloon-g1.jpg',
-      '/images/activities/hot-air-balloon.jpg',
+      '/images/activities/hot-air-balloon-g2.png',
     ],
     featured: true,
     order_rank: 3,
@@ -78,7 +78,7 @@ export const activities: Activity[] = [
     cover_image_url: '/images/activities/cycle-bike.jpg',
     gallery: [
       '/images/activities/cycle-bike-g1.jpg',
-      '/images/activities/cycle-bike.jpg',
+      '/images/activities/cycle-bike-g2.png',
     ],
     featured: false,
     order_rank: 4,
@@ -99,7 +99,7 @@ export const activities: Activity[] = [
     cover_image_url: '/images/activities/side-car.jpg',
     gallery: [
       '/images/activities/side-car-g1.jpg',
-      '/images/activities/side-car.jpg',
+      '/images/activities/side-car-g2.png',
     ],
     featured: false,
     order_rank: 5,
@@ -120,7 +120,7 @@ export const activities: Activity[] = [
     cover_image_url: '/images/activities/hammam-spa.jpg',
     gallery: [
       '/images/activities/hammam-spa-g1.jpg',
-      '/images/activities/hammam-spa.jpg',
+      '/images/activities/hammam-spa-g2.png',
     ],
     featured: true,
     order_rank: 6,
@@ -141,7 +141,7 @@ export const activities: Activity[] = [
     cover_image_url: '/images/activities/cooking-class.jpg',
     gallery: [
       '/images/activities/cooking-class-g1.jpg',
-      '/images/activities/cooking-class.jpg',
+      '/images/activities/cooking-class-g2.png',
     ],
     featured: false,
     order_rank: 7,
@@ -162,7 +162,7 @@ export const activities: Activity[] = [
     cover_image_url: '/images/activities/paragliding.jpg',
     gallery: [
       '/images/activities/paragliding-g1.jpg',
-      '/images/activities/paragliding.jpg',
+      '/images/activities/paragliding-g2.png',
     ],
     featured: false,
     order_rank: 8,
@@ -187,7 +187,7 @@ export const excursions: Excursion[] = [
     cover_image_url: '/images/activities/ourika-valley.jpg',
     gallery: [
       '/images/activities/ourika-valley-g1.jpg',
-      '/images/activities/ourika-valley.jpg',
+      '/images/activities/ourika-valley-g2.png',
     ],
     featured: true,
     order_rank: 1,
@@ -208,7 +208,7 @@ export const excursions: Excursion[] = [
     cover_image_url: '/images/activities/essaouira.jpg',
     gallery: [
       '/images/activities/essaouira-g1.jpg',
-      '/images/activities/essaouira.jpg',
+      '/images/activities/essaouira-g2.png',
     ],
     featured: true,
     order_rank: 2,
@@ -229,7 +229,7 @@ export const excursions: Excursion[] = [
     cover_image_url: '/images/activities/ouzoud-waterfalls.jpg',
     gallery: [
       '/images/activities/ouzoud-waterfalls-g1.jpg',
-      '/images/activities/ouzoud-waterfalls.jpg',
+      '/images/activities/ouzoud-waterfalls-g2.png',
     ],
     featured: true,
     order_rank: 3,
@@ -250,7 +250,7 @@ export const excursions: Excursion[] = [
     cover_image_url: '/images/activities/atlas-ouarzazate.jpg',
     gallery: [
       '/images/activities/atlas-ouarzazate-g1.jpg',
-      '/images/activities/atlas-ouarzazate.jpg',
+      '/images/activities/atlas-ouarzazate-g2.png',
     ],
     featured: true,
     order_rank: 4,
@@ -271,7 +271,7 @@ export const excursions: Excursion[] = [
     cover_image_url: '/images/activities/agafay-desert.jpg',
     gallery: [
       '/images/activities/agafay-desert-g1.jpg',
-      '/images/activities/agafay-desert.jpg',
+      '/images/activities/agafay-desert-g2.png',
     ],
     featured: false,
     order_rank: 5,
@@ -292,7 +292,7 @@ export const excursions: Excursion[] = [
     cover_image_url: '/images/activities/imlil.jpg',
     gallery: [
       '/images/activities/imlil-g1.jpg',
-      '/images/activities/imlil.jpg',
+      '/images/activities/imlil-g2.png',
     ],
     featured: false,
     order_rank: 6,
@@ -313,7 +313,7 @@ export const excursions: Excursion[] = [
     cover_image_url: '/images/activities/agadir.jpg',
     gallery: [
       '/images/activities/agadir-g1.jpg',
-      '/images/activities/agadir.jpg',
+      '/images/activities/agadir-g2.png',
     ],
     featured: false,
     order_rank: 7,

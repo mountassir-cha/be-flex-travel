@@ -46,7 +46,7 @@ export default async function ActivityDetailPage({ params }: Props) {
     <div className="min-h-screen pt-20 pb-20">
       {/* Hero Image */}
       <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-        <ImageCarousel images={carouselImages} title={activity.title} />
+        <ImageCarousel images={carouselImages} title={activity.title} priority={true} />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent pointer-events-none" />
 
         {/* Back button */}

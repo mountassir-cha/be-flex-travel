@@ -9,10 +9,17 @@ interface ImageCarouselProps {
   images: string[]
   title: string
   variant?: 'hero' | 'card'
+  priority?: boolean
 }
 
-export function ImageCarousel({ images, title, variant = 'hero' }: ImageCarouselProps) {
+export function ImageCarousel({
+  images,
+  title,
+  variant = 'hero',
+  priority = false,
+}: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [hasInteracted, setHasInteracted] = useState(false)
 
   const handlePrevious = (e?: React.MouseEvent) => {
     if (e) {
@@ -34,41 +41,57 @@ export function ImageCarousel({ images, title, variant = 'hero' }: ImageCarousel
     )
   }
 
-  // Auto-advance
+  // Auto-advance (disabled for cards to prevent constant layout repaints)
   useEffect(() => {
-    if (images.length <= 1) return
+    if (images.length <= 1 || variant === 'card') return
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       )
     }, 5000)
     return () => clearInterval(timer)
-  }, [images.length])
+  }, [images.length, variant])
 
   if (images.length === 0) return null
 
   const isHero = variant === 'hero'
   const imageClassName = isHero ? "object-cover" : "object-cover group-hover:scale-110 transition-transform duration-700"
 
+  const handleInteraction = () => {
+    if (!hasInteracted) {
+      setHasInteracted(true)
+    }
+  }
+
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden group">
-      {images.map((image, index) => (
-        <div
-          key={`${image}-${index}`}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === currentIndex ? 'opacity-100 z-0' : 'opacity-0 -z-10'
-          }`}
-        >
-          <Image
-            src={image}
-            alt={`${title} - Image ${index + 1}`}
-            fill
-            priority={index === 0}
-            className={imageClassName}
-            sizes={isHero ? "100vw" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
-          />
-        </div>
-      ))}
+    <div 
+      className="absolute inset-0 w-full h-full overflow-hidden group"
+      onMouseEnter={handleInteraction}
+      onTouchStart={handleInteraction}
+    >
+      {images.map((image, index) => {
+        // For card variant, only render slide 0 initially to save network/CPU
+        if (variant === 'card' && index !== 0 && !hasInteracted) {
+          return null
+        }
+        return (
+          <div
+            key={`${image}-${index}`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              index === currentIndex ? 'opacity-100 z-0' : 'opacity-0 -z-10'
+            }`}
+          >
+            <Image
+              src={image}
+              alt={`${title} - Image ${index + 1}`}
+              fill
+              priority={priority && index === 0}
+              className={imageClassName}
+              sizes={isHero ? "100vw" : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"}
+            />
+          </div>
+        )
+      })}
 
       {images.length > 1 && (
         <>
