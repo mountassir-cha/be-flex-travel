@@ -155,7 +155,7 @@ function ContactForm() {
 
       <p className="text-xs text-center text-muted-foreground">
         Or reach us directly on{' '}
-        <a href="https://wa.me/212766908381" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:underline">
+        <a href="https://wa.me/212672770883" target="_blank" rel="noopener noreferrer" className="text-[#25D366] hover:underline">
           WhatsApp
         </a>{' '}
         — we reply within 2 hours.
@@ -201,7 +201,7 @@ export default function ContactPage() {
               </div>
 
               <a
-                href="https://wa.me/212766908381"
+                href="https://wa.me/212672770883"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-[#25D366]/10 border border-[#25D366]/30 text-[#25D366] hover:bg-[#25D366]/20 transition-all duration-200"
@@ -209,7 +209,7 @@ export default function ContactPage() {
                 <MessageCircle className="w-5 h-5" />
                 <div>
                   <div className="font-semibold text-sm">WhatsApp Us Now</div>
-                  <div className="text-xs text-[#25D366]/70">0766908381</div>
+                  <div className="text-xs text-[#25D366]/70">0672770883</div>
                 </div>
                 <ArrowRight className="w-4 h-4 ml-auto" />
               </a>

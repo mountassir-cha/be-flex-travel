@@ -147,7 +147,7 @@ export default function TransportPage() {
               <Link href="/contact?activity=Custom+Transfer">Request Custom Transfer</Link>
             </Button>
             <Button asChild variant="outline" className="border-border text-foreground hover:bg-foreground/5">
-              <a href="https://wa.me/212766908381" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+              <a href="https://wa.me/212672770883" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
             </Button>
           </div>
         </div>

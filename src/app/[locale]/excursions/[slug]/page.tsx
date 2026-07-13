@@ -128,7 +128,7 @@ export default async function ExcursionDetailPage({ params }: Props) {
                 <Link href={contactHref}>Book This Excursion <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
               <Button asChild variant="outline" className="w-full border-border text-foreground hover:bg-foreground/5">
-                <a href="https://wa.me/212766908381" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+                <a href="https://wa.me/212672770883" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
               </Button>
               <p className="text-xs text-center text-muted-foreground">We reply within 2 hours · No booking fee</p>
             </div>
