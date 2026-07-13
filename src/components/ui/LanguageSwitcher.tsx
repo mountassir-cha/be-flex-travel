@@ -33,7 +33,7 @@ export function LanguageSwitcher() {
     { code: 'es', label: 'ES' },
     { code: 'it', label: 'IT' },
     { code: 'de', label: 'DE' },
-    { code: 'zgh', label: 'ⵜⵎⵣ' }
+    { code: 'zgh', label: 'AMZ' } // AMZ is readable on all mobile devices instead of Tifinagh 'ⵜⵎⵣ'
   ]
 
   const isOtherActive = otherLocales.some(l => l.code === locale)
@@ -44,10 +44,10 @@ export function LanguageSwitcher() {
       {/* English (fixed) */}
       <button
         onClick={() => switchLocale('en')}
-        className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${
+        className={`px-3 py-1 text-xs font-semibold rounded-full transition-all ${
           locale === 'en'
-            ? 'bg-[var(--brand-gold)] text-black shadow-md font-semibold'
-            : 'text-foreground/70 hover:text-foreground'
+            ? 'bg-[var(--brand-gold)] text-black shadow-md font-bold'
+            : 'text-foreground/80 hover:text-foreground'
         }`}
       >
         EN
@@ -56,10 +56,10 @@ export function LanguageSwitcher() {
       {/* French (fixed) */}
       <button
         onClick={() => switchLocale('fr')}
-        className={`px-3 py-1 text-xs font-medium rounded-full transition-all ${
+        className={`px-3 py-1 text-xs font-semibold rounded-full transition-all ${
           locale === 'fr'
-            ? 'bg-[var(--brand-gold)] text-black shadow-md font-semibold'
-            : 'text-foreground/70 hover:text-foreground'
+            ? 'bg-[var(--brand-gold)] text-black shadow-md font-bold'
+            : 'text-foreground/80 hover:text-foreground'
         }`}
       >
         FR
@@ -69,10 +69,10 @@ export function LanguageSwitcher() {
       <div className="relative flex items-center">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`px-2.5 py-1 text-xs font-medium rounded-full transition-all flex items-center gap-1 ${
+          className={`px-3 py-1 text-xs font-semibold rounded-full transition-all flex items-center gap-1.5 ${
             isOtherActive
-              ? 'bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] font-semibold border border-[var(--brand-gold)]/30'
-              : 'text-foreground/70 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 border border-transparent'
+              ? 'bg-[var(--brand-gold)]/20 text-[var(--brand-gold)] font-bold border border-[var(--brand-gold)]/30'
+              : 'text-foreground/80 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5 border border-transparent'
           }`}
         >
           {isOtherActive ? activeOther?.label : <Globe className="w-3.5 h-3.5" />}
@@ -81,15 +81,15 @@ export function LanguageSwitcher() {
 
         {/* Dropdown menu */}
         {isOpen && (
-          <div className="absolute right-0 top-[120%] mt-1 py-1.5 w-24 rounded-xl bg-card border border-border shadow-2xl flex flex-col z-[100] overflow-hidden">
+          <div className="absolute right-0 top-[130%] mt-1 py-2 w-28 rounded-xl bg-card border border-border shadow-2xl flex flex-col z-[100] overflow-hidden">
             {otherLocales.map((other) => (
               <button
                 key={other.code}
                 onClick={() => switchLocale(other.code)}
-                className={`px-4 py-2 text-xs text-left font-medium transition-all flex items-center justify-between w-full ${
+                className={`px-4 py-2.5 text-xs text-left font-semibold transition-all flex items-center justify-between w-full ${
                   locale === other.code
-                    ? 'text-[var(--brand-gold)] bg-black/5 dark:bg-white/5 font-semibold'
-                    : 'text-foreground/70 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5'
+                    ? 'text-[var(--brand-gold)] bg-black/5 dark:bg-white/5 font-bold'
+                    : 'text-foreground/80 hover:text-foreground hover:bg-black/5 dark:hover:bg-white/5'
                 }`}
               >
                 <span>{other.label}</span>
