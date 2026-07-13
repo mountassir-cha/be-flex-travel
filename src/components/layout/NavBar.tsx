@@ -47,7 +47,7 @@ export function NavBar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 rounded-full overflow-hidden shadow-lg group-hover:scale-105 transition-transform duration-300">
-            <Image src="/logo.jpg" alt="Be Flex Travel Logo" fill className="object-cover" />
+            <Image src="/logo.jpg" alt="Be Flex Travel Logo" fill className="object-cover" sizes="40px" />
           </div>
           <div className="flex flex-col leading-none">
             <span className="font-display text-lg font-bold text-foreground tracking-wide">Be Flex</span>
@@ -102,7 +102,7 @@ export function NavBar() {
               <div className="flex items-center p-6 border-b border-border">
                 <Link href="/" className="flex items-center gap-3" onClick={() => setMobileOpen(false)}>
                   <div className="relative w-8 h-8 rounded-full overflow-hidden">
-                    <Image src="/logo.jpg" alt="Be Flex Travel Logo" fill className="object-cover" />
+                    <Image src="/logo.jpg" alt="Be Flex Travel Logo" fill className="object-cover" sizes="32px" />
                   </div>
                   <span className="font-display text-lg font-bold text-foreground">Be Flex Travel</span>
                 </Link>

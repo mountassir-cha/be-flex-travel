@@ -81,7 +81,7 @@ export function LanguageSwitcher() {
 
         {/* Dropdown menu */}
         {isOpen && (
-          <div className="absolute right-0 top-[120%] mt-1 py-1.5 w-24 rounded-xl bg-card border border-border shadow-2xl flex flex-col z-[100] overflow-hidden bg-white dark:bg-[#121212]">
+          <div className="absolute right-0 top-[120%] mt-1 py-1.5 w-24 rounded-xl bg-card border border-border shadow-2xl flex flex-col z-[100] overflow-hidden">
             {otherLocales.map((other) => (
               <button
                 key={other.code}

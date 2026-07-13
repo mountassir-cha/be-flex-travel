@@ -46,7 +46,7 @@ export async function POST(request: Request) {
     }
 
     const { error: emailError } = await resend.emails.send({
-      from: 'Be Flex Travel <onboarding@resend.dev>', // Update to a verified domain in production
+      from: process.env.EMAIL_FROM || 'Be Flex Travel <onboarding@resend.dev>',
       to: [destinationEmail],
       replyTo: email,
       subject: emailSubject,

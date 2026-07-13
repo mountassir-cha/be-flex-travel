@@ -35,11 +35,7 @@ export default async function ActivityDetailPage({ params }: Props) {
 
   const galleryImages = activity.gallery?.length > 0 
     ? activity.gallery 
-    : [
-        `https://picsum.photos/seed/${activity.slug}-1/1200/800`,
-        `https://picsum.photos/seed/${activity.slug}-2/1200/800`,
-        `https://picsum.photos/seed/${activity.slug}-3/1200/800`,
-      ]
+    : []
   const carouselImages = [activity.cover_image_url, ...galleryImages]
 
   return (

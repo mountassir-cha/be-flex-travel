@@ -38,11 +38,7 @@ export function ExperienceCard({
 
   const galleryImages = gallery && gallery.length > 0 
     ? gallery 
-    : [
-        `https://picsum.photos/seed/${slug}-1/800/600`,
-        `https://picsum.photos/seed/${slug}-2/800/600`,
-        `https://picsum.photos/seed/${slug}-3/800/600`,
-      ]
+    : []
   const carouselImages = [cover_image_url, ...galleryImages]
 
   return (

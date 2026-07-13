@@ -62,7 +62,7 @@ export default function TransportPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {airportRoutes.map((route) => (
-              <div key={route.id} className="p-5 rounded-2xl glass border border-white/5 hover:border-[var(--brand-gold)]/30 transition-all duration-300 group">
+              <div key={route.id} className="p-5 rounded-2xl glass border border-border hover:border-[var(--brand-gold)]/30 transition-all duration-300 group">
                 <div className="flex items-center justify-between mb-4">
                   <Badge variant="outline" className="border-border text-muted-foreground text-xs">
                     {typeLabels[route.type]}
@@ -104,7 +104,7 @@ export default function TransportPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {cityRoutes.map((route) => (
-              <div key={route.id} className="p-5 rounded-2xl glass border border-white/5 hover:border-[var(--brand-gold)]/30 transition-all duration-300 group">
+              <div key={route.id} className="p-5 rounded-2xl glass border border-border hover:border-[var(--brand-gold)]/30 transition-all duration-300 group">
                 <div className="flex items-center justify-between mb-4">
                   <Badge variant="outline" className="border-border text-muted-foreground text-xs">
                     {typeLabels[route.type]}

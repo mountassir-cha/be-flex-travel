@@ -14,49 +14,49 @@ export default async function AdminDashboardPage() {
 
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-display font-bold text-white">Dashboard Overview</h1>
+      <h1 className="text-3xl font-display font-bold text-foreground">Dashboard Overview</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <Card className="bg-[#111111] border-[var(--brand-gold)]/20">
+        <Card className="bg-card border-[var(--brand-gold)]/20">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-white/70">Inquiries</CardTitle>
+            <CardTitle className="text-sm font-medium text-foreground/70">Inquiries</CardTitle>
             <MessageSquare className="w-4 h-4 text-[var(--brand-gold)]" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">{inquiriesCount || 0}</div>
+            <div className="text-2xl font-bold text-foreground">{inquiriesCount || 0}</div>
             <p className="text-xs text-muted-foreground mt-1">Total messages received</p>
           </CardContent>
         </Card>
 
-        <Card className="bg-[#111111] border-[var(--brand-gold)]/20">
+        <Card className="bg-card border-[var(--brand-gold)]/20">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-white/70">Reviews</CardTitle>
+            <CardTitle className="text-sm font-medium text-foreground/70">Reviews</CardTitle>
             <Star className="w-4 h-4 text-[var(--brand-gold)]" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">{reviewsCount || 0}</div>
+            <div className="text-2xl font-bold text-foreground">{reviewsCount || 0}</div>
             <p className="text-xs text-muted-foreground mt-1">Total reviews submitted</p>
           </CardContent>
         </Card>
 
-        <Card className="bg-[#111111] border-[var(--brand-gold)]/20">
+        <Card className="bg-card border-[var(--brand-gold)]/20">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-white/70">Activities</CardTitle>
+            <CardTitle className="text-sm font-medium text-foreground/70">Activities</CardTitle>
             <Activity className="w-4 h-4 text-[var(--brand-gold)]" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">{activitiesCount || 0}</div>
+            <div className="text-2xl font-bold text-foreground">{activitiesCount || 0}</div>
             <p className="text-xs text-muted-foreground mt-1">Active on website</p>
           </CardContent>
         </Card>
 
-        <Card className="bg-[#111111] border-[var(--brand-gold)]/20">
+        <Card className="bg-card border-[var(--brand-gold)]/20">
           <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-white/70">Excursions</CardTitle>
+            <CardTitle className="text-sm font-medium text-foreground/70">Excursions</CardTitle>
             <Map className="w-4 h-4 text-[var(--brand-gold)]" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold text-white">{excursionsCount || 0}</div>
+            <div className="text-2xl font-bold text-foreground">{excursionsCount || 0}</div>
             <p className="text-xs text-muted-foreground mt-1">Active on website</p>
           </CardContent>
         </Card>
@@ -64,12 +64,12 @@ export default async function AdminDashboardPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
         <div className="rounded-2xl glass border border-[var(--brand-gold)]/10 p-6">
-          <h2 className="text-xl font-semibold text-white mb-4">Recent Inquiries</h2>
-          <div className="text-sm text-white/50">Navigate to the Inquiries tab to view and manage leads.</div>
+          <h2 className="text-xl font-semibold text-foreground mb-4">Recent Inquiries</h2>
+          <div className="text-sm text-muted-foreground">Navigate to the Inquiries tab to view and manage leads.</div>
         </div>
         <div className="rounded-2xl glass border border-[var(--brand-gold)]/10 p-6">
-          <h2 className="text-xl font-semibold text-white mb-4">Pending Reviews</h2>
-          <div className="text-sm text-white/50">Navigate to the Reviews tab to approve or reject customer testimonials.</div>
+          <h2 className="text-xl font-semibold text-foreground mb-4">Pending Reviews</h2>
+          <div className="text-sm text-muted-foreground">Navigate to the Reviews tab to approve or reject customer testimonials.</div>
         </div>
       </div>
     </div>

@@ -61,7 +61,7 @@ export default function CircuitsPage() {
             return (
               <div
                 key={circuit.slug}
-                className={`group relative overflow-hidden rounded-3xl border border-white/8 bg-card/60 backdrop-blur transition-all duration-500 hover:border-white/15 hover:shadow-2xl ${accent.glow} shadow-xl`}
+                className={`group relative overflow-hidden rounded-3xl border border-border bg-card/60 backdrop-blur transition-all duration-500 hover:border-[var(--brand-gold)]/20 hover:shadow-2xl ${accent.glow} shadow-xl`}
               >
                 {/* Glow orb */}
                 <div
@@ -127,7 +127,7 @@ export default function CircuitsPage() {
                         {circuit.highlights_summary.map((h) => (
                           <span
                             key={h}
-                            className="flex items-center gap-1.5 text-xs text-foreground/70 glass px-3 py-1.5 rounded-full border border-white/8"
+                            className="flex items-center gap-1.5 text-xs text-foreground/70 glass px-3 py-1.5 rounded-full border border-border"
                           >
                             <Check className="w-2.5 h-2.5 text-[var(--brand-gold)]" />
                             {h}
@@ -162,7 +162,7 @@ export default function CircuitsPage() {
                       <Button
                         asChild
                         variant="outline"
-                        className="border-white/15 text-foreground hover:bg-white/5"
+                        className="border-border text-foreground hover:bg-foreground/5"
                       >
                         <Link href={`/contact?activity=${encodeURIComponent(circuit.title)}`}>
                           Book This Circuit

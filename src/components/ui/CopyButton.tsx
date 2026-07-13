@@ -32,7 +32,7 @@ export function CopyButton({
       variant="outline"
       size="sm"
       onClick={handleCopy}
-      className={`flex items-center gap-2 px-4 py-2 border-white/20 text-white hover:bg-white/5 transition-all text-xs font-semibold select-none ${
+      className={`flex items-center gap-2 px-4 py-2 border-border text-foreground hover:bg-foreground/5 transition-all text-xs font-semibold select-none ${
         copied ? 'text-[var(--brand-gold)] border-[var(--brand-gold)]/30 bg-[var(--brand-gold)]/5' : ''
       }`}
     >

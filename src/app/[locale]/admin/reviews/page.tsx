@@ -42,19 +42,19 @@ export default async function AdminReviewsPage() {
 
   return (
     <div className="space-y-8">
-      <h1 className="text-3xl font-display font-bold text-white">Manage Reviews</h1>
+      <h1 className="text-3xl font-display font-bold text-foreground">Manage Reviews</h1>
       
       {(!reviews || reviews.length === 0) ? (
-        <div className="p-8 text-center text-white/50 bg-[#111111] rounded-2xl border border-[var(--brand-gold)]/10">
+        <div className="p-8 text-center text-foreground/50 bg-card rounded-2xl border border-[var(--brand-gold)]/10">
           No reviews received yet.
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {reviews.map((review) => (
-            <Card key={review.id} className="bg-[#111111] border-[var(--brand-gold)]/20 flex flex-col">
+            <Card key={review.id} className="bg-card border-[var(--brand-gold)]/20 flex flex-col">
               <CardHeader className="pb-3 flex flex-row justify-between items-start">
                 <div>
-                  <CardTitle className="text-lg font-bold text-white">{review.author_name}</CardTitle>
+                  <CardTitle className="text-lg font-bold text-foreground">{review.author_name}</CardTitle>
                   <div className="text-sm text-muted-foreground mt-1">
                     {new Date(review.created_at).toLocaleDateString()}
                   </div>
@@ -66,9 +66,9 @@ export default async function AdminReviewsPage() {
               <CardContent className="flex-1 flex flex-col">
                 <div className="flex items-center gap-2 mb-3">
                   <RatingStars rating={review.rating} size="sm" />
-                  <span className="text-xs text-white/50 capitalize ml-auto">{review.source}</span>
+                  <span className="text-xs text-foreground/50 capitalize ml-auto">{review.source}</span>
                 </div>
-                <div className="p-4 bg-black/40 rounded-lg text-white/80 text-sm italic flex-1 mb-4">
+                <div className="p-4 bg-foreground/5 rounded-lg text-foreground/80 text-sm italic flex-1 mb-4">
                   &ldquo;{review.text}&rdquo;
                 </div>
                 

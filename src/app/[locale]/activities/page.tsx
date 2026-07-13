@@ -24,7 +24,7 @@ export default function ActivitiesPage() {
           <Badge variant="outline" className="border-[var(--brand-gold)]/40 text-[var(--brand-gold)] mb-3">
             Things to Do
           </Badge>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-4">
+          <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-4">
             Activities in <span className="text-gradient-gold">Marrakech</span>
           </h1>
           <p className="text-muted-foreground text-lg leading-relaxed">
@@ -37,7 +37,7 @@ export default function ActivitiesPage() {
       {/* Featured */}
       {featured.length > 0 && (
         <section className="container mx-auto px-4 mb-14">
-          <h2 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+          <h2 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
             <span className="w-1 h-6 rounded bg-[var(--brand-gold)] inline-block" />
             Top Picks
           </h2>
@@ -52,7 +52,7 @@ export default function ActivitiesPage() {
       {/* All Activities */}
       {rest.length > 0 && (
         <section className="container mx-auto px-4 mb-14">
-          <h2 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+          <h2 className="text-xl font-semibold text-foreground mb-6 flex items-center gap-2">
             <span className="w-1 h-6 rounded bg-[var(--brand-gold)] inline-block" />
             More Experiences
           </h2>

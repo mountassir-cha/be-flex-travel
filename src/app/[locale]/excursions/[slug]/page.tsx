@@ -35,11 +35,7 @@ export default async function ExcursionDetailPage({ params }: Props) {
 
   const galleryImages = excursion.gallery?.length > 0 
     ? excursion.gallery 
-    : [
-        `https://picsum.photos/seed/${excursion.slug}-1/1200/800`,
-        `https://picsum.photos/seed/${excursion.slug}-2/1200/800`,
-        `https://picsum.photos/seed/${excursion.slug}-3/1200/800`,
-      ]
+    : []
   const carouselImages = [excursion.cover_image_url, ...galleryImages]
 
   return (
@@ -48,7 +44,7 @@ export default async function ExcursionDetailPage({ params }: Props) {
         <ImageCarousel images={carouselImages} title={excursion.title} priority={true} />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent pointer-events-none" />
         <div className="absolute top-6 left-4 z-10">
-          <Button asChild variant="ghost" className="text-white glass hover:bg-white/20">
+          <Button asChild variant="ghost" className="text-foreground glass hover:bg-foreground/10">
             <Link href="/excursions">
               <ChevronLeft className="w-4 h-4 mr-1" /> All Excursions
             </Link>
@@ -60,7 +56,7 @@ export default async function ExcursionDetailPage({ params }: Props) {
               <Badge className="bg-[var(--brand-gold)] text-white border-0">Popular</Badge>
             )}
           </div>
-          <h1 className="font-display text-4xl md:text-5xl font-bold text-white">{excursion.title}</h1>
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground">{excursion.title}</h1>
         </div>
       </div>
 
@@ -68,7 +64,7 @@ export default async function ExcursionDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-10">
             <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 glass px-4 py-2 rounded-xl text-sm text-white/80">
+              <div className="flex items-center gap-2 glass px-4 py-2 rounded-xl text-sm text-foreground/80">
                 <Clock className="w-4 h-4 text-[var(--brand-gold)]" />{excursion.duration}
               </div>
               <div className="flex items-center gap-2 glass px-4 py-2 rounded-xl text-sm">
@@ -76,21 +72,21 @@ export default async function ExcursionDetailPage({ params }: Props) {
               </div>
               <div className="flex items-center gap-2 glass px-4 py-2 rounded-xl">
                 <RatingStars rating={5} size="sm" />
-                <span className="text-sm text-white/60">Excellent</span>
+                <span className="text-sm text-muted-foreground">Excellent</span>
               </div>
             </div>
 
             <div>
-              <h2 className="font-display text-2xl font-bold text-white mb-4">About this excursion</h2>
+              <h2 className="font-display text-2xl font-bold text-foreground mb-4">About this excursion</h2>
               <p className="text-muted-foreground leading-relaxed text-base">{excursion.description}</p>
             </div>
 
             {excursion.highlights.length > 0 && (
               <div>
-                <h2 className="font-display text-2xl font-bold text-white mb-4">Highlights</h2>
+                <h2 className="font-display text-2xl font-bold text-foreground mb-4">Highlights</h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {excursion.highlights.map((h) => (
-                    <li key={h} className="flex items-start gap-3 text-sm text-white/80">
+                    <li key={h} className="flex items-start gap-3 text-sm text-foreground/80">
                       <div className="w-5 h-5 rounded-full bg-[var(--brand-gold)]/20 flex items-center justify-center shrink-0 mt-0.5">
                         <Check className="w-3 h-3 text-[var(--brand-gold)]" />
                       </div>
@@ -103,11 +99,11 @@ export default async function ExcursionDetailPage({ params }: Props) {
 
             {excursion.included.length > 0 && (
               <div>
-                <h2 className="font-display text-2xl font-bold text-white mb-4">What&apos;s Included</h2>
+                <h2 className="font-display text-2xl font-bold text-foreground mb-4">What&apos;s Included</h2>
                 <ul className="flex flex-wrap gap-2">
                   {excursion.included.map((item) => (
                     <li key={item}>
-                      <span className="flex items-center gap-1.5 glass px-3 py-1.5 rounded-full text-sm text-white/70">
+                      <span className="flex items-center gap-1.5 glass px-3 py-1.5 rounded-full text-sm text-foreground/70">
                         <Check className="w-3 h-3 text-[var(--brand-gold)]" /> {item}
                       </span>
                     </li>

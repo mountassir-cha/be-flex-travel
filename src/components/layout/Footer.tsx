@@ -70,7 +70,7 @@ export async function Footer() {
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-3 mb-6 group">
               <div className="relative w-12 h-12 rounded-full overflow-hidden shadow-lg group-hover:scale-105 transition-transform duration-300">
-                <Image src="/logo.jpg" alt="Be Flex Travel Logo" fill className="object-cover" />
+                <Image src="/logo.jpg" alt="Be Flex Travel Logo" fill className="object-cover" sizes="48px" />
               </div>
               <div className="flex flex-col leading-none">
                 <span className="font-display text-xl font-bold text-foreground tracking-wide">Be Flex</span>

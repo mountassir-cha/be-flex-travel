@@ -31,7 +31,7 @@ export const config = {
   matcher: [
     // Combine both matchers
     '/', 
-    '/(en|fr|es)/:path*',
+    '/(en|fr|es|it|de|zgh)/:path*',
     '/((?!_next/static|_next/image|api|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)'
   ]
 };

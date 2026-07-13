@@ -1,6 +1,3 @@
-/* ─── Google Fonts — must be first ─── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&display=swap');
-
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -53,52 +50,125 @@
 }
 
 /* ════════════════════════════════════════════════════
-   MIDNIGHT DESERT ROSE & SAHARA AMBER — Dark mode (DEFAULT)
+   LIGHT MODE (DEFAULT) — Clean, Bright, Premium
    ════════════════════════════════════════════════════ */
 :root {
-  /* ── Deep Indigo Night sky base ── */
-  --background:        #060813;        /* deep royal indigo-black */
-  --foreground:        #F9F6F0;        /* warm ivory off-white  */
+  /* ── Bright clean base ── */
+  --background:        #FAFAF8;        /* very light warm white */
+  --foreground:        #1A1A2E;        /* deep ink navy-charcoal */
 
-  --card:              #0B0E23;        /* slightly lifted deep slate-indigo */
+  --card:              #FFFFFF;        /* pure white cards */
+  --card-foreground:   #1A1A2E;
+
+  --popover:           #FFFFFF;
+  --popover-foreground:#1A1A2E;
+
+  /* Primary = Warm Amber-Gold */
+  --primary:           #B8860B;        /* elegant dark goldenrod */
+  --primary-foreground:#FFFFFF;
+
+  /* Secondary = Soft warm grey */
+  --secondary:         #F5F3EF;
+  --secondary-foreground:#1A1A2E;
+
+  --muted:             #F7F5F1;
+  --muted-foreground:  #6B6B7B;        /* readable mid-grey */
+
+  --accent:            #D4A843;        /* warm satin gold */
+  --accent-foreground: #1A1A2E;
+
+  --destructive:       oklch(0.55 0.22 27);
+
+  --border:            #E5E2DC;        /* clean warm border */
+  --input:             #F0EDE7;
+  --ring:              #B8860B;
+  --radius:            0.75rem;
+
+  /* ── Gold brand scale (light) ── */
+  --brand-gold:        #B8860B;   /* elegant dark goldenrod */
+  --brand-gold-light:  #D4A843;   /* satin warm gold */
+  --brand-gold-dark:   #8B6508;   /* deep antique gold */
+
+  /* ── Greyscale ── */
+  --brand-black:       #FAFAF8;
+  --brand-grey-dark:   #F5F3EF;
+  --brand-grey-mid:    #E5E2DC;
+  --brand-grey-light:  #6B6B7B;
+
+  /* Sidebar */
+  --sidebar:           #F7F5F1;
+  --sidebar-foreground:#1A1A2E;
+  --sidebar-primary:   #B8860B;
+  --sidebar-primary-foreground:#FFFFFF;
+  --sidebar-accent:    #F0EDE7;
+  --sidebar-accent-foreground:#1A1A2E;
+  --sidebar-border:    #E5E2DC;
+  --sidebar-ring:      #B8860B;
+
+  /* Utilities */
+  --grid-color:        rgba(0, 0, 0, 0.03);
+  --glass-bg:          rgba(255, 255, 255, 0.85);
+  --glass-border:      rgba(184, 134, 11, 0.15);
+
+  /* Hero overlays */
+  --hero-overlay:      rgba(250, 250, 248, 0.15);
+  --hero-vignette:     radial-gradient(ellipse 55% 50% at 50% 50%, rgba(250,250,248,0.45) 0%, transparent 100%);
+  --hero-title-shadow: 0 2px 15px rgba(0,0,0,0.08);
+  --hero-sub-shadow:   0 1px 8px rgba(0,0,0,0.05);
+  --hero-trust-shadow: 0 1px 4px rgba(0,0,0,0.05);
+
+  /* Theme responsive colors & shapes */
+  --gold-gradient:     linear-gradient(135deg, #D4A843 0%, #B8860B 50%, #8B6508 100%);
+  --brand-border-color:rgba(184, 134, 11, 0.25);
+  --gold-glow:         0 4px 20px rgba(184, 134, 11, 0.08), 0 1px 6px rgba(184, 134, 11, 0.04);
+
+  /* Banner/CTA section backgrounds */
+  --section-accent-bg:    #F7F5F1;
+  --section-accent-border:rgba(184, 134, 11, 0.18);
+}
+
+/* ════════════════════════════════════════════════════
+   DARK MODE — Midnight Desert Rose & Sahara Amber
+   ════════════════════════════════════════════════════ */
+:root.dark {
+  /* ── Deep Indigo Night sky base ── */
+  --background:        #060813;
+  --foreground:        #F9F6F0;
+
+  --card:              #0B0E23;
   --card-foreground:   #F9F6F0;
 
   --popover:           #0B0E23;
   --popover-foreground:#F9F6F0;
 
-  /* Primary = Gold */
-  --primary:           #D4AF37;        /* bright Sahara gold */
+  --primary:           #D4AF37;
   --primary-foreground:#060813;
 
-  /* Secondary = Deep slate */
   --secondary:         #111633;
   --secondary-foreground:#F9F6F0;
 
   --muted:             #0F132E;
-  --muted-foreground:  #7C8DAB;        /* soft muted indigo-gray */
+  --muted-foreground:  #7C8DAB;
 
-  --accent:            #FF9E2D;        /* glowing sunset amber-orange */
+  --accent:            #FF9E2D;
   --accent-foreground: #060813;
 
   --destructive:       oklch(0.65 0.22 27);
 
-  --border:            rgba(212, 175, 55, 0.15);  /* subtle gold border */
+  --border:            rgba(212, 175, 55, 0.15);
   --input:             rgba(255, 255, 255, 0.05);
   --ring:              #FF9E2D;
   --radius:            0.75rem;
 
-  /* ── Sahara Sunset scale ── */
-  --brand-gold:        #D4AF37;   /* main sand gold */
-  --brand-gold-light:  #FFC069;   /* glow amber highlights */
-  --brand-gold-dark:   #C2593F;   /* sunset terracotta/copper shadows */
+  --brand-gold:        #D4AF37;
+  --brand-gold-light:  #FFC069;
+  --brand-gold-dark:   #C2593F;
 
-  /* ── Greyscale/Deep Blues ── */
   --brand-black:       #060813;
   --brand-grey-dark:   #0B0E23;
   --brand-grey-mid:    #1E2548;
   --brand-grey-light:  #7C8DAB;
 
-  /* Sidebar */
   --sidebar:           #080A1A;
   --sidebar-foreground:#F9F6F0;
   --sidebar-primary:   #D4AF37;
@@ -108,99 +178,23 @@
   --sidebar-border:    rgba(212, 175, 55, 0.10);
   --sidebar-ring:      #FF9E2D;
 
-  /* Utilities */
   --grid-color:        rgba(255, 255, 255, 0.015);
   --glass-bg:          rgba(11, 14, 35, 0.45);
   --glass-border:      rgba(212, 175, 55, 0.12);
 
-  /* Hero overlays */
-  --hero-overlay:      rgba(5, 6, 15, 0.65);
+  --hero-overlay:      rgba(6, 8, 19, 0.25);
   --hero-vignette:     radial-gradient(ellipse 55% 50% at 50% 50%, rgba(5,6,15,0.55) 0%, transparent 100%);
   --hero-title-shadow: 0 2px 25px rgba(0,0,0,0.8), 0 4px 50px rgba(212,175,55,0.15);
   --hero-sub-shadow:   0 1px 12px rgba(0,0,0,0.9);
   --hero-trust-shadow: 0 1px 8px rgba(0,0,0,0.9);
 
-  /* Theme responsive colors & shapes */
   --gold-gradient:     linear-gradient(135deg, #FFC069 0%, #D4AF37 50%, #C2593F 100%);
   --brand-border-color:rgba(212, 175, 55, 0.35);
   --gold-glow:         0 0 35px rgba(212, 175, 55, 0.15), 0 0 70px rgba(255, 158, 45, 0.08);
+
+  --section-accent-bg:    #080A1A;
+  --section-accent-border:rgba(212, 175, 55, 0.20);
 }
-
-/* ════════════════════════════════════════════════════
-   LIGHT MODE
-   ════════════════════════════════════════════════════ */
-:root.light {
-  /* ── Sandy-Alabaster base ── */
-  --background:        #FAF6F0;        /* luxury warm off-white sand */
-  --foreground:        #0F122C;        /* deep indigo-charcoal */
-
-  --card:              #FFFFFF;
-  --card-foreground:   #0F122C;
-
-  --popover:           #FFFFFF;
-  --popover-foreground:#0F122C;
-
-  /* Primary = Deep Terracotta */
-  --primary:           #C2593F;
-  --primary-foreground:#FFFFFF;
-
-  /* Secondary = Soft cream grey */
-  --secondary:         #F3ECE2;
-  --secondary-foreground:#0F122C;
-
-  --muted:             #FAF2E6;
-  --muted-foreground:  #7B7260;
-
-  --accent:            #D4AF37;
-  --accent-foreground: #FFFFFF;
-
-  --destructive:       oklch(0.60 0.18 27);
-
-  --border:            rgba(194, 89, 63, 0.18);  /* subtle terracotta border */
-  --input:             rgba(0, 0, 0, 0.04);
-  --ring:              #C2593F;
-  --radius:            0.75rem;
-
-  /* ── Gold brand scale ── */
-  --brand-gold:        #C2593F;   /* terracotta/rust primary in light mode */
-  --brand-gold-light:  #D4AF37;   /* gold highlight */
-  --brand-gold-dark:   #8E3E2B;   /* deep brick/terracotta shadow */
-
-  /* ── Greyscale ── */
-  --brand-black:       #FAF6F0;
-  --brand-grey-dark:   #F3ECE2;
-  --brand-grey-mid:    #DDD5C7;
-  --brand-grey-light:  #7B7260;
-
-  /* Sidebar */
-  --sidebar:           #F5EFE6;
-  --sidebar-foreground:#0F122C;
-  --sidebar-primary:   #C2593F;
-  --sidebar-primary-foreground:#FFFFFF;
-  --sidebar-accent:    #F3ECE2;
-  --sidebar-accent-foreground:#0F122C;
-  --sidebar-border:    rgba(194, 89, 63, 0.12);
-  --sidebar-ring:      #C2593F;
-
-  /* Utilities */
-  --grid-color:        rgba(194, 89, 63, 0.04);
-  --glass-bg:          rgba(255, 255, 255, 0.82);
-  --glass-border:      rgba(194, 89, 63, 0.15);
-
-  /* Hero overlays */
-  --hero-overlay:      rgba(250, 246, 240, 0.75);
-  --hero-vignette:     radial-gradient(ellipse 55% 50% at 50% 50%, rgba(250, 246, 240, 0.40) 0%, transparent 100%);
-  --hero-title-shadow: none;
-  --hero-sub-shadow:   none;
-  --hero-trust-shadow: none;
-
-  /* Theme responsive colors & shapes */
-  --gold-gradient:     linear-gradient(135deg, #D4AF37 0%, #C2593F 60%, #8E3E2B 100%);
-  --brand-border-color:rgba(194, 89, 63, 0.35);
-  --gold-glow:         0 0 20px rgba(194, 89, 63, 0.10), 0 0 40px rgba(194, 89, 63, 0.03);
-}
-
-
 
 
 /* ════════════════════════════════════════════════════
@@ -249,8 +243,8 @@
   /* Page background gradient */
   .bg-moroccan-gradient {
     background:
-      radial-gradient(ellipse at 20% 20%, rgba(201,168,76,0.06) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 80%, rgba(201,168,76,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 20%, rgba(184,134,11,0.04) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 80%, rgba(184,134,11,0.03) 0%, transparent 60%),
       var(--background);
   }
 
@@ -261,10 +255,10 @@
   .card-hover:hover {
     transform: translateY(-6px);
     box-shadow:
-      0 0 0 1px rgba(212, 175, 55, 0.25),
-      0 20px 40px rgba(6, 8, 19, 0.7),
-      0 0 30px rgba(212, 175, 55, 0.06);
-    border-color: rgba(212, 175, 55, 0.4);
+      0 0 0 1px var(--brand-border-color),
+      0 12px 32px rgba(0, 0, 0, 0.08),
+      0 4px 12px rgba(0, 0, 0, 0.04);
+    border-color: var(--brand-border-color);
   }
 
   /* Glassmorphism panel */
@@ -301,7 +295,7 @@
   /* Divider line gold */
   .gold-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5), transparent);
+    background: linear-gradient(90deg, transparent, rgba(184,134,11,0.4), transparent);
   }
 }
 
@@ -311,7 +305,7 @@
 ::-webkit-scrollbar        { width: 5px; }
 ::-webkit-scrollbar-track  { background: var(--background); }
 ::-webkit-scrollbar-thumb  {
-  background: linear-gradient(180deg, var(--brand-gold-light, #C9A84C), var(--brand-gold, #8A6F28));
+  background: linear-gradient(180deg, var(--brand-gold-light, #D4A843), var(--brand-gold, #B8860B));
   border-radius: 3px;
 }
 
@@ -319,6 +313,6 @@
    SELECTION
    ════════════════════════════════════════════════════ */
 ::selection {
-  background: rgba(201, 168, 76, 0.25);
+  background: rgba(184, 134, 11, 0.2);
   color: var(--foreground);
 }

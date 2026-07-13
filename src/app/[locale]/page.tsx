@@ -58,32 +58,26 @@ export default async function HomePage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <AnimatedHeroGallery />
 
-        <div className="relative z-10 container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto">
+        <div className="relative z-10 container mx-auto px-4 flex justify-center items-center">
+          <div className="max-w-3xl w-full glass p-8 md:p-12 rounded-3xl border border-border shadow-2xl text-center flex flex-col items-center">
             {/* Pill badge */}
-            <div className="inline-flex items-center gap-2 glass px-4 py-2 rounded-full mb-8 text-sm text-foreground/85">
+            <div className="inline-flex items-center gap-2 bg-foreground/5 px-4 py-2 rounded-full mb-6 text-sm text-foreground/80">
               <span className="w-2 h-2 rounded-full bg-[var(--brand-gold)] animate-pulse" />
               {t('hero.badge')}
             </div>
 
-            <h1
-              className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[1.05] mb-6"
-              style={{ textShadow: 'var(--hero-title-shadow)' }}
-            >
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-[1.1] mb-6">
               {t('hero.titleStart')}{' '}
               <span className="text-gradient-gold">{t('hero.titleHighlight')}</span>
               <br />
               {t('hero.titleEnd')}
             </h1>
 
-            <p
-              className="text-lg sm:text-xl text-foreground/90 max-w-2xl mx-auto leading-relaxed mb-10"
-              style={{ textShadow: 'var(--hero-sub-shadow)' }}
-            >
+            <p className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed mb-8">
               {t('hero.description')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
               <Button
                 asChild
                 size="lg"
@@ -104,15 +98,14 @@ export default async function HomePage() {
             </div>
 
             {/* Quick trust signals */}
-            <div
-              className="flex items-center justify-center gap-2 mt-10 text-foreground/70 text-sm"
-              style={{ textShadow: 'var(--hero-trust-shadow)' }}
-            >
-              <RatingStars rating={5} size="sm" />
-              <span>{t('hero.reviews')}</span>
-              <span className="mx-2">·</span>
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-8 text-foreground/60 text-xs border-t border-border/40 pt-6 w-full">
+              <div className="flex items-center gap-1">
+                <RatingStars rating={5} size="sm" />
+                <span>{t('hero.reviews')}</span>
+              </div>
+              <span className="hidden sm:inline text-foreground/30">·</span>
               <span>{t('hero.noFees')}</span>
-              <span className="mx-2">·</span>
+              <span className="hidden sm:inline text-foreground/30">·</span>
               <span>{t('hero.freeCancellation')}</span>
             </div>
           </div>
@@ -126,7 +119,7 @@ export default async function HomePage() {
       </section>
 
       {/* ─── STATS ────────────────────────────────────────────────────────── */}
-      <section className="py-16 border-y border-white/5">
+      <section className="py-16 border-y border-border">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map(({ icon: Icon, value, label }) => (
@@ -189,7 +182,7 @@ export default async function HomePage() {
       <section className="py-6 px-4">
         <div className="container mx-auto">
           <Link href="/tours" className="group block">
-            <div className="relative overflow-hidden rounded-3xl bg-[#080A1A] border border-[var(--brand-gold)]/20 hover:border-[var(--brand-gold)]/40 transition-all duration-500 p-8 md:p-12">
+            <div className="relative overflow-hidden rounded-3xl bg-[var(--section-accent-bg)] border border-[var(--brand-gold)]/20 hover:border-[var(--brand-gold)]/40 transition-all duration-500 p-8 md:p-12">
               {/* Decorative dune shape */}
               <div className="absolute right-0 top-0 bottom-0 w-1/2 bg-gradient-to-l from-[var(--brand-gold)]/5 to-transparent hidden md:block" />
               <div className="absolute bottom-0 right-0 w-64 h-64 rounded-full bg-[var(--brand-gold)]/8 blur-3xl pointer-events-none" />
@@ -200,22 +193,22 @@ export default async function HomePage() {
                   <Badge className="bg-[var(--brand-gold)] text-black font-bold mb-4 border-0">
                     {t('sahara.badge')}
                   </Badge>
-                  <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-3">
+                  <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-3">
                     {t('sahara.title')}
                   </h2>
-                  <p className="text-white/70 leading-relaxed">
+                  <p className="text-muted-foreground leading-relaxed">
                     {t('sahara.description')}
                   </p>
                   <div className="flex flex-wrap gap-3 mt-5">
                     {saharaFeatures.map((item) => (
-                      <span key={item} className="text-xs text-white/60 glass px-3 py-1 rounded-full">
+                      <span key={item} className="text-xs text-muted-foreground glass px-3 py-1 rounded-full">
                         ✓ {item}
                       </span>
                     ))}
                   </div>
                 </div>
                 <div className="flex flex-col items-start md:items-end gap-3 shrink-0">
-                  <Button className="bg-[var(--brand-gold)] text-black font-semibold hover:bg-[var(--brand-gold)]/90 group-hover:scale-105 transition-all duration-200">
+                  <Button className="bg-[var(--brand-gold)] text-white font-semibold hover:bg-[var(--brand-gold)]/90 group-hover:scale-105 transition-all duration-200">
                     {t('sahara.cta')} <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </div>
@@ -284,7 +277,7 @@ export default async function HomePage() {
             {whyCards.map(({ emoji, title, desc }) => (
               <div
                 key={title}
-                className="group p-6 rounded-2xl glass border border-white/5 hover:border-[var(--brand-gold)]/20 transition-all duration-300"
+                className="group p-6 rounded-2xl glass border border-border hover:border-[var(--brand-gold)]/20 transition-all duration-300"
               >
                 <div className="text-3xl mb-4">{emoji}</div>
                 <h3 className="font-semibold text-foreground mb-2 group-hover:text-[var(--brand-gold)] transition-colors">
@@ -343,7 +336,7 @@ export default async function HomePage() {
       {/* ─── CTA STRIP ───────────────────────────────────────────────────── */}
       <section className="py-20 px-4">
         <div className="container mx-auto">
-          <div className="relative overflow-hidden rounded-3xl bg-[#080A1A] border border-[var(--brand-gold)]/25 p-12 text-center">
+          <div className="relative overflow-hidden rounded-3xl bg-[var(--section-accent-bg)] border border-[var(--brand-gold)]/25 p-12 text-center">
             {/* Gold shimmer corners */}
             <div className="absolute top-0 left-0 w-40 h-40 rounded-full bg-[var(--brand-gold)]/6 blur-2xl pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-40 h-40 rounded-full bg-[var(--brand-gold)]/6 blur-2xl pointer-events-none" />
@@ -352,10 +345,10 @@ export default async function HomePage() {
             <div className="relative z-10 max-w-2xl mx-auto">
               {/* Gold divider above */}
               <div className="gold-divider w-24 mx-auto mb-6" />
-              <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-4">
+              <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
                 {t('cta.title')}
               </h2>
-              <p className="text-white/60 text-lg mb-8">
+              <p className="text-muted-foreground text-lg mb-8">
                 {t('cta.description')}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

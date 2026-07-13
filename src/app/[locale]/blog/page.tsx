@@ -59,10 +59,10 @@ export default async function BlogPage({ params, searchParams }: PageProps) {
           <Badge variant="outline" className="border-[var(--brand-gold)]/40 text-[var(--brand-gold)] mb-4 px-3 py-1 text-xs uppercase tracking-widest bg-[var(--brand-gold)]/5">
             {t('badge')}
           </Badge>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-white mb-5 leading-tight">
+          <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-5 leading-tight">
             {t('title')} <span className="text-gradient-gold">{t('titleHighlight')}</span>
           </h1>
-          <p className="text-white/70 text-lg md:text-xl leading-relaxed font-light">
+          <p className="text-muted-foreground text-lg md:text-xl leading-relaxed font-light">
             {t('description')}
           </p>
         </div>
@@ -80,7 +80,7 @@ export default async function BlogPage({ params, searchParams }: PageProps) {
                   className={`inline-block px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 border ${
                     isActive
                       ? 'bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black border-transparent shadow-lg shadow-[var(--brand-gold)]/10 font-bold scale-105'
-                      : 'bg-white/5 text-white/80 border-white/10 hover:bg-white/10 hover:text-white hover:border-[var(--brand-gold)]/20'
+                      : 'bg-foreground/5 text-foreground/80 border-border hover:bg-foreground/10 hover:text-foreground hover:border-[var(--brand-gold)]/20'
                   }`}
                 >
                   {t(category)}
@@ -97,7 +97,7 @@ export default async function BlogPage({ params, searchParams }: PageProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="group h-full block">
-                <article className="relative overflow-hidden rounded-2xl bg-card border border-border h-full flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--brand-gold)]/35 hover:shadow-[0_12px_45px_rgba(201,168,76,0.06)] bg-gradient-to-b from-white/[0.02] to-transparent hover:from-white/[0.04]">
+                <article className="relative overflow-hidden rounded-2xl bg-card border border-border h-full flex flex-col transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--brand-gold)]/35 hover:shadow-[0_12px_45px_rgba(184,134,11,0.06)]">
                   {/* Post Image Container */}
                   <div className="relative h-56 w-full overflow-hidden shrink-0 bg-white/5">
                     <Image
@@ -127,20 +127,20 @@ export default async function BlogPage({ params, searchParams }: PageProps) {
                   {/* Card Body */}
                   <div className="p-6 flex flex-col flex-1">
                     {/* Title */}
-                    <h3 className="font-display text-xl font-bold text-white group-hover:text-[var(--brand-gold)] transition-colors duration-300 line-clamp-2 mb-3 leading-snug">
+                    <h3 className="font-display text-xl font-bold text-foreground group-hover:text-[var(--brand-gold)] transition-colors duration-300 line-clamp-2 mb-3 leading-snug">
                       {post.title[locale] || post.title['en']}
                     </h3>
 
                     {/* Excerpt */}
-                    <p className="text-white/60 text-sm leading-relaxed line-clamp-3 font-light mb-6">
+                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3 font-light mb-6">
                       {post.excerpt[locale] || post.excerpt['en']}
                     </p>
 
                     {/* Card Footer (Author & Date) */}
-                    <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between">
+                    <div className="mt-auto pt-4 border-t border-border flex items-center justify-between">
                       {/* Author Info */}
                       <div className="flex items-center gap-2.5">
-                        <div className="relative w-8 h-8 rounded-full overflow-hidden border border-white/10 shrink-0">
+                        <div className="relative w-8 h-8 rounded-full overflow-hidden border border-border shrink-0">
                           <Image
                             src={post.author.avatar}
                             alt={post.author.name}
@@ -150,8 +150,8 @@ export default async function BlogPage({ params, searchParams }: PageProps) {
                           />
                         </div>
                         <div>
-                          <p className="text-xs font-semibold text-white/90">{post.author.name}</p>
-                          <p className="text-[10px] text-white/40">{t('writtenBy')}</p>
+                          <p className="text-xs font-semibold text-foreground/90">{post.author.name}</p>
+                          <p className="text-[10px] text-muted-foreground">{t('writtenBy')}</p>
                         </div>
                       </div>
 
@@ -167,8 +167,8 @@ export default async function BlogPage({ params, searchParams }: PageProps) {
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 rounded-2xl glass border border-white/10 max-w-lg mx-auto">
-            <p className="text-white/60 mb-6 text-lg">{t('noPosts')}</p>
+          <div className="text-center py-20 rounded-2xl glass border border-border max-w-lg mx-auto">
+            <p className="text-muted-foreground mb-6 text-lg">{t('noPosts')}</p>
             <Button asChild className="bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black font-semibold border-0">
               <Link href="/blog">{t('all')}</Link>
             </Button>

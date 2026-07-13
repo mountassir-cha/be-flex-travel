@@ -26,7 +26,7 @@ export function RatingStars({ rating, max = 5, size = 'md', className, showLabel
             'transition-colors',
             i < rating
               ? 'fill-[var(--brand-gold)] text-[var(--brand-gold)]'
-              : 'fill-transparent text-white/20'
+              : 'fill-transparent text-foreground/20'
           )}
         />
       ))}

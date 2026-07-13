@@ -64,7 +64,7 @@ export default function ReviewsPage() {
           {approvedReviews.map((review) => (
             <div
               key={review.id}
-              className="p-6 rounded-2xl glass border border-white/5 hover:border-white/10 transition-all duration-300 flex flex-col gap-4"
+              className="p-6 rounded-2xl glass border border-border hover:border-[var(--brand-gold)]/15 transition-all duration-300 flex flex-col gap-4"
             >
               <div className="flex items-center justify-between">
                 <RatingStars rating={review.rating} />

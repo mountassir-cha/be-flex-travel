@@ -27,21 +27,29 @@ export async function updateSession(request: NextRequest) {
     }
   )
 
-  // IMPORTANT: Avoid writing any logic between createServerClient and
-  // supabase.auth.getUser(). A simple mistake could make it very hard to debug
-  // issues with users being randomly logged out.
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  let user = null
+  try {
+    const {
+      data: { user: supabaseUser },
+    } = await supabase.auth.getUser()
+    user = supabaseUser
+  } catch (error) {
+    console.error('Supabase middleware auth error:', error)
+  }
+
+  // Parse locale and check if the path is an admin path
+  const pathname = request.nextUrl.pathname
+  const localeMatch = pathname.match(/^\/(en|fr|es|it|de|zgh)(\/|$)/)
+  const locale = localeMatch ? localeMatch[1] : null
+  const pathWithoutLocale = locale ? pathname.replace(/^\/(en|fr|es|it|de|zgh)/, '') : pathname
 
   if (
     !user &&
-    request.nextUrl.pathname.startsWith('/admin') &&
-    request.nextUrl.pathname !== '/admin/login'
+    pathWithoutLocale.startsWith('/admin') &&
+    pathWithoutLocale !== '/admin/login'
   ) {
-    // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone()
-    url.pathname = '/admin/login'
+    url.pathname = locale ? `/${locale}/admin/login` : '/admin/login'
     return NextResponse.redirect(url)
   }
 

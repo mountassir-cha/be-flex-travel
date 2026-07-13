@@ -100,7 +100,7 @@ export default async function TourDetailPage({ params }: Props) {
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-3">
                       <h3 className="font-display text-xl font-bold text-foreground">{day.title}</h3>
-                      <Badge variant="outline" className="border-white/20 text-foreground/60 text-xs w-fit">
+                      <Badge variant="outline" className="border-border text-foreground/60 text-xs w-fit">
                         {day.subtitle}
                       </Badge>
                     </div>
@@ -188,7 +188,7 @@ export default async function TourDetailPage({ params }: Props) {
                 <Link
                   key={other.slug}
                   href={`/tours/${other.slug}`}
-                  className="group p-6 rounded-2xl glass border border-white/5 hover:border-[var(--brand-gold)]/20 transition-all duration-300 flex flex-col gap-3"
+                  className="group p-6 rounded-2xl glass border border-border hover:border-[var(--brand-gold)]/20 transition-all duration-300 flex flex-col gap-3"
                 >
                   <Badge className="bg-[var(--brand-gold)]/10 text-[var(--brand-gold)] border-[var(--brand-gold)]/30 w-fit">
                     {other.badge}

@@ -87,7 +87,7 @@ export default async function BlogPostDetailPage({ params }: Props) {
         <div className="mb-8">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-white/70 hover:text-[var(--brand-gold)] transition-colors text-sm font-medium"
+            className="inline-flex items-center gap-2 text-muted-foreground hover:text-[var(--brand-gold)] transition-colors text-sm font-medium"
           >
             <ChevronLeft className="w-4 h-4" /> {t('back')}
           </Link>
@@ -102,19 +102,19 @@ export default async function BlogPostDetailPage({ params }: Props) {
               <Badge className="bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black text-xs font-bold border-0 uppercase tracking-wider px-3 py-1">
                 {t(post.category)}
               </Badge>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
                 {postTitle}
               </h1>
-              <p className="text-white/60 text-lg leading-relaxed font-light italic">
+              <p className="text-muted-foreground text-lg leading-relaxed font-light italic">
                 {post.excerpt[locale] || post.excerpt['en']}
               </p>
             </div>
 
             {/* Author / Date Meta Bar */}
-            <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl glass border border-white/5">
+            <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl glass border border-border">
               {/* Author */}
               <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/10 shrink-0">
+                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-border shrink-0">
                   <Image
                     src={post.author.avatar}
                     alt={post.author.name}
@@ -123,13 +123,13 @@ export default async function BlogPostDetailPage({ params }: Props) {
                   />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white">{post.author.name}</p>
-                  <p className="text-xs text-white/50">{post.author.role}</p>
+                  <p className="text-sm font-semibold text-foreground">{post.author.name}</p>
+                  <p className="text-xs text-muted-foreground">{post.author.role}</p>
                 </div>
               </div>
 
               {/* Date & Read time */}
-              <div className="flex items-center gap-6 text-sm text-white/60">
+              <div className="flex items-center gap-6 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="w-4 h-4 text-[var(--brand-gold)]" />
                   {formatDate(post.date)}
@@ -142,7 +142,7 @@ export default async function BlogPostDetailPage({ params }: Props) {
             </div>
 
             {/* Post Cover Image */}
-            <div className="relative h-[40vh] md:h-[50vh] rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white/5">
+            <div className="relative h-[40vh] md:h-[50vh] rounded-2xl overflow-hidden border border-border shadow-2xl bg-muted">
               <Image
                 src={post.image}
                 alt={postTitle}
@@ -155,13 +155,13 @@ export default async function BlogPostDetailPage({ params }: Props) {
             </div>
 
             {/* Article Content Parser */}
-            <div className="prose prose-invert max-w-none text-white/80 leading-relaxed space-y-6">
+            <div className="prose max-w-none text-foreground/80 leading-relaxed space-y-6">
               {(post.sections[locale] || post.sections['en']).map((section, idx) => {
                 if (section.type === 'heading') {
                   return (
                     <h2
                       key={idx}
-                      className="font-display text-2xl md:text-3xl font-bold text-white pt-6 pb-2 border-b border-white/5 flex items-center gap-2"
+                      className="font-display text-2xl md:text-3xl font-bold text-foreground pt-6 pb-2 border-b border-border flex items-center gap-2"
                     >
                       <span className="w-1.5 h-6 rounded bg-[var(--brand-gold)] inline-block" />
                       {section.text}
@@ -169,7 +169,7 @@ export default async function BlogPostDetailPage({ params }: Props) {
                   )
                 } else if (section.type === 'paragraph') {
                   return (
-                    <p key={idx} className="text-white/70 text-base md:text-lg leading-relaxed font-light">
+                    <p key={idx} className="text-foreground/70 text-base md:text-lg leading-relaxed font-light">
                       {section.text}
                     </p>
                   )
@@ -177,7 +177,7 @@ export default async function BlogPostDetailPage({ params }: Props) {
                   return (
                     <ul key={idx} className="space-y-3.5 my-6 pl-2">
                       {section.items.map((item, itemIdx) => (
-                        <li key={itemIdx} className="flex items-start gap-3 text-white/70 font-light">
+                        <li key={itemIdx} className="flex items-start gap-3 text-foreground/70 font-light">
                           <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-gold)] shrink-0 mt-2.5" />
                           <span>{item}</span>
                         </li>
@@ -190,8 +190,8 @@ export default async function BlogPostDetailPage({ params }: Props) {
             </div>
 
             {/* Social Share Row */}
-            <div className="pt-8 border-t border-white/5 flex items-center gap-4 flex-wrap">
-              <span className="text-sm font-semibold text-white/60 flex items-center gap-2">
+            <div className="pt-8 border-t border-border flex items-center gap-4 flex-wrap">
+              <span className="text-sm font-semibold text-muted-foreground flex items-center gap-2">
                 <Share2 className="w-4 h-4 text-[var(--brand-gold)]" /> {t('share')}:
               </span>
               <a
@@ -214,12 +214,12 @@ export default async function BlogPostDetailPage({ params }: Props) {
             </div>
 
             {/* Dynamic CTA box */}
-            <div className="p-8 rounded-2xl glass border border-white/10 bg-gradient-to-r from-brand-gold-dark/10 via-brand-gold/5 to-transparent relative overflow-hidden">
+            <div className="p-8 rounded-2xl glass border border-border bg-gradient-to-r from-brand-gold-dark/10 via-brand-gold/5 to-transparent relative overflow-hidden">
               <div className="absolute -right-16 -bottom-16 w-40 h-40 rounded-full bg-[var(--brand-gold)]/5 blur-3xl pointer-events-none" />
-              <h3 className="font-display text-2xl font-bold text-white mb-3">
+              <h3 className="font-display text-2xl font-bold text-foreground mb-3">
                 {t('bookCTA')}
               </h3>
-              <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xl">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-xl">
                 Be Flex Travel provides premium guided activities, private excursions, desert tours, and transfers across Marrakech and Morocco. Let us design your custom travel experience.
               </p>
               <Button asChild className="bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black font-bold border-0 hover:opacity-90 transition-opacity">
@@ -234,15 +234,15 @@ export default async function BlogPostDetailPage({ params }: Props) {
           <aside className="lg:col-span-4 space-y-8">
             {/* Related Posts */}
             <div className="sticky top-24 space-y-6">
-              <h3 className="text-lg font-semibold text-white flex items-center gap-2 border-b border-white/5 pb-3">
+              <h3 className="text-lg font-semibold text-foreground flex items-center gap-2 border-b border-border pb-3">
                 <span className="w-1 h-5 rounded bg-[var(--brand-gold)] inline-block" />
                 {t('related')}
               </h3>
 
               {relatedPosts.map((related) => (
                 <Link key={related.slug} href={`/blog/${related.slug}`} className="group block">
-                  <div className="p-4 rounded-xl glass border border-white/5 hover:border-[var(--brand-gold)]/20 hover:bg-white/[0.05] transition-all duration-300 flex gap-4">
-                    <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-white/5 bg-white/5">
+                  <div className="p-4 rounded-xl glass border border-border hover:border-[var(--brand-gold)]/20 hover:bg-foreground/[0.03] transition-all duration-300 flex gap-4">
+                    <div className="relative w-20 h-20 shrink-0 rounded-lg overflow-hidden border border-border bg-muted">
                       <Image
                         src={related.image}
                         alt={related.title[locale] || related.title['en']}
@@ -252,10 +252,10 @@ export default async function BlogPostDetailPage({ params }: Props) {
                       />
                     </div>
                     <div className="flex-1 min-w-0 flex flex-col justify-between">
-                      <h4 className="font-medium text-sm text-white group-hover:text-[var(--brand-gold)] transition-colors line-clamp-2 leading-snug">
+                      <h4 className="font-medium text-sm text-foreground group-hover:text-[var(--brand-gold)] transition-colors line-clamp-2 leading-snug">
                         {related.title[locale] || related.title['en']}
                       </h4>
-                      <p className="text-white/40 text-[10px] flex items-center gap-1 mt-2">
+                      <p className="text-muted-foreground text-[10px] flex items-center gap-1 mt-2">
                         <Clock className="w-3 h-3 text-[var(--brand-gold)]" />
                         {related.readTime[locale] || related.readTime['en']}
                       </p>
