@@ -23,7 +23,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export function generateStaticParams() {
-  return activities.map((a) => ({ slug: a.slug }))
+  const locales = ['en', 'fr', 'es', 'it', 'de', 'zgh']
+  return activities.flatMap((a) =>
+    locales.map((locale) => ({
+      locale,
+      slug: a.slug,
+    }))
+  )
 }
 
 export default async function ActivityDetailPage({ params }: Props) {

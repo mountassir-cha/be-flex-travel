@@ -12,7 +12,13 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return circuits.map((c) => ({ slug: c.slug }))
+  const locales = ['en', 'fr', 'es', 'it', 'de', 'zgh']
+  return circuits.flatMap((c) =>
+    locales.map((locale) => ({
+      locale,
+      slug: c.slug,
+    }))
+  )
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
