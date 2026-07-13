@@ -33,7 +33,7 @@ export function LanguageSwitcher() {
     { code: 'es', label: 'ES' },
     { code: 'it', label: 'IT' },
     { code: 'de', label: 'DE' },
-    { code: 'zgh', label: 'AMZ' } // AMZ is readable on all mobile devices instead of Tifinagh 'ⵜⵎⵣ'
+    { code: 'zgh', label: 'ⵜⵎⵣ' }
   ]
 
   const isOtherActive = otherLocales.some(l => l.code === locale)
