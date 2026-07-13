@@ -81,7 +81,7 @@ export default async function ActivityDetailPage({ params }: Props) {
           <div className="lg:col-span-2 space-y-10">
             {/* Quick info */}
             <div className="flex flex-wrap gap-4">
-              <div className="flex items-center gap-2 glass px-4 py-2 rounded-xl text-sm text-white/80">
+              <div className="flex items-center gap-2 glass px-4 py-2 rounded-xl text-sm text-foreground/80">
                 <Clock className="w-4 h-4 text-[var(--brand-gold)]" />
                 {activity.duration}
               </div>
@@ -90,23 +90,23 @@ export default async function ActivityDetailPage({ params }: Props) {
               </div>
               <div className="flex items-center gap-2 glass px-4 py-2 rounded-xl">
                 <RatingStars rating={5} size="sm" />
-                <span className="text-sm text-white/60">Excellent</span>
+                <span className="text-sm text-muted-foreground">Excellent</span>
               </div>
             </div>
 
             {/* Description */}
             <div>
-              <h2 className="font-display text-2xl font-bold text-white mb-4">About this experience</h2>
+              <h2 className="font-display text-2xl font-bold text-foreground mb-4">About this experience</h2>
               <p className="text-muted-foreground leading-relaxed text-base">{activity.description}</p>
             </div>
 
             {/* Highlights */}
             {activity.highlights.length > 0 && (
               <div>
-                <h2 className="font-display text-2xl font-bold text-white mb-4">Highlights</h2>
+                <h2 className="font-display text-2xl font-bold text-foreground mb-4">Highlights</h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {activity.highlights.map((h) => (
-                    <li key={h} className="flex items-start gap-3 text-sm text-white/80">
+                    <li key={h} className="flex items-start gap-3 text-sm text-foreground/80">
                       <div className="w-5 h-5 rounded-full bg-[var(--brand-gold)]/20 flex items-center justify-center shrink-0 mt-0.5">
                         <Check className="w-3 h-3 text-[var(--brand-gold)]" />
                       </div>
@@ -120,11 +120,11 @@ export default async function ActivityDetailPage({ params }: Props) {
             {/* What's included */}
             {activity.included.length > 0 && (
               <div>
-                <h2 className="font-display text-2xl font-bold text-white mb-4">What&apos;s Included</h2>
+                <h2 className="font-display text-2xl font-bold text-foreground mb-4">What&apos;s Included</h2>
                 <ul className="flex flex-wrap gap-2">
                   {activity.included.map((item) => (
                     <li key={item}>
-                      <span className="flex items-center gap-1.5 glass px-3 py-1.5 rounded-full text-sm text-white/70">
+                      <span className="flex items-center gap-1.5 glass px-3 py-1.5 rounded-full text-sm text-foreground/70">
                         <Check className="w-3 h-3 text-[var(--brand-gold)]" /> {item}
                       </span>
                     </li>
