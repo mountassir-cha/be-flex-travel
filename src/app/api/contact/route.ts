@@ -32,7 +32,7 @@ export async function POST(request: Request) {
     }
 
     // 2. Send email via Resend
-    const destinationEmail = process.env.CONTACT_EMAIL_DESTINATION || 'montassirchaghough5@gmail.com'
+    const destinationEmail = process.env.CONTACT_EMAIL_DESTINATION || 'beflextravel@gmail.com'
 
     const emailSubject = activityParam
       ? `New Inquiry: ${activityParam} - ${name}`

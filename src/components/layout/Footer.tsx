@@ -92,7 +92,7 @@ export async function Footer() {
                 <WhatsAppIcon className="w-4 h-4" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/share/19PNLbmruM/?mibextid=wwXIfr"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -101,7 +101,7 @@ export async function Footer() {
                 <FacebookIcon className="w-4 h-4" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/beflextravel?igsh=MThjcW95YmhzdHM2cA%3D%3D&utm_source=qr"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -110,7 +110,7 @@ export async function Footer() {
                 <InstagramIcon className="w-4 h-4" />
               </a>
               <a
-                href="https://tiktok.com"
+                href="https://vt.tiktok.com/ZSCv6oSX6/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok"
@@ -171,8 +171,8 @@ export async function Footer() {
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-[var(--brand-gold)] mt-0.5 shrink-0" />
                 <div>
-                  <a href="mailto:montassirchaghough5@gmail.com" className="text-foreground/80 hover:text-foreground text-sm transition-colors">
-                    montassirchaghough5@gmail.com
+                  <a href="mailto:beflextravel@gmail.com" className="text-foreground/80 hover:text-foreground text-sm transition-colors">
+                    beflextravel@gmail.com
                   </a>
                   <p className="text-muted-foreground/60 text-xs mt-0.5">{t('replyTime')}</p>
                 </div>
