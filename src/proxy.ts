@@ -3,7 +3,10 @@ import { updateSession } from '@/utils/supabase/middleware';
 import createIntlMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
  
-const handleI18nRouting = createIntlMiddleware(routing);
+const handleI18nRouting = createIntlMiddleware({
+  ...routing,
+  localeDetection: false
+});
  
 export default async function proxy(request: NextRequest) {
   // 1. Update Supabase session

@@ -68,8 +68,8 @@ function MarqueeRow({
     <>
       {/* CSS keyframes injected once per direction */}
       <style>{`
-        @keyframes marquee-left  { from { transform: translateX(0); }   to { transform: translateX(-50%); } }
-        @keyframes marquee-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+        @keyframes marquee-left  { from { transform: translate3d(0, 0, 0); }   to { transform: translate3d(-50%, 0, 0); } }
+        @keyframes marquee-right { from { transform: translate3d(-50%, 0, 0); } to { transform: translate3d(0, 0, 0); } }
       `}</style>
       <div className="flex w-max">
         <div
@@ -91,7 +91,7 @@ function MarqueeRow({
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 11rem, (max-width: 1024px) 15rem, 18rem"
-                loading="lazy"
+                loading="eager"
               />
               {/* Bottom label */}
               <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-black/90 to-transparent" />
