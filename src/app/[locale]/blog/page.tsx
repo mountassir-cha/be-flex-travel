@@ -151,7 +151,6 @@ export default async function BlogPage({ params, searchParams }: PageProps) {
                         </div>
                         <div>
                           <p className="text-xs font-semibold text-foreground/90">{post.author.name}</p>
-                          <p className="text-[10px] text-muted-foreground">{t('writtenBy')}</p>
                         </div>
                       </div>
 
