@@ -379,11 +379,21 @@ export const transportRoutes: TransportRoute[] = [
     id: 'tr-6',
     type: 'point_to_point',
     origin: 'Marrakech',
-    destination: 'Casablanca / Sidi Fares',
+    destination: 'Casablanca',
     price: null,
     price_label: 'From €100',
     notes: 'Comfortable executive vehicle. Refreshments included.',
     duration: '3–3.5 hrs',
+  },
+  {
+    id: 'tr-7',
+    type: 'point_to_point',
+    origin: 'Marrakech',
+    destination: 'Sidi Fares',
+    price: null,
+    price_label: 'From €100',
+    notes: 'Comfortable executive vehicle. Refreshments included.',
+    duration: '1.5 hrs',
   },
 ]
 
