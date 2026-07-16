@@ -5,6 +5,7 @@ import { ArrowRight, Check, Clock, Moon } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { circuits } from '@/lib/data'
+import { CustomTourBookingCard } from '@/components/ui/CustomTourBookingCard'
 
 export const metadata: Metadata = {
   title: 'Morocco Circuits — 2 to 20-Day Tours from Marrakech | Be Flex Travel',
@@ -174,6 +175,11 @@ export default function CircuitsPage() {
               </div>
             )
           })}
+          
+          {/* Custom Tour Booking Card */}
+          <div className="mt-4">
+            <CustomTourBookingCard />
+          </div>
         </div>
 
         {/* ── Bottom CTA ── */}
