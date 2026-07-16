@@ -20,7 +20,7 @@ import { reviews } from '@/lib/data'
 
 const sourceLabels: Record<string, string> = {
   google: '🌐 Google',
-  tripadvisor: '🦉 TripAdvisor',
+  tripadvisor: '💬 Direct',
   site: '💬 Direct',
 }
 
