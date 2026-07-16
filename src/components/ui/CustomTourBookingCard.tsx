@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
+import { circuits } from '@/lib/data'
 
 export function CustomTourBookingCard() {
   const [form, setForm] = useState({
@@ -93,13 +94,25 @@ export function CustomTourBookingCard() {
               onChange={(e) => setForm({ ...form, circuit: e.target.value })}
               className="w-full bg-foreground/5 border border-border text-foreground text-sm h-9 px-3 rounded-md focus:outline-none focus:border-[var(--brand-gold)]/50 transition-colors"
             >
-              <option value="" disabled>Select a starting city...</option>
-              {['Marrakech', 'Casablanca', 'Fes', 'Tanger', 'Agadir', 'Rabat', 'Ouarzazate', 'Essaouira'].map((city) => (
-                <option key={city} value={city}>
-                  {city}
-                </option>
-              ))}
-              <option value="Other">Other / Not Listed</option>
+              <option value="" disabled className="bg-black text-white">Select a circuit or starting city...</option>
+              
+              <optgroup label="Popular Circuits" className="bg-black text-white font-bold">
+                {circuits.map((c) => (
+                  <option key={c.slug} value={c.title} className="bg-black text-white font-normal">
+                    {c.title}
+                  </option>
+                ))}
+              </optgroup>
+
+              <optgroup label="Custom Tour Starting From:" className="bg-black text-white font-bold">
+                {['Marrakech', 'Casablanca', 'Fes', 'Tanger', 'Agadir', 'Rabat', 'Ouarzazate', 'Essaouira'].map((city) => (
+                  <option key={city} value={`Custom from ${city}`} className="bg-black text-white font-normal">
+                    {city}
+                  </option>
+                ))}
+              </optgroup>
+
+              <option value="Other" className="bg-black text-white">Other / Not Listed</option>
             </select>
           </div>
           <div>
@@ -133,7 +146,7 @@ export function CustomTourBookingCard() {
               className="w-full bg-foreground/5 border border-border text-foreground text-sm h-9 px-3 rounded-md focus:outline-none focus:border-[var(--brand-gold)]/50 transition-colors"
             >
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, '10+'].map(num => (
-                <option key={num} value={num}>{num}</option>
+                <option key={num} value={num} className="bg-black text-white">{num}</option>
               ))}
             </select>
           </div>
