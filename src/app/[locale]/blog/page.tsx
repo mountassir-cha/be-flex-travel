@@ -136,24 +136,8 @@ export default async function BlogPage({ params, searchParams }: PageProps) {
                       {post.excerpt[locale] || post.excerpt['en']}
                     </p>
 
-                    {/* Card Footer (Author & Date) */}
-                    <div className="mt-auto pt-4 border-t border-border flex items-center justify-between">
-                      {/* Author Info */}
-                      <div className="flex items-center gap-2.5">
-                        <div className="relative w-8 h-8 rounded-full overflow-hidden border border-border shrink-0">
-                          <Image
-                            src={post.author.avatar}
-                            alt={post.author.name}
-                            fill
-                            sizes="32px"
-                            className="object-cover"
-                          />
-                        </div>
-                        <div>
-                          <p className="text-xs font-semibold text-foreground/90">{post.author.name}</p>
-                        </div>
-                      </div>
-
+                    {/* Card Footer (Date) */}
+                    <div className="mt-auto pt-4 border-t border-border flex items-center justify-end">
                       {/* Date / Link */}
                       <div className="flex items-center gap-1.5 text-xs text-[var(--brand-gold)] font-medium">
                         <span>{formatDate(post.date, locale)}</span>
