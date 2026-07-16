@@ -458,7 +458,7 @@ export const reviews: Review[] = [
 // ─── CIRCUIT 1: 2 JOURS — MARRAKECH / ZAGORA ─────────────────────────────────
 export const circuit2DayZagora = {
   slug: '2-day-zagora',
-  title: '2-Day Zagora Desert',
+  title: '2 Days Zagora Desert',
   subtitle: 'Marrakech → Draa Valley → Zagora → Marrakech',
   price_label: 'From €149 / person',
   duration: '2 days / 1 night',
@@ -491,7 +491,7 @@ export const circuit2DayZagora = {
 // ─── CIRCUIT 2: 3 JOURS — MARRAKECH / DADES / MERZOUGA ───────────────────────
 export const circuit3DayMerzouga = {
   slug: '3-day-merzouga',
-  title: '3-Day Dades & Merzouga Sahara',
+  title: '3 Days Dades & Merzouga Sahara',
   subtitle: 'Marrakech → Boumalne Dades → Merzouga → Marrakech',
   price_label: 'From €199 / person',
   duration: '3 days / 2 nights',
@@ -532,7 +532,7 @@ export const circuit3DayMerzouga = {
 // ─── CIRCUIT 3: 4 JOURS — MARRAKECH / DADES / MERZOUGA / OUARZAZATE ──────────
 export const circuit4DayOuarzazate = {
   slug: '4-day-merzouga-ouarzazate',
-  title: '4-Day Merzouga & Ouarzazate',
+  title: '4 Days Merzouga & Ouarzazate',
   subtitle: 'Marrakech → Dades → Merzouga → Ouarzazate → Marrakech',
   price_label: 'From €279 / person',
   duration: '4 days / 3 nights',
@@ -581,10 +581,10 @@ export const circuit4DayOuarzazate = {
 // ─── CIRCUIT 4: 4 JOURS — MARRAKECH / DADES / MERZOUGA / FES / MARRAKECH ─────
 export const circuit4DayFes = {
   slug: '4-day-merzouga-fes',
-  title: '4-Day Merzouga & Fes Loop',
+  title: '5 Days Merzouga & Fes Loop',
   subtitle: 'Marrakech → Dades → Merzouga → Fes → Marrakech',
   price_label: 'From €299 / person',
-  duration: '4 days / 3 nights',
+  duration: '5 days / 4 nights',
   cover_image_url: '/images/activities/agafay-desert.jpg',
   short_description: 'The Sahara-to-Imperial-City loop — cross the Atlas, sleep under desert stars, and discover the ancient medina of Fes before returning to Marrakech.',
   badge: '⭐ Sahara + Fes Loop',
@@ -630,7 +630,7 @@ export const circuit4DayFes = {
 // ─── CIRCUIT 5: 6 JOURS — MARRAKECH / DADES / MERZOUGA / FES / CHEFCHAOUEN / TANGER ──
 export const circuit6Day = {
   slug: '6-day-north',
-  title: '6-Day Sahara to Tanger',
+  title: '6 Days Sahara to Tanger',
   subtitle: 'Marrakech → Dades → Merzouga → Fes → Chefchaouen → Tanger',
   price_label: 'From €449 / person',
   duration: '6 days / 5 nights',
@@ -695,7 +695,7 @@ export const circuit6Day = {
 // ─── CIRCUIT 6: 10 JOURS ─────────────────────────────────────────────────────
 export const circuit10Day = {
   slug: '10-day-grand-north',
-  title: '10-Day Grand Northern Circuit',
+  title: '10 Days Grand Northern Circuit',
   subtitle: 'Marrakech → Dades → Merzouga → Fes → Chefchaouen → Rabat → Casablanca → Marrakech',
   price_label: 'From €749 / person',
   duration: '10 days / 9 nights',
@@ -722,7 +722,7 @@ export const circuit10Day = {
 // ─── CIRCUIT 7: 20 JOURS — LE GRAND TOUR DU MAROC ────────────────────────────
 export const circuit20Day = {
   slug: '20-day-grand-tour',
-  title: '20-Day Grand Tour du Maroc',
+  title: '20 Days Grand Tour du Maroc',
   subtitle: 'Marrakech → Sahara → Zagora → Agadir → Fes → Chefchaouen → Tanger → Rabat → Casablanca → Marrakech',
   price_label: 'From €1,499 / person',
   duration: '20 days / 19 nights',

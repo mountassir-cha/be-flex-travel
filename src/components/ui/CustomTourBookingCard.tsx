@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { circuits } from '@/lib/data'
 
 export function CustomTourBookingCard() {
   const [form, setForm] = useState({
@@ -94,13 +93,13 @@ export function CustomTourBookingCard() {
               onChange={(e) => setForm({ ...form, circuit: e.target.value })}
               className="w-full bg-foreground/5 border border-border text-foreground text-sm h-9 px-3 rounded-md focus:outline-none focus:border-[var(--brand-gold)]/50 transition-colors"
             >
-              <option value="" disabled>Select a circuit...</option>
-              {circuits.map((c) => (
-                <option key={c.slug} value={c.title}>
-                  {c.title}
+              <option value="" disabled>Select a starting city...</option>
+              {['Marrakech', 'Casablanca', 'Fes', 'Tanger', 'Agadir', 'Rabat', 'Ouarzazate', 'Essaouira'].map((city) => (
+                <option key={city} value={city}>
+                  {city}
                 </option>
               ))}
-              <option value="Custom Route">Other / Custom Route</option>
+              <option value="Other">Other / Not Listed</option>
             </select>
           </div>
           <div>
