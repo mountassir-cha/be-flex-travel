@@ -88,14 +88,16 @@ export function NavBar() {
           </Button>
         </div>
 
-        {/* Mobile Menu */}
-        <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-          <SheetTrigger
-            className="md:hidden inline-flex items-center justify-center w-9 h-9 rounded-lg text-foreground hover:bg-foreground/10 transition-colors"
-            aria-label="Open menu"
-          >
-            <Menu className="w-6 h-6" />
-          </SheetTrigger>
+        {/* Mobile Controls */}
+        <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
+          <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+            <SheetTrigger
+              className="inline-flex items-center justify-center w-9 h-9 rounded-lg text-foreground hover:bg-foreground/10 transition-colors"
+              aria-label="Open menu"
+            >
+              <Menu className="w-6 h-6" />
+            </SheetTrigger>
           <SheetContent side="right" className="w-72 bg-background border-l border-border p-0">
             <div className="flex flex-col h-full">
               {/* Mobile Header */}
@@ -134,7 +136,6 @@ export function NavBar() {
               <div className="p-4 border-t border-border flex flex-col gap-3">
                 <div className="flex items-center gap-3">
                   <LanguageSwitcher />
-                  <ThemeToggle />
                 </div>
                 <Button
                   asChild
@@ -146,6 +147,7 @@ export function NavBar() {
             </div>
           </SheetContent>
         </Sheet>
+        </div>
       </div>
     </header>
   )
