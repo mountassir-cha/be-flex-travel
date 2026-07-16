@@ -391,7 +391,7 @@ export const transportRoutes: TransportRoute[] = [
     origin: 'Marrakech',
     destination: 'Rabat',
     price: null,
-    price_label: null,
+    price_label: '',
     notes: 'Comfortable executive vehicle. Wi-Fi & water included.',
     duration: '3–3.5 hrs',
   },
