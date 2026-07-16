@@ -14,7 +14,9 @@ export function CustomTourBookingCard() {
     name: '',
     email: '',
     phone: '',
-    circuit: '',
+    circuit: '', // Represents Starting City
+    endingCity: '',
+    duration: '',
     date: '',
     passengers: '1',
     notes: '',
@@ -48,7 +50,7 @@ export function CustomTourBookingCard() {
         <h3 className="font-display text-lg font-bold text-foreground">Booking Received!</h3>
         <p className="text-sm text-muted-foreground">We&apos;ll confirm your tour by email within a few hours.</p>
         <button
-          onClick={() => { setStatus('idle'); setIsOpen(false); setForm({ name: '', email: '', phone: '', circuit: '', date: '', passengers: '1', notes: '' }) }}
+          onClick={() => { setStatus('idle'); setIsOpen(false); setForm({ name: '', email: '', phone: '', circuit: '', endingCity: '', duration: '', date: '', passengers: '1', notes: '' }) }}
           className="text-xs text-[var(--brand-gold)] underline mt-2"
         >
           Book another tour
@@ -87,36 +89,53 @@ export function CustomTourBookingCard() {
       <form onSubmit={handleSubmit} className="space-y-3">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           <div>
-            <Label className="text-foreground/70 text-xs mb-1 block">Circuit / Cities *</Label>
+            <Label className="text-foreground/70 text-xs mb-1 block">Starting City *</Label>
             <select
               required
-              value={form.circuit}
+              value={form.circuit} // We'll keep using form.circuit for Starting City to avoid breaking state for now, but rename it in the UI
               onChange={(e) => setForm({ ...form, circuit: e.target.value })}
               className="w-full bg-foreground/5 border border-border text-foreground text-sm h-9 px-3 rounded-md focus:outline-none focus:border-[var(--brand-gold)]/50 transition-colors"
             >
-              <option value="" disabled className="bg-black text-white">Select a circuit or starting city...</option>
-              
-              <optgroup label="Popular Circuits" className="bg-black text-white font-bold">
-                {circuits.map((c) => (
-                  <option key={c.slug} value={c.title} className="bg-black text-white font-normal">
-                    {c.title}
-                  </option>
-                ))}
-              </optgroup>
-
-              <optgroup label="Custom Tour Starting From:" className="bg-black text-white font-bold">
-                {['Marrakech', 'Casablanca', 'Fes', 'Tanger', 'Agadir', 'Rabat', 'Ouarzazate', 'Essaouira'].map((city) => (
-                  <option key={city} value={`Custom from ${city}`} className="bg-black text-white font-normal">
-                    {city}
-                  </option>
-                ))}
-              </optgroup>
-
-              <option value="Other" className="bg-black text-white">Other / Not Listed</option>
+              <option value="" disabled className="bg-black text-white">Select starting city...</option>
+              {['Marrakech', 'Casablanca', 'Fes', 'Tanger', 'Agadir', 'Rabat', 'Ouarzazate', 'Essaouira'].map((city) => (
+                <option key={city} value={city} className="bg-black text-white">{city}</option>
+              ))}
+              <option value="Other" className="bg-black text-white">Other</option>
             </select>
           </div>
           <div>
-            <Label className="text-foreground/70 text-xs mb-1 block">Date *</Label>
+            <Label className="text-foreground/70 text-xs mb-1 block">Ending City *</Label>
+            <select
+              required
+              value={form.endingCity || ''}
+              onChange={(e) => setForm({ ...form, endingCity: e.target.value })}
+              className="w-full bg-foreground/5 border border-border text-foreground text-sm h-9 px-3 rounded-md focus:outline-none focus:border-[var(--brand-gold)]/50 transition-colors"
+            >
+              <option value="" disabled className="bg-black text-white">Select ending city...</option>
+              {['Marrakech', 'Casablanca', 'Fes', 'Tanger', 'Agadir', 'Rabat', 'Ouarzazate', 'Essaouira'].map((city) => (
+                <option key={city} value={city} className="bg-black text-white">{city}</option>
+              ))}
+              <option value="Other" className="bg-black text-white">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+          <div>
+            <Label className="text-foreground/70 text-xs mb-1 block">Duration (Days) *</Label>
+            <Input
+              type="number"
+              min="1"
+              max="30"
+              required
+              value={form.duration || ''}
+              onChange={(e) => setForm({ ...form, duration: e.target.value })}
+              placeholder="e.g. 5"
+              className="bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground/30 focus:border-[var(--brand-gold)]/50 text-sm h-9"
+            />
+          </div>
+          <div>
+            <Label className="text-foreground/70 text-xs mb-1 block">Start Date *</Label>
             <Input
               type="date"
               required

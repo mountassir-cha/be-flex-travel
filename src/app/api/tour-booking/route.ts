@@ -6,19 +6,19 @@ const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key_for_build'
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { name, email, phone, circuit, date, passengers, notes } = body
+    const { name, email, phone, circuit: startingCity, endingCity, duration, date, passengers, notes } = body
 
-    if (!name || !email || !circuit || !date) {
+    if (!name || !email || !startingCity || !endingCity || !duration || !date) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
     const destinationEmail = process.env.CONTACT_EMAIL_DESTINATION || 'beflextravel@gmail.com'
-    const emailSubject = `🏜️ New Circuit Booking: ${circuit} - ${name}`
+    const emailSubject = `🏜️ New Custom Circuit Booking: ${startingCity} to ${endingCity} - ${name}`
 
     const resendApiKey = process.env.RESEND_API_KEY || 're_dummy_key_for_build'
     if (resendApiKey === 're_dummy_key_for_build' || resendApiKey === 'your_resend_api_key') {
       console.log('Development mode: Simulating tour booking email')
-      console.log(`To: ${destinationEmail}\nSubject: ${emailSubject}\nFrom: ${name} (${email})\nCircuit: ${circuit}\nDate: ${date}\nPassengers: ${passengers}\nNotes: ${notes}`)
+      console.log(`To: ${destinationEmail}\nSubject: ${emailSubject}\nFrom: ${name} (${email})\nRoute: ${startingCity} → ${endingCity}\nDuration: ${duration} Days\nDate: ${date}\nPassengers: ${passengers}\nNotes: ${notes}`)
       return NextResponse.json({ success: true, simulated: true })
     }
 
@@ -30,19 +30,27 @@ export async function POST(request: Request) {
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #fff; padding: 30px; border-radius: 12px;">
           <div style="text-align: center; margin-bottom: 24px;">
-            <h1 style="color: #c9a84c; font-size: 24px; margin: 0;">🏜️ New Circuit Booking</h1>
-            <p style="color: #888; margin-top: 8px;">Be Flex Travel — Custom Tour Request</p>
+            <h1 style="color: #c9a84c; font-size: 24px; margin: 0;">🏜️ New Custom Circuit Request</h1>
+            <p style="color: #888; margin-top: 8px;">Be Flex Travel — Build Your Own Tour</p>
           </div>
 
           <div style="background: #1a1a1a; border-radius: 8px; padding: 20px; margin-bottom: 16px;">
             <h2 style="color: #c9a84c; font-size: 16px; margin: 0 0 16px;">🗺️ Tour Details</h2>
             <table style="width: 100%; border-collapse: collapse;">
               <tr>
-                <td style="padding: 8px 0; color: #888; width: 40%;">Circuit/Cities</td>
-                <td style="padding: 8px 0; color: #fff; font-weight: bold;">${circuit}</td>
+                <td style="padding: 8px 0; color: #888; width: 40%;">Starting City</td>
+                <td style="padding: 8px 0; color: #fff; font-weight: bold;">${startingCity}</td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; color: #888;">Date</td>
+                <td style="padding: 8px 0; color: #888; width: 40%;">Ending City</td>
+                <td style="padding: 8px 0; color: #fff; font-weight: bold;">${endingCity}</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; color: #888;">Duration</td>
+                <td style="padding: 8px 0; color: #fff;">${duration} Days</td>
+              </tr>
+              <tr>
+                <td style="padding: 8px 0; color: #888;">Start Date</td>
                 <td style="padding: 8px 0; color: #fff;">${date}</td>
               </tr>
               <tr>
