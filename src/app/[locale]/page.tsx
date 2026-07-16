@@ -60,11 +60,7 @@ export default async function HomePage() {
 
         <div className="relative z-10 container mx-auto px-4 flex justify-center items-center">
           <div className="max-w-3xl w-full glass p-8 md:p-12 rounded-3xl border border-border shadow-2xl text-center flex flex-col items-center">
-            {/* Pill badge */}
-            <div className="inline-flex items-center gap-2 bg-foreground/5 px-4 py-2 rounded-full mb-6 text-sm text-foreground/80">
-              <span className="w-2 h-2 rounded-full bg-[var(--brand-gold)] animate-pulse" />
-              {t('hero.badge')}
-            </div>
+
 
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-[1.1] mb-6">
               {t('hero.titleStart')}{' '}
