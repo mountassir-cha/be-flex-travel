@@ -108,7 +108,6 @@ export default function TransportPage() {
                   <Badge variant="outline" className="border-border text-muted-foreground text-xs">
                     {typeLabels[route.type]}
                   </Badge>
-                  <span className="text-[var(--brand-gold)] font-semibold text-sm">{route.price_label}</span>
                 </div>
 
                 <div className="flex items-center gap-3 mb-4">
