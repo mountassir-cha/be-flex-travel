@@ -27,9 +27,9 @@ export function AnimatedHeroGallery() {
           willChange: 'transform',
         }}
       >
-        <MarqueeRow images={row1} direction="left"  duration={60} />
+        <MarqueeRow images={row1} direction="left" duration={60} />
         <MarqueeRow images={row2} direction="right" duration={50} />
-        <MarqueeRow images={row3} direction="left"  duration={55} />
+        <MarqueeRow images={row3} direction="left" duration={55} />
       </div>
 
       {/* ── Dark contrast backdrop layer for clear photo cards behind text ── */}
