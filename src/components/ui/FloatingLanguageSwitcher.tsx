@@ -4,7 +4,7 @@ import * as React from 'react'
 import { useState, useRef, useEffect } from 'react'
 import { useRouter, usePathname } from '@/i18n/routing'
 import { useLocale } from 'next-intl'
-import { ChevronDown, Check } from 'lucide-react'
+import { ChevronUp, Check } from 'lucide-react'
 import { LanguageFlag } from '@/components/ui/Flags'
 import { cn } from '@/lib/utils'
 
@@ -23,7 +23,7 @@ const LANGUAGES: LanguageOption[] = [
   { code: 'zgh', label: 'ZGH', nativeName: 'ⵜⵎⵣ (Tamazight)' },
 ]
 
-export function LanguageSwitcher() {
+export function FloatingLanguageSwitcher() {
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
@@ -49,31 +49,19 @@ export function LanguageSwitcher() {
   }, [])
 
   return (
-    <div className="relative inline-block text-left" ref={dropdownRef}>
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Select language"
-        className={cn(
-          'flex items-center gap-2 px-3 py-1.5 rounded-full border border-border/80',
-          'bg-background/80 hover:bg-foreground/5 text-foreground font-semibold text-xs transition-all duration-200',
-          isOpen && 'ring-2 ring-[var(--brand-gold)]/50 border-[var(--brand-gold)]'
-        )}
-      >
-        <LanguageFlag code={currentLang.code} className="w-4 h-3" />
-        <span className="font-bold uppercase tracking-wider text-xs">{currentLang.label}</span>
-        <ChevronDown
-          className={cn('w-3.5 h-3.5 text-muted-foreground transition-transform duration-200', isOpen && 'rotate-180')}
-        />
-      </button>
-
+    <div className="fixed bottom-6 left-6 z-50" ref={dropdownRef}>
+      {/* Dropdown Menu (Opens Upward) */}
       {isOpen && (
         <div
           className={cn(
-            'absolute right-0 top-full mt-2 w-48 py-1.5',
-            'bg-card border border-border shadow-xl rounded-2xl z-50 overflow-hidden',
-            'animate-in fade-in zoom-in-95 duration-150'
+            'absolute bottom-full mb-3 left-0 w-52 py-2',
+            'bg-card/95 backdrop-blur-xl border border-border shadow-2xl rounded-2xl',
+            'flex flex-col z-50 overflow-hidden animate-in fade-in slide-in-from-bottom-3 duration-200'
           )}
         >
+          <div className="px-3 py-1.5 mb-1 border-b border-border/60 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+            Select Language
+          </div>
           {LANGUAGES.map((lang) => {
             const isSelected = locale === lang.code
             return (
@@ -81,23 +69,44 @@ export function LanguageSwitcher() {
                 key={lang.code}
                 onClick={() => switchLocale(lang.code)}
                 className={cn(
-                  'px-3.5 py-2 text-xs transition-all duration-150',
-                  'flex items-center justify-between w-full text-left gap-2.5',
+                  'px-3.5 py-2.5 text-xs font-medium transition-all duration-150',
+                  'flex items-center justify-between w-full text-left gap-3',
                   isSelected
                     ? 'bg-[var(--brand-gold)]/15 text-[var(--brand-gold)] font-bold'
                     : 'text-foreground/90 hover:text-foreground hover:bg-foreground/5'
                 )}
               >
-                <div className="flex items-center gap-2.5">
-                  <LanguageFlag code={lang.code} className="w-4 h-3" />
-                  <span className="font-medium text-xs">{lang.nativeName}</span>
+                <div className="flex items-center gap-3">
+                  <LanguageFlag code={lang.code} className="w-5 h-3.5" />
+                  <span className="text-sm font-medium">{lang.nativeName}</span>
                 </div>
-                {isSelected && <Check className="w-3.5 h-3.5 text-[var(--brand-gold)] shrink-0" />}
+                {isSelected && <Check className="w-4 h-4 text-[var(--brand-gold)] shrink-0" />}
               </button>
             )
           })}
         </div>
       )}
+
+      {/* Main Trigger Button (Fixed Bottom-Left) */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Change language"
+        className={cn(
+          'flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border border-border shadow-lg',
+          'bg-card/90 backdrop-blur-md text-foreground font-semibold text-xs',
+          'hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-200 group',
+          isOpen && 'ring-2 ring-[var(--brand-gold)]/50 border-[var(--brand-gold)]'
+        )}
+      >
+        <LanguageFlag code={currentLang.code} className="w-5 h-3.5" />
+        <span className="font-bold tracking-wide uppercase text-foreground">{currentLang.label}</span>
+        <ChevronUp
+          className={cn(
+            'w-4 h-4 text-muted-foreground group-hover:text-foreground transition-transform duration-200',
+            isOpen ? 'rotate-180 text-[var(--brand-gold)]' : ''
+          )}
+        />
+      </button>
     </div>
   )
 }

@@ -58,8 +58,8 @@ export default async function HomePage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <AnimatedHeroGallery />
 
-        <div className="relative z-10 container mx-auto px-4 flex justify-center items-center">
-          <div className="max-w-3xl w-full glass p-8 md:p-12 rounded-3xl border border-border shadow-2xl text-center flex flex-col items-center">
+        <div className="relative z-10 container mx-auto px-4 flex justify-center items-center my-12 sm:my-0">
+          <div className="max-w-3xl w-full p-6 sm:p-10 md:p-12 rounded-3xl bg-background/50 dark:bg-background/40 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-2xl text-center flex flex-col items-center">
 
 
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-[1.1] mb-6">

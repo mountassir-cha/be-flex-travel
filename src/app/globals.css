@@ -211,8 +211,16 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  h1, h2, h3 {
+  h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', Georgia, serif;
+    text-decoration: none !important;
+    text-decoration-style: solid !important;
+    border-bottom: none !important;
+  }
+  font, abbr, acronym {
+    border-bottom: none !important;
+    text-decoration: none !important;
+    text-decoration-line: none !important;
   }
 }
 

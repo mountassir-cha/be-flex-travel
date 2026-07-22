@@ -16,13 +16,13 @@ const row3 = imageData.slice(10, 15)
 
 export function AnimatedHeroGallery() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0 bg-background">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
 
       {/* ── Animated grid (behind all overlays) ── */}
       <div
         className="absolute top-1/2 left-1/2 flex flex-col gap-4 sm:gap-5"
         style={{
-          transform: 'translate(-50%, -50%) rotate(-12deg) scale(1.3)',
+          transform: 'translate(-50%, -50%) rotate(-10deg) scale(1.35)',
           width: '160vw',
           willChange: 'transform',
         }}
@@ -32,21 +32,21 @@ export function AnimatedHeroGallery() {
         <MarqueeRow images={row3} direction="left"  duration={55} />
       </div>
 
-      {/* ── Layer 2 — top & bottom solid fades (background colour) ── */}
+      {/* ── Layer 2 — top & bottom subtle fades ── */}
       <div
-        className="absolute inset-0 z-20"
+        className="absolute inset-0 z-20 pointer-events-none"
         style={{
           background:
-            'linear-gradient(to bottom, var(--background) 0%, transparent 28%, transparent 72%, var(--background) 100%)',
+            'linear-gradient(to bottom, var(--background) 0%, transparent 12%, transparent 88%, var(--background) 100%)',
         }}
       />
 
-      {/* ── Layer 3 — left & right solid fades ── */}
+      {/* ── Layer 3 — left & right subtle fades ── */}
       <div
-        className="absolute inset-0 z-20"
+        className="absolute inset-0 z-20 pointer-events-none"
         style={{
           background:
-            'linear-gradient(to right, var(--background) 0%, transparent 22%, transparent 78%, var(--background) 100%)',
+            'linear-gradient(to right, var(--background) 0%, transparent 10%, transparent 90%, var(--background) 100%)',
         }}
       />
     </div>
@@ -89,7 +89,7 @@ function MarqueeRow({
                 src={src}
                 alt={title}
                 fill
-                className="object-cover"
+                className="object-cover brightness-105 contrast-105 saturate-105"
                 sizes="(max-width: 768px) 11rem, (max-width: 1024px) 15rem, 18rem"
                 loading="eager"
               />

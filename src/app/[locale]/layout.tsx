@@ -5,6 +5,7 @@ import { NavBar } from '@/components/layout/NavBar'
 import { Footer } from '@/components/layout/Footer'
 import { ThemeProvider } from '@/components/providers/ThemeProvider'
 import { WhatsAppButton } from '@/components/ui/WhatsAppButton'
+import { FloatingLanguageSwitcher } from '@/components/ui/FloatingLanguageSwitcher'
 import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -79,6 +80,7 @@ export default async function RootLayout({
             <main>{children}</main>
             <Footer />
             <WhatsAppButton />
+            <FloatingLanguageSwitcher />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
