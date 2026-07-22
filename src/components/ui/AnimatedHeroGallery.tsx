@@ -22,7 +22,7 @@ export function AnimatedHeroGallery() {
       <div
         className="absolute top-1/2 left-1/2 flex flex-col gap-4 sm:gap-5"
         style={{
-          transform: 'translate(-50%, -50%) rotate(-10deg) scale(1.35)',
+          transform: 'translate(-50%, -50%) rotate(-12deg) scale(1.3)',
           width: '160vw',
           willChange: 'transform',
         }}
@@ -32,12 +32,15 @@ export function AnimatedHeroGallery() {
         <MarqueeRow images={row3} direction="left"  duration={55} />
       </div>
 
+      {/* ── Dark contrast backdrop layer for clear photo cards behind text ── */}
+      <div className="absolute inset-0 bg-black/45 dark:bg-[#060813]/65 z-10 pointer-events-none" />
+
       {/* ── Layer 2 — top & bottom subtle fades ── */}
       <div
         className="absolute inset-0 z-20 pointer-events-none"
         style={{
           background:
-            'linear-gradient(to bottom, var(--background) 0%, transparent 12%, transparent 88%, var(--background) 100%)',
+            'linear-gradient(to bottom, var(--background) 0%, transparent 15%, transparent 85%, var(--background) 100%)',
         }}
       />
 
@@ -46,7 +49,7 @@ export function AnimatedHeroGallery() {
         className="absolute inset-0 z-20 pointer-events-none"
         style={{
           background:
-            'linear-gradient(to right, var(--background) 0%, transparent 10%, transparent 90%, var(--background) 100%)',
+            'linear-gradient(to right, var(--background) 0%, transparent 12%, transparent 88%, var(--background) 100%)',
         }}
       />
     </div>

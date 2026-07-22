@@ -58,18 +58,22 @@ export default async function HomePage() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <AnimatedHeroGallery />
 
-        <div className="relative z-10 container mx-auto px-4 flex justify-center items-center my-12 sm:my-0">
-          <div className="max-w-3xl w-full p-6 sm:p-10 md:p-12 rounded-3xl bg-background/50 dark:bg-background/40 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-2xl text-center flex flex-col items-center">
+        <div className="relative z-10 container mx-auto px-4 flex justify-center items-center py-16">
+          <div className="max-w-3xl w-full text-center flex flex-col items-center">
+            {/* Top pill badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/40 dark:bg-white/10 backdrop-blur-md border border-white/20 text-xs font-medium text-white/90 mb-6 shadow-md">
+              <span className="w-2 h-2 rounded-full bg-[var(--brand-gold)] animate-pulse" />
+              <span>Based in Marrakech, Morocco 🇲🇦</span>
+            </div>
 
-
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-foreground leading-[1.1] mb-6">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.1] mb-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
               {t('hero.titleStart')}{' '}
               <span className="text-gradient-gold">{t('hero.titleHighlight')}</span>
               <br />
               {t('hero.titleEnd')}
             </h1>
 
-            <p className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed mb-8">
+            <p className="text-base sm:text-lg text-white/90 max-w-xl leading-relaxed mb-8 drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]">
               {t('hero.description')}
             </p>
 
@@ -77,7 +81,7 @@ export default async function HomePage() {
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-brand-gold-dark to-brand-gold text-foreground border-0 hover:opacity-90 hover:scale-105 transition-all duration-200 shadow-xl shadow-[var(--brand-gold)]/30 text-base px-8"
+                className="bg-gradient-to-r from-brand-gold-dark to-brand-gold text-black font-bold border-0 hover:opacity-90 hover:scale-105 transition-all duration-200 shadow-xl shadow-[var(--brand-gold)]/30 text-base px-8"
               >
                 <Link href="/activities">
                   {t('hero.exploreActivities')} <ArrowRight className="ml-2 w-4 h-4" />
@@ -87,21 +91,21 @@ export default async function HomePage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-foreground/20 text-foreground hover:bg-foreground/10 hover:border-foreground/40 backdrop-blur text-base px-8 transition-all duration-200"
+                className="border-white/30 text-white hover:bg-white/10 hover:border-white/60 backdrop-blur text-base px-8 transition-all duration-200"
               >
                 <Link href="/tours">{t('hero.exploreCircuits')}</Link>
               </Button>
             </div>
 
             {/* Quick trust signals */}
-            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-8 text-foreground/60 text-xs border-t border-border/40 pt-6 w-full">
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 mt-8 text-white/80 text-xs border-t border-white/15 pt-6 w-full drop-shadow">
               <div className="flex items-center gap-1">
                 <RatingStars rating={5} size="sm" />
                 <span>{t('hero.reviews')}</span>
               </div>
-              <span className="hidden sm:inline text-foreground/30">·</span>
+              <span className="hidden sm:inline text-white/40">·</span>
               <span>{t('hero.noFees')}</span>
-              <span className="hidden sm:inline text-foreground/30">·</span>
+              <span className="hidden sm:inline text-white/40">·</span>
               <span>{t('hero.freeCancellation')}</span>
             </div>
           </div>
