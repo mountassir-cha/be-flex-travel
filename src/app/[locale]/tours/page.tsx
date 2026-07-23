@@ -23,6 +23,10 @@ const cardAccents = [
   { gradient: 'from-[#0a4a4a] to-[#1abc9c]', glow: 'shadow-teal-500/20', badge_bg: 'bg-teal-500 text-white' },
 ]
 
+// Labels for photo-grid captions per circuit
+const gridLabels10Day = ['Sahara Dunes', 'Todra Gorge', 'Marrakech', 'High Atlas']
+const gridLabels20Day = ['Grand Tour', 'Sahara Erg Chebbi', 'Essaouira', 'Merzouga Sahara', 'Tanger', 'Agafay Desert']
+
 export default function CircuitsPage() {
   return (
     <div className="min-h-screen pt-28 pb-24">
@@ -59,6 +63,11 @@ export default function CircuitsPage() {
           {circuits.map((circuit, idx) => {
             const accent = cardAccents[idx % cardAccents.length]
             const nights = parseInt(circuit.duration) - 1
+            const galleryImages = (circuit as { gallery_images?: string[] }).gallery_images
+            const is10Day = circuit.slug === '10-day-grand-north'
+            const is20Day = circuit.slug === '20-day-grand-tour'
+            const hasPhotoGrid = (is10Day || is20Day) && galleryImages && galleryImages.length > 0
+
             return (
               <div
                 key={circuit.slug}
@@ -70,23 +79,81 @@ export default function CircuitsPage() {
                 />
 
                 <div className="flex flex-col md:flex-row">
-                  {/* Image */}
-                  <div className="relative w-full md:w-72 h-56 md:h-auto shrink-0 overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none">
-                    <Image
-                      src={circuit.cover_image_url}
-                      alt={circuit.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 288px"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-r" />
-                    {/* Day count pill over image */}
-                    <div className="absolute bottom-4 left-4 md:hidden">
-                      <span className={`text-xs font-bold px-3 py-1 rounded-full ${accent.badge_bg}`}>
-                        {circuit.badge}
-                      </span>
+                  {/* ── Image Panel ── */}
+                  {hasPhotoGrid ? (
+                    /* Photo collage grid for 10-day (2×2) and 20-day (2×3) */
+                    <div className="relative w-full md:w-80 lg:w-96 shrink-0 overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none self-stretch">
+                      {is10Day && galleryImages && (
+                        /* 2×2 grid for 10 days */
+                        <div className="grid grid-cols-2 grid-rows-2 gap-0.5 h-full min-h-[280px] md:min-h-0 md:h-full">
+                          {galleryImages.slice(0, 4).map((src, i) => (
+                            <div key={i} className="relative overflow-hidden">
+                              <Image
+                                src={src}
+                                alt={gridLabels10Day[i] ?? `Stop ${i + 1}`}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 768px) 50vw, 192px"
+                              />
+                              {/* Caption */}
+                              <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-black/80 to-transparent" />
+                              <span className="absolute bottom-1 left-1.5 right-1.5 text-white/90 text-[9px] font-semibold tracking-wide truncate leading-none">
+                                {gridLabels10Day[i]}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      {is20Day && galleryImages && (
+                        /* 3×2 grid for 20 days (3 cols × 2 rows) */
+                        <div className="grid grid-cols-3 grid-rows-2 gap-0.5 h-full min-h-[280px] md:min-h-0 md:h-full">
+                          {galleryImages.slice(0, 6).map((src, i) => (
+                            <div key={i} className="relative overflow-hidden">
+                              <Image
+                                src={src}
+                                alt={gridLabels20Day[i] ?? `Stop ${i + 1}`}
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                sizes="(max-width: 768px) 33vw, 128px"
+                              />
+                              {/* Caption */}
+                              <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-black/80 to-transparent" />
+                              <span className="absolute bottom-1 left-1 right-1 text-white/90 text-[8px] font-semibold tracking-wide truncate leading-none">
+                                {gridLabels20Day[i]}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+                      {/* Badge over grid */}
+                      <div className="absolute bottom-4 left-4 md:hidden z-10">
+                        <span className={`text-xs font-bold px-3 py-1 rounded-full ${accent.badge_bg}`}>
+                          {circuit.badge}
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  ) : (
+                    /* Single image for other circuits — wider panel like photo 4 */
+                    <div className="relative w-full md:w-80 lg:w-96 h-64 md:h-auto shrink-0 overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none">
+                      <Image
+                        src={circuit.cover_image_url}
+                        alt={circuit.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, 384px"
+                      />
+                      {/* No shadow for 6-day (Caves of Hercules) — show image vivid */}
+                      {circuit.slug !== '6-day-north' && (
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-gradient-to-r" />
+                      )}
+                      {/* Day count pill over image */}
+                      <div className="absolute bottom-4 left-4 md:hidden">
+                        <span className={`text-xs font-bold px-3 py-1 rounded-full ${accent.badge_bg}`}>
+                          {circuit.badge}
+                        </span>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Content */}
                   <div className="flex-1 p-7 md:p-10 flex flex-col justify-between">
@@ -175,7 +242,7 @@ export default function CircuitsPage() {
               </div>
             )
           })}
-          
+
           {/* Custom Tour Booking Card */}
           <div className="mt-4">
             <CustomTourBookingCard />
