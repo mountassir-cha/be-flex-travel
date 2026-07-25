@@ -17,7 +17,7 @@ export async function POST(request: Request) {
 
     const resendApiKey = process.env.RESEND_API_KEY || 're_dummy_key_for_build'
     if (resendApiKey === 're_dummy_key_for_build' || resendApiKey === 'your_resend_api_key') {
-      console.log('Development mode: Simulating tour booking email')
+      console.warn('⚠️ [DEV MODE] Resend API Key is missing or placeholder. Email sending is SIMULATED.')
       console.log(`To: ${destinationEmail}\nSubject: ${emailSubject}\nFrom: ${name} (${email})\nRoute: ${startingCity} → ${endingCity}\nDuration: ${duration} Days\nDate: ${date}\nPassengers: ${passengers}\nNotes: ${notes}`)
       return NextResponse.json({ success: true, simulated: true })
     }
@@ -93,7 +93,7 @@ export async function POST(request: Request) {
 
     if (emailError) {
       console.error('Resend email error:', emailError)
-      return NextResponse.json({ error: 'Failed to send email' }, { status: 500 })
+      return NextResponse.json({ error: emailError.message || 'Failed to send email' }, { status: 500 })
     }
 
     return NextResponse.json({ success: true })
