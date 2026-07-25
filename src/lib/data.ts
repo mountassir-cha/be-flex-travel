@@ -775,7 +775,7 @@ export const circuit7Day = {
   slug: '7-day-imperial-circuit',
   title: '7 Days Imperial Morocco Circuit',
   subtitle: 'Casablanca → Rabat → Chefchaouen → Fes → Ifrane → Merzouga → Todra & Dades Gorges → Aït Benhaddou → Marrakech',
-  price_label: 'From €549 / person',
+  price_label: 'Price on Request',
   duration: '7 days / 6 nights',
   cover_image_url: '/images/circuits/zagora-camels-sunset.png',
   short_description: 'The ultimate 7-day journey through Morocco — from the Atlantic capital to the Sahara dunes and back through iconic kasbahs, blue cities, and the High Atlas.',
