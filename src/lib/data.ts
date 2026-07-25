@@ -848,9 +848,9 @@ export const circuits = [
   circuit2DayZagora,
   circuit3DayMerzouga,
   circuit4DayOuarzazate,
-  circuit7Day,
   circuit4DayFes,
   circuit6Day,
+  circuit7Day,
   circuit10Day,
   circuit20Day,
 ]
