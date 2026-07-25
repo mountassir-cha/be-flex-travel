@@ -22,6 +22,7 @@ function ContactForm() {
     message: activityParam ? `Hi, I'd like to book: ${activityParam}\n\n` : '',
   })
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
+  const [errorMsg, setErrorMsg] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
@@ -30,6 +31,7 @@ function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('sending')
+    setErrorMsg('')
     
     try {
       const response = await fetch('/api/contact', {
@@ -46,11 +48,14 @@ function ContactForm() {
       if (response.ok) {
         setStatus('sent')
       } else {
+        const errorData = await response.json().catch(() => ({}))
+        console.error('Submission failed:', errorData)
+        setErrorMsg(errorData.error || 'Failed to send message.')
         setStatus('error')
-        console.error('Submission failed')
       }
-    } catch (error) {
+    } catch (error: any) {
       setStatus('error')
+      setErrorMsg(error?.message || 'Error submitting form')
       console.error('Error submitting form:', error)
     }
   }
@@ -149,7 +154,7 @@ function ContactForm() {
 
       {status === 'error' && (
         <div className="p-3 bg-red-500/10 border border-red-500/20 text-red-400 text-sm rounded-lg text-center">
-          Oops, something went wrong. Please try again or message us on WhatsApp.
+          {errorMsg || 'Oops, something went wrong. Please try again or message us on WhatsApp.'}
         </div>
       )}
 

@@ -10,11 +10,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    const destinationEmail = process.env.CONTACT_EMAIL_DESTINATION || 'beflextravel@gmail.com'
+    const destinationEmail = (process.env.CONTACT_EMAIL_DESTINATION || 'beflextravel@gmail.com').trim()
+    const emailFrom = (process.env.EMAIL_FROM || 'onboarding@resend.dev').trim()
+    const resendApiKey = (process.env.RESEND_API_KEY || 're_dummy_key_for_build').trim()
+
     const emailSubject = `🚗 New Transfer Booking: ${origin} → ${destination} - ${name}`
 
-    const resendApiKey = process.env.RESEND_API_KEY || 're_dummy_key_for_build'
-    if (resendApiKey === 're_dummy_key_for_build' || resendApiKey === 'your_resend_api_key') {
+    if (resendApiKey === 're_dummy_key_for_build' || resendApiKey === 'your_resend_api_key' || !resendApiKey) {
       console.warn('⚠️ [DEV MODE] Resend API Key is missing or placeholder. Email sending is SIMULATED.')
       console.log(`To: ${destinationEmail}\nSubject: ${emailSubject}\nFrom: ${name} (${email})\nRoute: ${origin} → ${destination}\nDate: ${date}\nPassengers: ${passengers}\nNotes: ${notes}`)
       return NextResponse.json({ success: true, simulated: true })
@@ -23,7 +25,7 @@ export async function POST(request: Request) {
     const resend = new Resend(resendApiKey)
 
     const { error: emailError } = await resend.emails.send({
-      from: process.env.EMAIL_FROM || 'Be Flex Travel <onboarding@resend.dev>',
+      from: emailFrom,
       to: [destinationEmail],
       replyTo: email,
       subject: emailSubject,
@@ -89,7 +91,7 @@ export async function POST(request: Request) {
 
     if (emailError) {
       console.error('Resend email error:', emailError)
-      return NextResponse.json({ error: emailError.message || 'Failed to send email' }, { status: 500 })
+      return NextResponse.json({ error: emailError.message || JSON.stringify(emailError) }, { status: 500 })
     }
 
     return NextResponse.json({ success: true })

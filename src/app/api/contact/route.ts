@@ -33,14 +33,15 @@ export async function POST(request: Request) {
     }
 
     // 2. Send email via Resend
-    const destinationEmail = process.env.CONTACT_EMAIL_DESTINATION || 'beflextravel@gmail.com'
+    const destinationEmail = (process.env.CONTACT_EMAIL_DESTINATION || 'beflextravel@gmail.com').trim()
+    const emailFrom = (process.env.EMAIL_FROM || 'onboarding@resend.dev').trim()
+    const resendApiKey = (process.env.RESEND_API_KEY || 're_dummy_key_for_build').trim()
 
     const emailSubject = activityParam
       ? `New Inquiry: ${activityParam} - ${name}`
       : `New General Inquiry - ${name}`
 
-    const resendApiKey = process.env.RESEND_API_KEY || 're_dummy_key_for_build'
-    if (resendApiKey === 're_dummy_key_for_build' || resendApiKey === 'your_resend_api_key') {
+    if (resendApiKey === 're_dummy_key_for_build' || resendApiKey === 'your_resend_api_key' || !resendApiKey) {
       console.warn('⚠️ [DEV MODE] Resend API Key is missing or placeholder. Email sending is SIMULATED.')
       console.log(`To: ${destinationEmail}\nSubject: ${emailSubject}\nReply-To: ${email}\nMessage: ${message}`)
       return NextResponse.json({ success: true, simulated: true })
@@ -49,7 +50,7 @@ export async function POST(request: Request) {
     const resend = new Resend(resendApiKey)
 
     const { error: emailError } = await resend.emails.send({
-      from: process.env.EMAIL_FROM || 'Be Flex Travel <onboarding@resend.dev>',
+      from: emailFrom,
       to: [destinationEmail],
       replyTo: email,
       subject: emailSubject,
@@ -66,12 +67,12 @@ export async function POST(request: Request) {
 
     if (emailError) {
       console.error('Resend email error:', emailError)
-      return NextResponse.json({ error: emailError.message || 'Failed to send email' }, { status: 500 })
+      return NextResponse.json({ error: emailError.message || JSON.stringify(emailError) }, { status: 500 })
     }
 
     return NextResponse.json({ success: true })
-  } catch (error) {
+  } catch (error: any) {
     console.error('Contact API Error:', error)
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+    return NextResponse.json({ error: error?.message || 'Internal Server Error' }, { status: 500 })
   }
 }
