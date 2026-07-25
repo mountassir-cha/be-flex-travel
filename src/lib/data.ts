@@ -778,6 +778,12 @@ export const circuit7Day = {
   price_label: 'Price on Request',
   duration: '7 days / 6 nights',
   cover_image_url: '/images/circuits/zagora-camels-sunset.png',
+  gallery_images: [
+    '/images/circuits/zagora-camels-sunset.png',
+    '/images/circuits/toudgha-merzouga.png',
+    '/images/circuits/marrakech-tour.png',
+    '/images/activities/atlas-ouarzazate.jpg',
+  ],
   short_description: 'The ultimate 7-day journey through Morocco — from the Atlantic capital to the Sahara dunes and back through iconic kasbahs, blue cities, and the High Atlas.',
   badge: '🌟 Best of Morocco',
   highlights_summary: ['Chefchaouen Blue City', 'Fes Medina UNESCO', 'Erg Chebbi Dunes', 'Aït Benhaddou Kasbah'],
