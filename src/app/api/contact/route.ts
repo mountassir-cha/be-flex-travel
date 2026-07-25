@@ -33,9 +33,13 @@ export async function POST(request: Request) {
     }
 
     // 2. Send email via Resend
-    const destinationEmail = (process.env.CONTACT_EMAIL_DESTINATION || 'beflextravel@gmail.com').trim()
-    const emailFrom = (process.env.EMAIL_FROM || 'onboarding@resend.dev').trim()
-    const resendApiKey = (process.env.RESEND_API_KEY || 're_dummy_key_for_build').trim()
+    const destinationEmail = (process.env.CONTACT_EMAIL_DESTINATION || 'beflextravel@gmail.com').trim().replace(/^["']|["']$/g, '')
+    let emailFrom = (process.env.EMAIL_FROM || '').trim().replace(/^["']|["']$/g, '')
+    if (!emailFrom || emailFrom.includes('yourdomain.com') || (!emailFrom.includes('@') && !emailFrom.includes('<'))) {
+      emailFrom = 'onboarding@resend.dev'
+    }
+
+    const resendApiKey = (process.env.RESEND_API_KEY || 're_dummy_key_for_build').trim().replace(/^["']|["']$/g, '')
 
     const emailSubject = activityParam
       ? `New Inquiry: ${activityParam} - ${name}`
