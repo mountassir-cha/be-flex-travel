@@ -2,8 +2,6 @@ import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { supabaseAdmin } from '@/lib/supabase'
 
-const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key_for_build')
-
 export async function POST(request: Request) {
   try {
     const body = await request.json()
@@ -13,22 +11,25 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
     }
 
-    // 1. Insert into Supabase
-    const { error: dbError } = await supabaseAdmin
-      .from('inquiries')
-      .insert([
-        {
-          name,
-          email,
-          phone,
-          message,
-          activity_ref: activityParam || null,
-        },
-      ])
+    // 1. Insert into Supabase (optional, non-blocking if DB fails)
+    try {
+      const { error: dbError } = await supabaseAdmin
+        .from('inquiries')
+        .insert([
+          {
+            name,
+            email,
+            phone,
+            message,
+            activity_ref: activityParam || null,
+          },
+        ])
 
-    if (dbError) {
-      console.error('Supabase insert error:', dbError)
-      // Even if DB fails, we still want to try sending the email
+      if (dbError) {
+        console.error('Supabase insert error:', dbError)
+      }
+    } catch (dbEx) {
+      console.warn('Supabase exception ignored, proceeding with email:', dbEx)
     }
 
     // 2. Send email via Resend
@@ -44,6 +45,8 @@ export async function POST(request: Request) {
       console.log(`To: ${destinationEmail}\nSubject: ${emailSubject}\nReply-To: ${email}\nMessage: ${message}`)
       return NextResponse.json({ success: true, simulated: true })
     }
+
+    const resend = new Resend(resendApiKey)
 
     const { error: emailError } = await resend.emails.send({
       from: process.env.EMAIL_FROM || 'Be Flex Travel <onboarding@resend.dev>',

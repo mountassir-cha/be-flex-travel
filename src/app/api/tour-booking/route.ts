@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key_for_build')
-
 export async function POST(request: Request) {
   try {
     const body = await request.json()
@@ -21,6 +19,8 @@ export async function POST(request: Request) {
       console.log(`To: ${destinationEmail}\nSubject: ${emailSubject}\nFrom: ${name} (${email})\nRoute: ${startingCity} → ${endingCity}\nDuration: ${duration} Days\nDate: ${date}\nPassengers: ${passengers}\nNotes: ${notes}`)
       return NextResponse.json({ success: true, simulated: true })
     }
+
+    const resend = new Resend(resendApiKey)
 
     const { error: emailError } = await resend.emails.send({
       from: process.env.EMAIL_FROM || 'Be Flex Travel <onboarding@resend.dev>',
