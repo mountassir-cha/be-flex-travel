@@ -24,6 +24,7 @@ const cardAccents = [
 ]
 
 // Labels for photo-grid captions per circuit
+const gridLabels7Day = ['Merzouga Sunset', 'Todra Gorge', 'Marrakech', 'Aït Benhaddou']
 const gridLabels10Day = ['Sahara Dunes', 'Todra Gorge', 'Marrakech', 'High Atlas']
 const gridLabels20Day = ['Grand Tour', 'Sahara Erg Chebbi', 'Essaouira', 'Merzouga Sahara', 'Tanger', 'Agafay Desert']
 
@@ -43,8 +44,7 @@ export default function CircuitsPage() {
             <br />Circuit
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            From a 3-day desert sprint to a week-long imperial odyssey — every circuit is
-            private, fully guided, and crafted around your pace.
+            Handcrafted private journeys across Morocco. Every circuit includes private A/C transport, dedicated driver/guide, carefully curated lodgings, and unforgettable desert experiences.
           </p>
 
           {/* Trust bar */}
@@ -64,9 +64,10 @@ export default function CircuitsPage() {
             const accent = cardAccents[idx % cardAccents.length]
             const nights = parseInt(circuit.duration) - 1
             const galleryImages = (circuit as { gallery_images?: string[] }).gallery_images
+            const is7Day = circuit.slug === '7-day-imperial-circuit'
             const is10Day = circuit.slug === '10-day-grand-north'
             const is20Day = circuit.slug === '20-day-grand-tour'
-            const hasPhotoGrid = (is10Day || is20Day) && galleryImages && galleryImages.length > 0
+            const hasPhotoGrid = (is7Day || is10Day || is20Day) && galleryImages && galleryImages.length > 0
 
             return (
               <div
@@ -81,27 +82,30 @@ export default function CircuitsPage() {
                 <div className="flex flex-col md:flex-row">
                   {/* ── Image Panel ── */}
                   {hasPhotoGrid ? (
-                    /* Photo collage grid for 10-day (2×2) and 20-day (2×3) */
+                    /* Photo collage grid for 7-day (2×2), 10-day (2×2) and 20-day (2×3) */
                     <div className="relative w-full md:w-80 lg:w-96 shrink-0 overflow-hidden rounded-t-3xl md:rounded-l-3xl md:rounded-tr-none self-stretch">
-                      {is10Day && galleryImages && (
-                        /* 2×2 grid for 10 days */
+                      {(is7Day || is10Day) && galleryImages && (
+                        /* 2×2 grid for 7 days and 10 days */
                         <div className="grid grid-cols-2 grid-rows-2 gap-0.5 h-full min-h-[280px] md:min-h-0 md:h-full">
-                          {galleryImages.slice(0, 4).map((src, i) => (
-                            <div key={i} className="relative overflow-hidden">
-                              <Image
-                                src={src}
-                                alt={gridLabels10Day[i] ?? `Stop ${i + 1}`}
-                                fill
-                                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                sizes="(max-width: 768px) 50vw, 192px"
-                              />
-                              {/* Caption */}
-                              <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-black/80 to-transparent" />
-                              <span className="absolute bottom-1 left-1.5 right-1.5 text-white/90 text-[9px] font-semibold tracking-wide truncate leading-none">
-                                {gridLabels10Day[i]}
-                              </span>
-                            </div>
-                          ))}
+                          {galleryImages.slice(0, 4).map((src, i) => {
+                            const labels = is7Day ? gridLabels7Day : gridLabels10Day
+                            return (
+                              <div key={i} className="relative overflow-hidden">
+                                <Image
+                                  src={src}
+                                  alt={labels[i] ?? `Stop ${i + 1}`}
+                                  fill
+                                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                  sizes="(max-width: 768px) 50vw, 192px"
+                                />
+                                {/* Caption */}
+                                <div className="absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-black/80 to-transparent" />
+                                <span className="absolute bottom-1 left-1.5 right-1.5 text-white/90 text-[9px] font-semibold tracking-wide truncate leading-none">
+                                  {labels[i]}
+                                </span>
+                              </div>
+                            )
+                          })}
                         </div>
                       )}
                       {is20Day && galleryImages && (
