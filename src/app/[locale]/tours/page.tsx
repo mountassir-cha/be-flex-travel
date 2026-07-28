@@ -25,7 +25,7 @@ const cardAccents = [
 
 // Labels for photo-grid captions per circuit
 const gridLabels7Day = ['Merzouga Sunset', 'Todra Gorge', 'Marrakech', 'Aït Benhaddou']
-const gridLabels10Day = ['Sahara Dunes', 'Todra Gorge', 'Marrakech', 'High Atlas']
+const gridLabels10Day = ['Casablanca', 'Todra Gorge', 'Marrakech', 'High Atlas']
 const gridLabels20Day = ['Grand Tour', 'Sahara Erg Chebbi', 'Essaouira', 'Merzouga Sahara', 'Tanger', 'Agafay Desert']
 
 export default function CircuitsPage() {

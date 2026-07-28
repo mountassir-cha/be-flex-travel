@@ -25,32 +25,16 @@ export default function TransportPage() {
     <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="max-w-2xl mb-14">
+        <div className="max-w-2xl mb-12">
           <Badge variant="outline" className="border-[var(--brand-gold)]/40 text-[var(--brand-gold)] mb-3">
             Private Transport
           </Badge>
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-foreground mb-4">
-            Transfers &amp; <span className="text-gradient-gold">Transport</span>
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-3">
+            Morocco <span className="text-gradient-gold">Transfers</span>
           </h1>
-          <p className="text-muted-foreground text-lg leading-relaxed">
-            Comfortable, private, and punctual. All vehicles are air-conditioned, driven by licensed professionals.
-            We monitor your flight — delays won&apos;t leave you stranded.
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+            Reliable, air-conditioned private transfers between Moroccan airports, riads, and major cities.
           </p>
-        </div>
-
-        {/* Why private transfer */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-14">
-          {[
-            { emoji: '🚗', label: 'Private vehicle — just your group' },
-            { emoji: '✈️', label: 'Flight monitoring included' },
-            { emoji: '💧', label: 'Water & Wi-Fi on board' },
-            { emoji: '📍', label: 'Door-to-door service' },
-          ].map(({ emoji, label }) => (
-            <div key={label} className="p-4 rounded-xl glass border border-border text-center">
-              <div className="text-2xl mb-2">{emoji}</div>
-              <p className="text-xs text-muted-foreground">{label}</p>
-            </div>
-          ))}
         </div>
 
         {/* Airport Transfers */}
@@ -135,6 +119,36 @@ export default function TransportPage() {
 
             {/* Custom booking card */}
             <CustomBookingCard />
+          </div>
+        </section>
+
+        {/* Transfers & Transport Feature Section */}
+        <section className="mb-14 pt-4">
+          <div className="max-w-2xl mb-8">
+            <Badge variant="outline" className="border-[var(--brand-gold)]/40 text-[var(--brand-gold)] mb-3">
+              Private Transport
+            </Badge>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Transfers &amp; <span className="text-gradient-gold">Transport</span>
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Comfortable, private, and punctual. All vehicles are air-conditioned, driven by licensed professionals.
+              We monitor your flight — delays won&apos;t leave you stranded.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              { emoji: '🚗', label: 'Private vehicle — just your group' },
+              { emoji: '✈️', label: 'Flight monitoring included' },
+              { emoji: '💧', label: 'Water & Wi-Fi on board' },
+              { emoji: '📍', label: 'Door-to-door service' },
+            ].map(({ emoji, label }) => (
+              <div key={label} className="p-4 rounded-xl glass border border-border text-center">
+                <div className="text-2xl mb-2">{emoji}</div>
+                <p className="text-xs text-muted-foreground">{label}</p>
+              </div>
+            ))}
           </div>
         </section>
 
