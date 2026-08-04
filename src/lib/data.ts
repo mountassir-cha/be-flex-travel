@@ -777,9 +777,9 @@ export const circuit7Day = {
   subtitle: 'Casablanca → Rabat → Chefchaouen → Fes → Ifrane → Merzouga → Todra & Dades Gorges → Aït Benhaddou → Marrakech',
   price_label: 'Price on Request',
   duration: '7 days / 6 nights',
-  cover_image_url: '/images/circuits/zagora-camels-sunset.png',
+  cover_image_url: '/images/circuits/sahara-merzouga.png',
   gallery_images: [
-    '/images/circuits/zagora-camels-sunset.png',
+    '/images/circuits/sahara-merzouga.png',
     '/images/circuits/toudgha-merzouga.png',
     '/images/circuits/koutoubia-marrakech.png',
     '/images/activities/atlas-ouarzazate.jpg',
