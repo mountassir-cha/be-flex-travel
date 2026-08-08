@@ -708,7 +708,7 @@ export const circuit10Day = {
   ],
   short_description: 'The complete Morocco loop — Sahara dunes, imperial cities, the blue city, Atlantic coasts and back. The grandest circuit through the kingdom.',
   badge: '👑 Grand North Circuit',
-  highlights_summary: ['Erg Chebbi Sahara', 'Fes & Chefchaouen', 'Rabat Capital', 'Casablanca Hassan II', '9 nights'],
+  highlights_summary: ['Todra Gorge', 'Fes & Chefchaouen', 'Rabat Capital', 'Casablanca Hassan II', '9 nights'],
   days: [
     { day: 1, title: 'Marrakech → Ait Benhaddou → Dades', subtitle: 'High Atlas Crossing', description: 'Cross the High Atlas via Tizi n\'Tichka, visit the UNESCO kasbah of Ait Benhaddou and Ouarzazate, continue to the Dades Valley.', highlights: ['Tizi n\'Tichka pass', 'Ait Benhaddou UNESCO', 'Ouarzazate studios', 'Dades Gorge'], overnight: 'Kasbah Hotel, Boumalne Dades' },
     { day: 2, title: 'Dades → Todra Gorge → Merzouga', subtitle: 'Into the Sahara', description: 'Through the dramatic gorges and across the hamada to the Erg Chebbi dunes. Camel sunset ride and luxury desert camp.', highlights: ['Dades & Todra Gorges', 'Erg Chebbi dunes', 'Camel sunset ride', 'Desert camp'], overnight: 'Luxury Berber Camp, Erg Chebbi' },
