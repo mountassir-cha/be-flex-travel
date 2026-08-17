@@ -128,7 +128,7 @@ export async function POST(request: Request) {
 
           <div style="background: #1a1a1a; border-radius: 8px; padding: 16px; margin-bottom: 20px; text-align: center;">
             <p style="color: #888; margin: 0 0 12px; font-size: 13px;">Besoin d'une réponse rapide ?</p>
-            <a href="https://wa.me/212600000000" style="display: inline-block; background: #25D366; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 14px; margin-bottom: 8px;">📱 Contactez-nous sur WhatsApp</a>
+            <a href="https://wa.me/212665641200" style="display: inline-block; background: #25D366; color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; font-size: 14px; margin-bottom: 8px;">📱 Contactez-nous sur WhatsApp</a>
             <br/>
             <a href="mailto:beflextravel@gmail.com" style="color: #c9a84c; text-decoration: none; font-size: 13px;">✉️ beflextravel@gmail.com</a>
           </div>

@@ -159,7 +159,7 @@ export default async function ActivityDetailPage({ params }: Props) {
               </Button>
 
               <Button asChild variant="outline" className="w-full border-border text-foreground hover:bg-foreground/5">
-                <a href="https://wa.me/212672770883" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/212665641200" target="_blank" rel="noopener noreferrer">
                   WhatsApp Us
                 </a>
               </Button>

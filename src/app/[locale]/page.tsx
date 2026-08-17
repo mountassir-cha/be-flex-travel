@@ -360,7 +360,7 @@ export default async function HomePage() {
                   variant="outline"
                   className="border-[var(--brand-gold)]/30 text-[var(--brand-gold)] hover:bg-[var(--brand-gold)]/10 hover:border-[var(--brand-gold)]/60"
                 >
-                  <a href="https://wa.me/212672770883" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/212665641200" target="_blank" rel="noopener noreferrer">
                     {t('cta.whatsapp')}
                   </a>
                 </Button>
