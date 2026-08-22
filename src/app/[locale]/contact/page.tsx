@@ -214,7 +214,7 @@ export default function ContactPage() {
                 <MessageCircle className="w-5 h-5" />
                 <div>
                   <div className="font-semibold text-sm">WhatsApp Us Now</div>
-                  <div className="text-xs text-[#25D366]/70">0665641200</div>
+                  <div className="text-xs text-[#25D366]/70">+212665641200</div>
                 </div>
                 <ArrowRight className="w-4 h-4 ml-auto" />
               </a>

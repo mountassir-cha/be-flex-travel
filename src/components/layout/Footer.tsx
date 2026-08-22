@@ -162,8 +162,8 @@ export async function Footer() {
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-[var(--brand-gold)] mt-0.5 shrink-0" />
                 <div>
-                  <a href="tel:0665641200" className="text-foreground/80 hover:text-foreground text-sm transition-colors">
-                    0665641200
+                  <a href="tel:+212665641200" className="text-foreground/80 hover:text-foreground text-sm transition-colors">
+                    +212665641200
                   </a>
                   <p className="text-muted-foreground/60 text-xs mt-0.5">{t('whatsappCalls')}</p>
                 </div>
