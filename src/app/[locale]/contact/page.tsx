@@ -32,7 +32,7 @@ function ContactForm() {
     e.preventDefault()
     setStatus('sending')
     setErrorMsg('')
-    
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
