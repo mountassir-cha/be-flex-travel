@@ -1,14 +1,15 @@
 'use client'
 
-import { useState } from 'react'
-import { Star } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Star, Loader2 } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { RatingStars } from '@/components/ui/RatingStars'
-import { reviews } from '@/lib/data'
+import { reviews as staticReviews } from '@/lib/data'
+import { Review } from '@/types'
 
 // Note: Metadata cannot be exported from a 'use client' component directly.
 // In a real app, we'd move the metadata to a parent layout or a separate server component wrapper.
@@ -24,10 +25,36 @@ const sourceLabels: Record<string, string> = {
   site: '💬 Direct',
 }
 
-const approvedReviews = reviews.filter((r) => r.approved)
-const avgRating = approvedReviews.reduce((sum, r) => sum + r.rating, 0) / approvedReviews.length
-
 export default function ReviewsPage() {
+  const [approvedReviews, setApprovedReviews] = useState<Review[]>(staticReviews.filter(r => r.approved))
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchReviews() {
+      try {
+        const res = await fetch('/api/reviews')
+        if (res.ok) {
+          const data = await res.json()
+          if (data.reviews) {
+            // Combine dynamic reviews from Supabase with the static placeholder reviews
+            const dynamicReviews = data.reviews
+            const staticApproved = staticReviews.filter((r) => r.approved)
+            setApprovedReviews([...dynamicReviews, ...staticApproved])
+          }
+        }
+      } catch (err) {
+        console.error('Failed to fetch reviews', err)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    fetchReviews()
+  }, [])
+
+  const avgRating = approvedReviews.length > 0 
+    ? approvedReviews.reduce((sum, r) => sum + r.rating, 0) / approvedReviews.length 
+    : 0
+
   return (
     <div className="min-h-screen pt-24 pb-20">
       <div className="container mx-auto px-4">
@@ -60,37 +87,43 @@ export default function ReviewsPage() {
         </div>
 
         {/* Reviews grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-          {approvedReviews.map((review) => (
-            <div
-              key={review.id}
-              className="p-6 rounded-2xl glass border border-border hover:border-[var(--brand-gold)]/15 transition-all duration-300 flex flex-col gap-4"
-            >
-              <div className="flex items-center justify-between">
-                <RatingStars rating={review.rating} />
-                <span className="text-xs text-muted-foreground/50 glass px-2 py-1 rounded-full">
-                  {sourceLabels[review.source] || review.source}
-                </span>
-              </div>
-
-              <p className="text-foreground/80 text-sm leading-relaxed flex-1 italic">
-                &ldquo;{review.text}&rdquo;
-              </p>
-
-              <div className="flex items-center gap-3 border-t border-border pt-4">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-gold-dark to-brand-gold flex items-center justify-center text-white text-sm font-bold shrink-0">
-                  {review.author_name.charAt(0)}
+        {isLoading ? (
+          <div className="flex justify-center items-center py-20">
+            <Loader2 className="w-8 h-8 animate-spin text-[var(--brand-gold)]" />
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+            {approvedReviews.map((review) => (
+              <div
+                key={review.id}
+                className="p-6 rounded-2xl glass border border-border hover:border-[var(--brand-gold)]/15 transition-all duration-300 flex flex-col gap-4"
+              >
+                <div className="flex items-center justify-between">
+                  <RatingStars rating={review.rating} />
+                  <span className="text-xs text-muted-foreground/50 glass px-2 py-1 rounded-full">
+                    {sourceLabels[review.source] || review.source}
+                  </span>
                 </div>
-                <div>
-                  <div className="font-semibold text-sm text-foreground">{review.author_name}</div>
-                  <div className="text-xs text-muted-foreground">
-                    {new Date(review.created_at).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
+
+                <p className="text-foreground/80 text-sm leading-relaxed flex-1 italic">
+                  &ldquo;{review.text}&rdquo;
+                </p>
+
+                <div className="flex items-center gap-3 border-t border-border pt-4">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-gold-dark to-brand-gold flex items-center justify-center text-white text-sm font-bold shrink-0">
+                    {review.author_name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-sm text-foreground">{review.author_name}</div>
+                    <div className="text-xs text-muted-foreground">
+                      {new Date(review.created_at).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* Leave a review Form Section */}
         <div className="max-w-xl mx-auto p-8 rounded-3xl glass border border-border mt-14">
@@ -117,13 +150,18 @@ function ReviewForm() {
     e.preventDefault()
     setStatus('sending')
     try {
+      const newReview = { ...form, source: 'site' }
       const response = await fetch('/api/reviews', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source: 'site' }),
+        body: JSON.stringify(newReview),
       })
       if (response.ok) {
         setStatus('sent')
+        
+        // Trigger a page reload to fetch the new reviews from the server
+        // This is the easiest way to update the parent component's state
+        window.location.reload()
       } else {
         setStatus('error')
       }
@@ -138,7 +176,7 @@ function ReviewForm() {
       <div className="text-center p-6 space-y-3">
         <div className="text-4xl mb-2">✨</div>
         <h3 className="text-xl font-bold text-foreground">Thank you!</h3>
-        <p className="text-sm text-muted-foreground">Your review has been submitted and is pending approval.</p>
+        <p className="text-sm text-muted-foreground">Your review has been successfully submitted and is now live.</p>
       </div>
     )
   }

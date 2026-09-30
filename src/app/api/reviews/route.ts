@@ -1,6 +1,34 @@
 import { NextResponse } from 'next/server'
 import { supabaseAdmin } from '@/lib/supabase'
 
+export async function GET() {
+  try {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
+    const isPlaceholder = supabaseUrl === 'https://placeholder.supabase.co' || supabaseUrl.includes('placeholder') || supabaseUrl.includes('your-project')
+
+    if (isPlaceholder) {
+      // Return empty or mock array if no supabase
+      return NextResponse.json({ reviews: [] })
+    }
+
+    const { data: reviews, error } = await supabaseAdmin
+      .from('reviews')
+      .select('*')
+      .eq('approved', true)
+      .order('created_at', { ascending: false })
+
+    if (error) {
+      console.error('Supabase fetch error:', error)
+      return NextResponse.json({ error: 'Failed to fetch reviews' }, { status: 500 })
+    }
+
+    return NextResponse.json({ reviews })
+  } catch (error) {
+    console.error('Review API GET Error:', error)
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
+  }
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json()
@@ -16,7 +44,7 @@ export async function POST(request: Request) {
 
     // Insert into Supabase (or simulate in development)
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co'
-    const isPlaceholder = supabaseUrl === 'https://placeholder.supabase.co' || supabaseUrl.includes('placeholder')
+    const isPlaceholder = supabaseUrl === 'https://placeholder.supabase.co' || supabaseUrl.includes('placeholder') || supabaseUrl.includes('your-project')
 
     if (isPlaceholder) {
       console.log('Development mode: Simulating Supabase insert for review:')
@@ -32,7 +60,7 @@ export async function POST(request: Request) {
           text,
           rating,
           source: source || 'site', // Default source
-          approved: false, // Must be approved by admin
+          approved: true, // Auto-approve reviews directly
         },
       ])
 
