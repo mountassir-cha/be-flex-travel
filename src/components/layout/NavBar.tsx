@@ -5,7 +5,7 @@ import { Link, usePathname } from '@/i18n/routing'
 import { Menu } from 'lucide-react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet'
 import { ThemeToggle } from '@/components/ui/ThemeToggle'
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher'
 import { useTranslations } from 'next-intl'
@@ -99,6 +99,7 @@ export function NavBar() {
               <Menu className="w-6 h-6" />
             </SheetTrigger>
           <SheetContent side="right" className="w-72 bg-background border-l border-border p-0">
+            <SheetTitle className="sr-only">Menu</SheetTitle>
             <div className="flex flex-col h-full">
               {/* Mobile Header */}
               <div className="flex items-center p-6 border-b border-border">
