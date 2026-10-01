@@ -35,11 +35,13 @@ export default function ReviewsPage() {
         const res = await fetch('/api/reviews')
         if (res.ok) {
           const data = await res.json()
-          if (data.reviews) {
-            // Combine dynamic reviews from Supabase with the static placeholder reviews
-            const dynamicReviews = data.reviews
-            const staticApproved = staticReviews.filter((r) => r.approved)
-            setApprovedReviews([...dynamicReviews, ...staticApproved])
+          if (data.reviews && Array.isArray(data.reviews)) {
+            // Prepend new dynamic reviews to the existing static ones
+            setApprovedReviews((prev) => {
+              const existingIds = new Set(prev.map(r => r.id))
+              const newReviews = data.reviews.filter((r: any) => !existingIds.has(r.id))
+              return [...newReviews, ...prev]
+            })
           }
         }
       } catch (err) {
@@ -87,43 +89,49 @@ export default function ReviewsPage() {
         </div>
 
         {/* Reviews grid */}
-        {isLoading ? (
+        {isLoading && approvedReviews.length === 0 && (
           <div className="flex justify-center items-center py-20">
             <Loader2 className="w-8 h-8 animate-spin text-[var(--brand-gold)]" />
           </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-            {approvedReviews.map((review) => (
-              <div
-                key={review.id}
-                className="p-6 rounded-2xl glass border border-border hover:border-[var(--brand-gold)]/15 transition-all duration-300 flex flex-col gap-4"
-              >
-                <div className="flex items-center justify-between">
-                  <RatingStars rating={review.rating} />
-                  <span className="text-xs text-muted-foreground/50 glass px-2 py-1 rounded-full">
-                    {sourceLabels[review.source] || review.source}
-                  </span>
+        )}
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14 relative">
+          {isLoading && approvedReviews.length > 0 && (
+            <div className="absolute -top-10 left-1/2 -translate-x-1/2 flex items-center gap-2 text-sm text-[var(--brand-gold)] bg-background/80 backdrop-blur-sm px-3 py-1.5 rounded-full border border-[var(--brand-gold)]/20 z-10">
+              <Loader2 className="w-4 h-4 animate-spin" />
+              <span>Checking for new reviews...</span>
+            </div>
+          )}
+          {approvedReviews.map((review) => (
+            <div
+              key={review.id}
+              className="p-6 rounded-2xl glass border border-border hover:border-[var(--brand-gold)]/15 transition-all duration-300 flex flex-col gap-4"
+            >
+              <div className="flex items-center justify-between">
+                <RatingStars rating={review.rating} />
+                <span className="text-xs text-muted-foreground/50 glass px-2 py-1 rounded-full">
+                  {sourceLabels[review.source] || review.source}
+                </span>
+              </div>
+
+              <p className="text-foreground/80 text-sm leading-relaxed flex-1 italic">
+                &ldquo;{review.text}&rdquo;
+              </p>
+
+              <div className="flex items-center gap-3 border-t border-border pt-4">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-gold-dark to-brand-gold flex items-center justify-center text-white text-sm font-bold shrink-0">
+                  {review.author_name.charAt(0)}
                 </div>
-
-                <p className="text-foreground/80 text-sm leading-relaxed flex-1 italic">
-                  &ldquo;{review.text}&rdquo;
-                </p>
-
-                <div className="flex items-center gap-3 border-t border-border pt-4">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-brand-gold-dark to-brand-gold flex items-center justify-center text-white text-sm font-bold shrink-0">
-                    {review.author_name.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm text-foreground">{review.author_name}</div>
-                    <div className="text-xs text-muted-foreground">
-                      {new Date(review.created_at).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
-                    </div>
+                <div>
+                  <div className="font-semibold text-sm text-foreground">{review.author_name}</div>
+                  <div className="text-xs text-muted-foreground">
+                    {new Date(review.created_at).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
+            </div>
+          ))}
+        </div>
 
         {/* Leave a review Form Section */}
         <div className="max-w-xl mx-auto p-8 rounded-3xl glass border border-border mt-14">
